@@ -105,6 +105,7 @@
                       <?php echo $category['description']; ?>
                     </p>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal" data-cat-id="<?php echo $category['category_id']; ?>">Add New Services</button>
+                    <a class="btn btn-primary" href="view_service.php?cat_id=<?php echo $category['category_id']; ?>">View Services</a>
                     <a href="edit_vendor_category.php?id=<?php echo $category['category_id']; ?>" class="btn btn-warning">Edit</a>
                     <a href="delete_vendor_category.php?id=<?php echo $category['category_id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?');">Delete</a>
                   </div>
