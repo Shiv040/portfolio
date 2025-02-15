@@ -35,7 +35,7 @@
                 <a id="userSettings" class="dropdown-toggle d-flex p-2 pe-0 ms-3 align-items-center" href="#!"
                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <span class="me-2 text-white d-md-block d-none">Admin</span>
-                  <img src="assets/images/user.jpg" class="rounded-2 img-3x" alt="Bootstrap Gallery" />
+                  <img src="assets/images/user.png" class="rounded-2 img-3x" alt="Bootstrap Gallery" />
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                   <div class="px-3">Admin</div>
