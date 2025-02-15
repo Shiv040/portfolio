@@ -104,12 +104,39 @@
                     <p class="mb-3">
                       <?php echo $category['description']; ?>
                     </p>
-                    <a href="#" class="card-link text-danger">Card link</a>
-                    <a href="#" class="card-link text-success">Another link</a>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal" data-cat-id="<?php echo $category['category_id']; ?>">Add New Services</button>
+                    <a href="edit_vendor_category.php?id=<?php echo $category['category_id']; ?>" class="btn btn-warning">Edit</a>
+                    <a href="delete_vendor_category.php?id=<?php echo $category['category_id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?');">Delete</a>
                   </div>
                 </div>
               </div>
             <?php } ?>
+            <!-- Add Service Modal -->
+            <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="addServiceModalLabel">Add Service</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="insert_service.php" method="POST">
+                      <input type="hidden" name="categoryId" id="categoryId">
+                      <div class="mb-3">
+                        <label for="serviceName" class="form-label">Service Name</label>
+                        <input type="text" class="form-control" id="serviceName" name="serviceName" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="serviceDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="serviceDescription" name="serviceDescription" rows="3" required></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Insert</button>
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- Row ends -->
         </div>
@@ -133,6 +160,14 @@
 		************* -->
   <!-- Required jQuery first, then Bootstrap Bundle JS -->
   <?php include('down_link.php'); ?>
+  <script>
+    $('#addServiceModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      var categoryId = button.data('cat-id'); // Extract info from data-* attributes
+     // alert(categoryId);
+      $('#categoryId').val(categoryId); 
+    });
+  </script>
 </body>
 
 </html>
