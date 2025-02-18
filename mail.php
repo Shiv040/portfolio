@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('smtp/PHPMailerAutoload.php');
 include('conn.php');
 if(isset($_POST['btnS']))
@@ -15,6 +16,7 @@ if(isset($_POST['btnS']))
 	}
 	else
 	{
+		$_SESSION['email']=$email;
 	$msg="Email sent successfully! Please check your email.";
 echo smtp_mailer($email,'Re-set','<a href="http://localhost/utsav_hub/admin/resetpassword.php">Click here to reset password</a>');
 

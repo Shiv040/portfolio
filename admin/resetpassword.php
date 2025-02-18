@@ -1,3 +1,35 @@
+<?php
+session_start();
+include('../conn.php');
+if (isset($_POST['btnR'])) {
+    $newPwd = $_POST['newPwd'];
+    $confNewPwd = $_POST['confNewPwd'];
+
+    if ($newPwd !== $confNewPwd) {
+        echo "<script>alert('New password and confirm password do not match.');</script>";
+    } else {
+        // Assuming you have a database connection established
+        // $conn = new mysqli('hostname', 'username', 'password', 'database');
+
+        // Update the password in the database
+        
+        $email = $_SESSION['email'];
+        $sql = "UPDATE admin SET password = ? WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('ss', $confNewPwd, $email);
+
+        if ($stmt->execute()) {
+            echo "<script>alert('Password reset successfully.'); window.location.href = 'login.php';</script>";
+            
+        } else {
+            echo "<script>alert('Error resetting password.');</script>";
+        }
+
+        $stmt->close();
+        $conn->close();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,16 +79,6 @@
         <h4 class="mb-4">Reset Password</h4>
 
         <div class="mb-2">
-        <label class="form-label" for="currentPwd">Current password <span class="text-danger">*</span></label>
-        <div class="input-group ">
-          <input type="password" id="currentPwd" name="currentPwd" class="form-control" placeholder="Enter current password" required>
-          <button class="btn btn-outline-light" type="button">
-            <i class="bi bi-eye"></i>
-          </button>
-        </div>
-        </div>
-
-        <div class="mb-2">
         <label class="form-label" for="newPwd">New password <span class="text-danger">*</span></label>
         <div class="input-group ">
           <input type="password" name="newPwd" id="newPwd" class="form-control" placeholder="Enter new password" required>
@@ -72,7 +94,7 @@
         <div class="mb-4">
         <label class="form-label" for="confNewPwd">Confirm new password <span class="text-danger">*</span></label>
         <div class="input-group ">
-          <input type="password" id="confNewPwd" class="form-control" placeholder="Confirm new password" required>
+          <input type="password" name="confNewPwd" class="form-control" placeholder="Confirm new password" required>
           <button class="btn btn-outline-light" type="button">
             <i class="bi bi-eye"></i>
           </button>
@@ -108,11 +130,7 @@
       }
     </script>
 
-          <div class="mb-2 pt-2 text-center">
-            <span>Back to</span>
-            <a href="index.html" class="text-decoration-underline">
-              Home</a>
-          </div>
+          
 
         </div>
         <!-- Authbox ends -->
