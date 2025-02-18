@@ -93,7 +93,7 @@
 
           <!-- Row starts -->
           <div class="row gx-3">
-            <?php foreach ($categories as $category) { ?>
+            <?php if ($categories) { foreach ($categories as $category) { ?>
               <div class="col-sm-4 col-12">
                 <div class="card mb-3">
                   <div class="card-body">
@@ -118,6 +118,8 @@
                   </div>
                 </div>
               </div>
+            <?php } } else { ?>
+              <p>No categories found.</p>
             <?php } ?>
             <!-- Add Service Modal -->
             <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
