@@ -97,17 +97,24 @@
               <div class="col-sm-4 col-12">
                 <div class="card mb-3">
                   <div class="card-body">
-                    <div class="card-img">
-                      <img src="<?php echo $category['category_image']; ?>" class="img-fluid rounded-3 mb-3" alt="<?php echo $category['category_name']; ?>" />
-                    </div>
-                    <h5 class="mb-3"><?php echo $category['category_name']; ?></h5>
-                    <p class="mb-3">
-                      <?php echo $category['description']; ?>
-                    </p>
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal" data-cat-id="<?php echo $category['category_id']; ?>">Add New Services</button>
-                    <a class="btn btn-primary" href="view_service.php?cat_id=<?php echo $category['category_id']; ?>">View Services</a>
-                    <a href="edit_vendor_category.php?id=<?php echo $category['category_id']; ?>" class="btn btn-warning">Edit</a>
-                    <a href="delete_vendor_category.php?id=<?php echo $category['category_id']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?');">Delete</a>
+                  <div class="card-img">
+                  <img src="<?php echo $category['category_image']; ?>" class="img-fluid rounded-3 mb-3" alt="<?php echo $category['category_name']; ?>" />
+                  </div>
+                  <h5 class="mb-3"><?php echo $category['category_name']; ?></h5>
+                  <p class="mb-3">
+                  <?php echo $category['description']; ?>
+                  </p>
+                  <div class="dropdown mt-3">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  Options
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="edit_vendor_category.php?id=<?php echo $category['category_id']; ?>">Edit</a></li>
+                  <li><a class="dropdown-item" href="delete_vendor_category.php?id=<?php echo $category['category_id']; ?>" onclick="return confirm('Are you sure you want to delete this category?');">Delete</a></li>
+                  <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addServiceModal" data-cat-id="<?php echo $category['category_id']; ?>">Add New Service</a></li>
+                  <li><a class="dropdown-item" href="view_service.php?cat_id=<?php echo $category['category_id']; ?>">View Services</a></li>
+                  </ul>
+                  </div>
                   </div>
                 </div>
               </div>
