@@ -33,7 +33,7 @@
     <div class="auth-wrapper">
 
       <!-- Form starts -->
-      <form action="https://bootstrapget.com/demos/templatemonster/latte-bootstrap-admin-template/index.html">
+      <form action="../mail.php" method="post">
 
         <div class="auth-box shadow-lg">
          
@@ -43,11 +43,11 @@
         
           <div class="mb-2">
             <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
-            <input type="text" id="email" class="form-control" placeholder="Enter email">
+            <input type="text" id="email" name="email" class="form-control" placeholder="Enter email">
           </div>
 
           <div class="mb-3 d-grid">
-            <button type="submit" class="btn btn-primary">SUBMIT</button>
+            <button type="submit" name="btnS" class="btn btn-primary"a>SUBMIT</button>
           </div>
 
         </div>

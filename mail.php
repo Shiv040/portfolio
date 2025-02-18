@@ -1,7 +1,43 @@
 <?php
 include('smtp/PHPMailerAutoload.php');
+include('conn.php');
+if(isset($_POST['btnS']))
+{
+	$email = $_POST['email'];
+	$sql="select * from admin where email='$email'";
+	$result=mysqli_query($conn,$sql);
+	$row=mysqli_fetch_array($result);
+	$count=mysqli_num_rows($result);
+	if($count==0)
+	{
+		//echo "<script>alert('Email not found');</script>";
+		$msg="Email not found";
+	}
+	else
+	{
+	$msg="Email sent successfully! Please check your email.";
+echo smtp_mailer($email,'Re-set','<a href="http://localhost/utsav_hub/admin/resetpassword.php">Click here to reset password</a>');
 
-echo smtp_mailer('kishan8866866105@gmail.com','Re-set','<a href="http://localhost/utsav_hub/admin/login.php">Click here to reset password</a>');
+	}
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Email Sent</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container mt-5">
+		<div class="alert alert-success" role="alert">
+			<?php echo $msg;?>	
+		</div>
+	</div>
+</body>
+</html>
+<?php
 function smtp_mailer($to,$subject, $msg){
 	$mail = new PHPMailer(); 
 	$mail->IsSMTP(); 

@@ -130,20 +130,7 @@
                                     <em class="sl-bg-red-orange">04</em>
                                 </span>
                             </a>
-                            <ul class="dropdown-menu sl-dropdown__menu sl-dropdown__notify" aria-labelledby="slMessages">
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="sl-unread-messages">Consectetur adipisicing elit, sed do eiusmod tem por incididunt ut labore et dolore magna</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="sl-unread-messages">Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);">Commodo consequat duis aute irure dolor intae reprehenderit in voluptate velit esse cillum</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="sl-dropdown__notify__showall">Show All</a>
-                                </li>
-                            </ul>
+                          
                         </div>
                         <div class="sl-topbar-notify__icons dropdown">
                             <a href="javascript:void(0);" class="sl-topbar-notify__anchor" id="slCart" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
