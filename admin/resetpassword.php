@@ -146,3 +146,4 @@ if (isset($_POST['btnR'])) {
 
 <!-- Mirrored from bootstrapget.com/demos/templatemonster/latte-bootstrap-admin-template/reset-password.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 10:05:35 GMT -->
 </html>
+<!-- done -->
