@@ -2,29 +2,32 @@
 <!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->	<html class="no-js" lang="zxx"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zxx"> <!--<![endif]-->
 
 <!-- Mirrored from amentotech.com/htmls/servosell/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 10:15:35 GMT -->
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BootStrap HTML5 CSS3 Theme</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="apple-touch-icon" href="apple-touch-icon.html">
-	<link rel="icon" href="images/favicon.png" type="image/x-icon">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/fontawesome/fontawesome-all.css">
-	<link rel="stylesheet" href="css/linearicons.css">
-	<link rel="stylesheet" href="css/themify-icons.css">
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/lightpick.css">
-	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-	<link rel="stylesheet" href="css/jquery-ui.css">
-	<link rel="stylesheet" href="css/tipso.css">
-	<link rel="stylesheet" href="css/select2.min.css">
-	<link rel="stylesheet" href="css/main.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Registration Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.html">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome/fontawesome-all.css">
+    <link rel="stylesheet" href="css/linearicons.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/lightpick.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/tipso.css">
+    <link rel="stylesheet" href="css/select2.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <!-- Preloader Start -->
     <div class="preloader-outer">
@@ -44,7 +47,7 @@
                             <div class="sl-registerarea">
                                 <div class="sl-registersignarea">
                                     <div class="sl-registersignarea__title">
-                                        <h3>Signup For Free</h3>
+                                        <h3>Signup For Vendor and User</h3>
                                     </div>
                                     <ul class="nav sl-registertabs" role="tablist">
                                         <li class="nav-item">
@@ -52,7 +55,7 @@
                                                 <span><i class="fa fa-check"></i></span>
                                                 <h4><em>Signup as</em> Simple Customer
                                                 </h4>
-                                               <i class="ti-info-alt toltip-content" data-tipso="Custome"></i>
+                                                <i class="ti-info-alt toltip-content" data-tipso="Custome"></i>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -87,7 +90,7 @@
                                                             <input type="text" name="name" value="" class="form-control sl-form-control" placeholder="Last Name*" required="">
                                                         </div>
                                                         <div class="form-group form-group-half">
-                                                           <div class="sl-select">
+                                                            <div class="sl-select">
                                                                 <select>
                                                                     <option value="" hidden="">Gender*</option>
                                                                     <option value="Male">Male</option>
@@ -126,7 +129,7 @@
                                                             <i class="ti-info-alt toltip-content" data-tipso="name"></i>
                                                             <input type="text" name="name" value="" class="form-control sl-form-control" placeholder="Name*" required="">
                                                         </div>
-                                                       
+
                                                         <div class="form-group form-group-half">
                                                             <div class="sl-select">
                                                                 <select name="category_id" required>
@@ -142,9 +145,19 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <textarea name="address" class="form-control sl-form-control" placeholder="Address*" required=""length="" width="2"></textarea>
+                                                            <textarea name="address" class="form-control" placeholder="Address*" required="" length="" rows="2"></textarea>
+                                                        </div>
+
+                                                        <div class="form-group form-group-half">
+                                                            <div class="sl-select">
+                                                                <select name="city_id" required>
+                                                                    <option value="" hidden="">Select City*</option>
+                                                                    <option value="">Surat</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                         <div class="form-group form-group-half">
+
                                                             <div class="sl-select">
                                                                 <select name="area_id" required>
                                                                     <option value="" hidden="">Select Area*</option>
@@ -161,75 +174,45 @@
                                                         <div class="form-group">
                                                             <input type="text" name="email" value="" class="form-control sl-form-control" placeholder="Email*" required="">
                                                         </div>
-                                                        <div class="form-group form-group-half">
-                                                            <input type="text" name="name" value="" class="form-control sl-form-control" placeholder="First Name*" required="">
-                                                        </div>
-                                                        <div class="form-group form-group-half">
-                                                            <input type="text" name="name" value="" class="form-control sl-form-control" placeholder="Last Name*" required="">
-                                                        </div>
-                                                        <div class="form-group form-group-half">
-                                                           <div class="sl-select">
-                                                                <select>
-                                                                    <option value="" hidden="">Gender*</option>
-                                                                    <option value="Male">Male</option>
-                                                                    <option value="Female">Female</option>
-                                                                    <option value="Other">Other</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+
+
                                                         <div class="form-group form-group-half">
                                                             <input type="text" name="mobile_number" value="" class="form-control sl-form-control" placeholder="Phone*" required="">
                                                         </div>
                                                         <div class="form-group form-group-half">
                                                             <input type="password" name="password" value="" class="form-control sl-form-control" placeholder="Password*" required="">
                                                         </div>
-                                                        <div class="form-group form-group-half">
-                                                            <input type="password" name="password" value="" class="form-control sl-form-control" placeholder="Retype Password*" required="">
-                                                        </div>
+
                                                         <div class="form-group sl-btnarea">
                                                             <div class="sl-checkbox">
                                                                 <input id="terms2" type="checkbox" name="category">
-                                                                <label for="terms2">
-                                                                    <span>I agree to <a href="javascript:void(0);">Terms and Conditions</a></span>
-                                                                </label>
+                                                               
                                                             </div>
-                                                            <button type="submit" class="btn sl-btn">Signup</button>
+                                                            <div style="text-align: center;">
+                                                                <button type="submit" class="btn sl-btn">Signup</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </fieldset>
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="sl-oroption">
-                                        <span>or</span>
-                                    </div>
-                                    <div class="sl-loginicon">
-                                        <ul>
-                                            <li><a href="javascript:void(0);" class="sl-facebookbox"><i class="fab fa-facebook-f"></i>Signup via facebook</a></li>
-                                            <li><a href="javascript:void(0);" class="sl-googlebox"><i class="fab fa-google"></i>Signup via google</a></li>
-                                        </ul>
-                                    </div>
+                                   
+
                                 </div>
-                                <div class="sl-registerarea__terms">
-                                    <p>By signing up you agree to these <a href="javascript:void(0);">Terms &amp; Conditions</a> &amp; consent to <a href="javascript:void(0);"> Cookie Policy &amp; Privacy Policy.</a></p>
-                                </div>
-                                <div class="sl-registerarea__footer">
-                                    <p> Already a member? <a href="index-2.html"> Sigin Now</a></p>
-                                </div>
+                                
+                                
                             </div>
                             <div class="sl-registercontent">
                                 <figure class="sl-registercontent__img">
                                     <img src="images/register/img-01.jpg" alt="img">
                                     <figcaption>
                                         <strong class="sl-registerlogo">
-                                            <a href="index-2.html"><img src="images/register/logo.png" alt="Images Description"></a>
+                                            <a href=""><img src="images/register/logo.png" alt="Images Description"></a>
                                         </strong>
-                                        <div class="sl-registertitle">
-                                            <h4>We’re Spreading Day by Day</h4>
-                                            <h2>Join Our Growing Team</h2>
-                                        </div>
+                                        
                                         <div class="sl-descritpion">
-                                            <p>Consectetur adipisicing elit sed dotiane eiusmod tempor incididunt utna labore etnalorale magna aliqua enim adman minim veniam quis nostrud exerciteon ullamco.</p>
+                                            <p>Welcome to UtsavHub, your trusted partner in seamless wedding management. Our login page is designed to be both elegant and user-friendly, reflecting the joy and sophistication of your special day. Here’s what you can expect:</p>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -258,9 +241,11 @@
     <script src="js/vendor/countdown.js"></script>
     <script src="js/vendor/backgroundstretch.js"></script>
     <script src="js/main.js"></script>
-    <script>$.backstretch("images/register/main-bg.jpg");</script>
+    <script>
+        $.backstretch("images/register/main-bg.jpg");
+    </script>
 </body>
 
 <!-- Mirrored from amentotech.com/htmls/servosell/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 10:15:37 GMT -->
-</html>
 
+</html>

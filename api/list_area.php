@@ -1,7 +1,7 @@
 <?php
 include('../conn.php');
 // SQL query to fetch vendor categories
-$sql = "SELECT `area_name` FROM `area` ORDER BY `area_id`";
+$sql = "SELECT `area_id`, `area_name`, `pincode`, `city_id` FROM `area` ORDER BY `area_name`";
 $result = $conn->query($sql);
 
 $categories = array();
