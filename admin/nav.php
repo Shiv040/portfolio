@@ -12,10 +12,10 @@
     <ul class="sidebar-menu">
     <li>
                 <a href="index.php">
-                  <i class="bi bi-pie-chart"></i>
-                  <span class="menu-text">Dashboard</span>
+                    <i class="bi bi-pie-chart"></i>
+                    <span class="menu-text">Dashboard</span>
                 </a>
-              </li>
+</li>
         <li class="treeview">
             <a href="#!">
                 <i class="bi bi-sticky"></i>

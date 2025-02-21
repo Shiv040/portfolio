@@ -28,11 +28,11 @@
     } else {
         echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
         echo "<script>
-          Swal.fire({
+        Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'password not match',
-          });
+        });
         </script>";
         header('Refresh: 2; URL=login.php');
 
