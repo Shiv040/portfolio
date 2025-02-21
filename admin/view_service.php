@@ -10,6 +10,8 @@ $services = json_decode($response, true);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <title>Service List</title>
     <style>
         table {
@@ -22,6 +24,27 @@ $services = json_decode($response, true);
         th, td {
             padding: 8px;
             text-align: left;
+        }
+        .button-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .btn-custom {
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+
+
+        .btn-update {
+            background-color:green;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
         }
     </style>
 </head>
@@ -36,6 +59,8 @@ $services = json_decode($response, true);
                 <th>Description</th>
                 <th>Vendor Description</th>
                 <th>Category Name</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -47,7 +72,8 @@ $services = json_decode($response, true);
                     <td><?php echo htmlspecialchars($service['description']); ?></td>
                     <td><?php echo htmlspecialchars($service['vc_description']); ?></td>
                     <td><?php echo htmlspecialchars($service['category_name']); ?></td>
-                </tr>
+                    <td><a href=""><button class="btn btn-update btn-custom bi bi-pencil-square"></button></a></td>
+                    <td><a href=""><button class="btn btn-delete btn-custom bi bi-trash"></button></a></td>
             <?php endforeach; ?>
         </tbody>
     </table>
