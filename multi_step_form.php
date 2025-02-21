@@ -24,7 +24,7 @@
         }
 
         .container .card {
-            height: 500px;
+            height: 580px;
             width: 800px;
             background-color: #fff;
             position: relative;
@@ -491,187 +491,40 @@
                 <div class="left-side">
                     <div class="steps-content">
                         <h3>Step <span class="step-number">1</span></h3>
-                        <p class="step-number-content active">Enter your business information to get closer to companies.</p>
+                        <p class="step-number-content active">Enter your business information to get closer to
+                            companies.</p>
                         <p class="step-number-content d-none">Upload your business documents</p>
-                        <p class="step-number-content d-none">Help companies get to know you better by telling then about your past experiences.</p>
-                        <p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>
+                        <p class="step-number-content d-none">Help companies get to know you better by telling then
+                            about your past experiences.</p>
+                        <p class="step-number-content d-none">Add your profile piccture and let companies find youy
+                            fast.</p>
                     </div>
                     <ul class="progress-bar">
                         <li class="active">Personal Information</li>
                         <li>Documents</li>
                         <li>Social Media Link</li>
-                        <li>User Photo</li>
+                        <li>Summary</li>
                     </ul>
 
 
 
                 </div>
                 <div class="right-side">
-                    <div class="main active">
-                        <small><i class="fa fa-smile-o"></i></small>
-                        <div class="text">
-                            <h2>Your business Information</h2>
-                            <p>Enter your business information to get closer to copanies.</p>
-                        </div>
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" name="txtBn">
-                                <span> Business Name</span>
-                            </div>
-                        </div>
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text">
-                                <span>Phone number</span>
-                            </div>
-                            <div class="input-div">
-                                <input type="text">
-                                <span>E-mail Address</span>
-                            </div>
-                        </div>
-                        <div class="input-text">
-                            <div class="input-div">
-                                <select>
-                                    <option>Select City</option>
-                                    <option>Surat</option>
-
-                                </select>
-
-                            </div>
-                            <div class="input-div">
-
-                                <select>
-                                    <option>Select Area</option>
-                                    <?php
-                                    $json = file_get_contents('http://localhost/utsav_hub/api/list_area.php');
-                                    $areas = json_decode($json, true);
-                                    foreach ($areas as $area) {
-                                        echo '<option value="' . $area['area_id'] . '">' . $area['area_name'] . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text" required name="txtBa">
-                                <span> Business Address</span>
-                            </div>
-                        </div>
-                        <div class="buttons">
-                            <button class="next_button">Next Step</button>
-                        </div>
-                    </div>
+                    <form action="summary.php" method="post">
+                    <?php include("step1.php"); ?>  
+                    <?php include("step2.php"); ?>  
+                    <?php include("step3.php"); ?>  
+                    
                     <div class="main">
                         <small><i class="fa fa-smile-o"></i></small>
                         <div class="text">
-                            <h2>Business Documents</h2>
-                            <p>Upload Your Business Data</p>
-                        </div>
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text">
-                                <span>Logo</span>
-                            </div>
-
-                        </div>
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text">
-                                <span>Visiting Card(optinal)</span>
-                            </div>
-                        </div>
-
-                        <div class="input-text">
-                            <div class="input-div">
-                                <input type="text">
-                                <span>Business Licence(PDF/JPG)</span>
-                            </div>
-                        </div>
-
-
-                        <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
-                        </div>
-                    </div>
-                    <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
-                        <div class="text">
-                            <h2>Social Media Link</h2>
-                            <p>You can skip this step now and add it later if needed.</p>
-                        </div>
-                        <hr />
-                        <div class="input-text mb-3">
-                            <span><i class="fa fa-instagram"></i></span>
-                            <div class="input-div position-relative d-flex align-items-center input-group">
-                                <span class="input-group-text"></span>
-                                <input type="text" class="form-control" placeholder="Instagram Link">
-                            </div>
-                        </div>
-                        <div class="input-text mb-3">
-                            <span><i class="fa fa-facebook"></i></span>
-                            <div class="input-div position-relative d-flex align-items-center input-group">
-                                <span class="input-group-text"></span>
-                                <input type="text" class="form-control" placeholder="Facebook Link">
-                            </div>
-                        </div>
-                        <div class="input-text mb-3">
-                            <span><i class="fa fa-telegram"></i></span>
-                            <div class="input-div position-relative d-flex align-items-center input-group">
-                                <span class="input-group-text"></span>
-                                <input type="text" class="form-control" placeholder="telegram Link">
-                            </div>
-                        </div>
-                        <div class="input-text mb-3">
-                            <span><i class="fa fa-whatsapp"></i></span>
-                            <div class="input-div position-relative d-flex align-items-center input-group">
-                                <span class="input-group-text"></span>
-                                <input type="text" class="form-control" placeholder="whatsapp Link">
-                            </div>
-                        </div>
-                        <div class="input-text mb-3">
-                            <span><i class="fa fa-youtube"></i></span>
-                            <div class="input-div position-relative d-flex align-items-center input-group">
-                                <span class="input-group-text"></span>
-                                <input type="text" class="form-control" placeholder="youtube Link">
-                            </div>
-                        </div>
-                           
-                        </div>
-                        
-                        <div class="buttons button_space">
-                            <button class="back_button">Back</button>
-                            <button class="next_button">Next Step</button>
-                            <button class="next_button" style="background-color: #f0ad4e; animation: fadeIn 1s;">Skip Step</button>
-                        </div>
-                    </div>
-
-
-
-                    <div class="main">
-                        <small><i class="fa fa-smile-o"></i></small>
-                        <div class="text">
-                            <h2>User Photo</h2>
-                            <p>Upload your profile picture and share yourself.</p>
+                            <h2>Final Step</h2>
+                            <p></p>
                         </div>
                         <div class="user_card">
-                            <span></span>
-                            <div class="circle">
-                                <span><img src="https://i.imgur.com/hnwphgM.jpg"></span>
-
-                            </div>
-                            <div class="social">
-                                <span><i class="fa fa-share-alt"></i></span>
-                                <span><i class="fa fa-heart"></i></span>
-
-                            </div>
-                            <div class="user_name">
-                                <h3>Peter Hawkins</h3>
-                                <div class="detail">
-                                    <p><a href="#">Izmar,Turkey</a>Hiring</p>
-                                    <p>17 last day . 94Apply</p>
-                                </div>
+                            <div class="text congrats" style="text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                                <h2 style="color: #28a745;">Thank You for Joining Us!</h2>
+                                <p style="color: #6c757d;">Your data has been stored on our server. Within 48 hours, your data will be reviewed by our admin. You will be notified whether your data is accepted or rejected.</p>
                             </div>
                         </div>
                         <div class="buttons button_space">
@@ -679,17 +532,7 @@
                             <button class="submit_button">Submit</button>
                         </div>
                     </div>
-                    <div class="main">
-                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
-                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
-                        </svg>
-
-                        <div class="text congrats">
-                            <h2>Congratulations!</h2>
-                            <p>Thanks Mr./Mrs. <span class="shown_name"></span> your information have been submitted successfully for the future reference we will contact you soon.</p>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -701,8 +544,8 @@
         var num = document.querySelector(".step-number");
         let formnumber = 0;
 
-        next_click.forEach(function(next_click_form) {
-            next_click_form.addEventListener('click', function() {
+        next_click.forEach(function (next_click_form) {
+            next_click_form.addEventListener('click', function () {
                 if (!validateform()) {
                     return false
                 }
@@ -714,8 +557,8 @@
         });
 
         var back_click = document.querySelectorAll(".back_button");
-        back_click.forEach(function(back_click_form) {
-            back_click_form.addEventListener('click', function() {
+        back_click.forEach(function (back_click_form) {
+            back_click_form.addEventListener('click', function () {
                 formnumber--;
                 updateform();
                 progress_backward();
@@ -728,8 +571,8 @@
 
 
         var submit_click = document.querySelectorAll(".submit_button");
-        submit_click.forEach(function(submit_click_form) {
-            submit_click_form.addEventListener('click', function() {
+        submit_click.forEach(function (submit_click_form) {
+            submit_click_form.addEventListener('click', function () {
                 shownname.innerHTML = username.value;
                 formnumber++;
                 updateform();
@@ -737,20 +580,20 @@
         });
 
         var heart = document.querySelector(".fa-heart");
-        heart.addEventListener('click', function() {
+        heart.addEventListener('click', function () {
             heart.classList.toggle('heart');
         });
 
 
         var share = document.querySelector(".fa-share-alt");
-        share.addEventListener('click', function() {
+        share.addEventListener('click', function () {
             share.classList.toggle('share');
         });
 
 
 
         function updateform() {
-            main_form.forEach(function(mainform_number) {
+            main_form.forEach(function (mainform_number) {
                 mainform_number.classList.remove('active');
             })
             main_form[formnumber].classList.add('active');
@@ -777,7 +620,7 @@
         var step_num_content = document.querySelectorAll(".step-number-content");
 
         function contentchange() {
-            step_num_content.forEach(function(content) {
+            step_num_content.forEach(function (content) {
                 content.classList.remove('active');
                 content.classList.add('d-none');
             });
@@ -788,7 +631,7 @@
         function validateform() {
             validate = true;
             var validate_inputs = document.querySelectorAll(".main.active input");
-            validate_inputs.forEach(function(vaildate_input) {
+            validate_inputs.forEach(function (vaildate_input) {
                 vaildate_input.classList.remove('warning');
                 if (vaildate_input.hasAttribute('require')) {
                     if (vaildate_input.value.length == 0) {
