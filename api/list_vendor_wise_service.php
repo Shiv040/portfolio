@@ -8,7 +8,7 @@ if (!isset($_GET['category_id'])) {
 }
 $category_id = intval($_GET['category_id']);
 
-$query = "SELECT s.service_id, s.service_name, s.category_id, s.description, vc.description as vc_description, vc.category_name
+$query = "SELECT s.service_id, s.service_name, s.category_id, s.description, vc.category_name
         FROM service s
         JOIN vendor_categories vc ON vc.category_id = s.category_id
         WHERE vc.category_id = ?";

@@ -3,7 +3,10 @@ include '../conn.php';
 if (isset($_GET['service_id']) && isset($_GET['cat_id'])) {
     $service_id = intval($_GET['service_id']);
     $category_id = intval($_GET['cat_id']);
-    $sql_service = "SELECT * FROM service WHERE service_id = ?";
+    $sql_service = "
+    SELECT *
+    FROM service 
+    WHERE service_id = ?";
     if ($stmt = $conn->prepare($sql_service)) {
         $stmt->bind_param("i", $service_id);
         $stmt->execute();
@@ -41,12 +44,12 @@ if (isset($_GET['service_id']) && isset($_GET['cat_id'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $service_name = $_POST['service_name'];
     $description = $_POST['description'];
-    $vc_description = $_POST['vc_description'];
 
-    $sql = "UPDATE service s JOIN vendor_categories vc ON s.category_id = vc.category_id SET s.service_name = ?, s.description = ?, vc.description = ? WHERE s.service_id = ?";
+    $sql = "UPDATE service s JOIN vendor_categories 
+    vc ON s.category_id = vc.category_id SET s.service_name = ?, s.description = ? WHERE s.service_id = ?";
 
     if ($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param("sssi", $service_name, $description, $vc_description, $service_id);
+        $stmt->bind_param("ssi", $service_name, $description, $service_id);
         if ($stmt->execute()) {
             header("Location: view_service.php?cat_id=" . $category_id);
             exit;
@@ -110,10 +113,6 @@ mysqli_close($conn);
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
                             <textarea class="form-control" id="description" name="description" rows="4" required><?= htmlspecialchars($service['description']) ?></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="vc_description" class="form-label">Vendor Description</label>
-                            <textarea class="form-control" id="vc_description" name="vc_description" rows="4" required><?= htmlspecialchars($service['vc_description']) ?></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="category_name" class="form-label">Category Name</label>

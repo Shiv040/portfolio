@@ -38,7 +38,7 @@ if (isset($_GET['delete']) && isset($_GET['service_id'])) {
     }
 }
 
-mysqli_close($conn);  // Close DB connection
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +138,6 @@ mysqli_close($conn);  // Close DB connection
                         <th>Service Name</th>
                         <th>Category ID</th>
                         <th>Description</th>
-                        <th>Vendor Description</th>
                         <th>Category Name</th>
                         <th>Update</th>
                         <th>Delete</th>
@@ -152,7 +151,6 @@ mysqli_close($conn);  // Close DB connection
                                 <td><?= htmlspecialchars($service['service_name']) ?></td>
                                 <td><?= htmlspecialchars($service['category_id']) ?></td>
                                 <td><?= htmlspecialchars($service['description']) ?></td>
-                                <td><?= htmlspecialchars($service['vc_description']) ?></td>
                                 <td><?= htmlspecialchars($service['category_name']) ?></td>
                                 <td>
                                     <a href="update_service.php?service_id=<?= $service['service_id'] ?>&cat_id=<?= $category_id ?>" class="btn btn-update btn-custom" title="Update">
