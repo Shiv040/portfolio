@@ -38,7 +38,7 @@
     <header>
         <div class="sl-main-header">
             <strong class="sl-main-header__logo">
-               <a href="index-2.html"><img src="images/main-logo.png" alt="Logo"></a>
+               <a href="index-2.html"><img src="images/create utsav hub logo.jpg" alt="Logo" style="width: 100px; height: auto;"></a>
             </strong>
             <div class="sl-main-header__content">
                 <div class="sl-main-header__upper">
