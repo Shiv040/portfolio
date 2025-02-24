@@ -1,3 +1,9 @@
+<?php
+session_start();
+include '..\conn.php';
+$admin_id = $_SESSION['admin_id'];
+
+?>
 <div class="app-header d-flex align-items-center">
 
   <!-- Toggle buttons starts -->
@@ -39,7 +45,7 @@
       <div class="dropdown-menu dropdown-menu-end">
         <div class="px-3">Admin</div>
         <div class="mx-3 my-2 d-grid gap-1">
-          <a href="profile.php" class="btn btn-light">Profile</a>
+            <a href="profile.php ? admin_id= <?php echo $admin_id;  ?>" class="btn btn-light">Profile</a>
           <a href="logout.php" class="btn btn-warning">Logout</a>
         </div>
       </div>

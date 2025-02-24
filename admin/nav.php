@@ -23,7 +23,7 @@
             </a>
             <ul class="treeview-menu">
                 <li>
-                    <a href="accordions.html">Registered</a>
+                    <a href="accordions.php">Registered</a>
                 </li>
                 <li>
                     <a href="alerts.html">New</a>
@@ -35,7 +35,7 @@
                     <a href="vendor_categories.php">Categories</a>
                 </li>
                 <li>
-                    <a href="buttons.html">Service</a>
+                    <a href="show_services.php">Service</a>
                 </li>
                 
             </ul>

@@ -54,7 +54,7 @@
                                 <div class="sl-distance__description">
                                     <label for="amountfour">Distance:</label>
                                     <input type="text" id="amountfour" readonly>
-                                </div>                                           
+                                </div>
                                 <div id="slider-range-min"></div>
                             </div>
                         </div>

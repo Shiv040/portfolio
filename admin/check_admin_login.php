@@ -15,6 +15,8 @@
 
     if (mysqli_num_rows($result) == 1) {
         session_start();
+        $row=mysqli_fetch_assoc($result);
+        $_SESSION['admin_id'] = $row['admin_id'];
         $_SESSION['admin'] = $email;
         echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
         echo "<script>
