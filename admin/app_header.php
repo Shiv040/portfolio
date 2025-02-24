@@ -34,6 +34,7 @@ $admin_id = $_SESSION['admin_id'];
       <i class="bi-search"></i>
     </div>
     <!-- Search container end -->
+     
 
     <!-- User settings start -->
     <div class="dropdown">

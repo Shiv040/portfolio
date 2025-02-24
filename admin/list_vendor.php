@@ -1,3 +1,26 @@
+<?php
+    $status=$_GET['status'];    
+    if($status== 0)
+    {
+        $query = "SELECT * FROM vendor WHERE verification_status = 0";
+        $msg="List of New Vendors";
+    }
+    else if($status==1)
+    {
+        $query = "SELECT * FROM vendor WHERE verification_status = 1";
+        $msg="List of Registered Vendors";
+    }
+    else if($status== 2)
+    {
+        $query = "SELECT * FROM vendor WHERE verification_status = 2";
+        $msg="List of Rejected Vendors";
+    }
+    else
+    {
+        $query = "SELECT * FROM vendor WHERE verification_status = 3";
+        $msg="List of Premium Vendors";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +59,7 @@
           <li class="breadcrumb-item">
             <i class="bi bi-house lh-1 me-3"></i>
           </li>
-          <li class="breadcrumb-item" aria-current="page">Admin Dashboard</li>
+          <li class="breadcrumb-item" aria-current="page"><?php echo $msg;?></li>
         </ol>
         <!-- Breadcrumb ends -->
 

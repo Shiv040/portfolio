@@ -214,6 +214,18 @@
             padding: 0px 10px;
         }
 
+        input[type="file"] {
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: 0;
+            border-radius: 5px;
+            border: 1px solid #cbced4;
+            gap: 20px;
+            box-sizing: border-box;
+            padding: 0px 10px;
+        }
+
         select {
             width: 100%;
             height: 40px;
@@ -510,7 +522,7 @@
 
                 </div>
                 <div class="right-side">
-                    <form action="summary.php" method="post">
+                    <form action="summary.php" method="post" enctype="multipart/form-data">
                     <?php include("step1.php"); ?>  
                     <?php include("step2.php"); ?>  
                     <?php include("step3.php"); ?>  
@@ -529,7 +541,7 @@
                         </div>
                         <div class="buttons button_space">
                             <button class="back_button">Back</button>
-                            <button class="submit_button">Submit</button>
+                            <button type="submit" class="next_button">Submit</button>
                         </div>
                     </div>
                     </form>
