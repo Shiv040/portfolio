@@ -11,9 +11,9 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $category_id);
 
 if ($stmt->execute() === TRUE) {
-    echo "Record deleted successfully";
+    echo "<script>alert('Record deleted successfully');</script>";
 } else {
-    echo "Error deleting record: " . $conn->error;
+    echo "<script>alert('Error deleting record: " . $conn->error . "');</script>";
 }
 
 $stmt->close();

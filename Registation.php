@@ -207,9 +207,7 @@
                                 <figure class="sl-registercontent__img">
                                     <img src="images/register/img-01.jpg" alt="img">
                                     <figcaption>
-                                        <strong class="sl-registerlogo">
-                                            <a href=""><img src="images/register/logo.png" alt="Images Description"></a>
-                                        </strong>
+                                       
                                         
                                         <div class="sl-descritpion">
                                             <p>Welcome to UtsavHub, your trusted partner in seamless wedding management. Our login page is designed to be both elegant and user-friendly, reflecting the joy and sophistication of your special day. Here’s what you can expect:</p>

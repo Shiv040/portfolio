@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "New service inserted successfully";
+        echo "<script>alert('Record insert successfully');</script>";
     } else {
         echo "Error: " . $stmt->error;
     }

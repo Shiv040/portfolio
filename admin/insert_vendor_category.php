@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              (category_name, category_image, description) VALUES ('$categoryName', '$target_file', '$categoryDescription')";
             echo $sql;
             if ($conn->query($sql) === TRUE) {
-                echo "New record created successfully";
+                echo "<script>alert('New record created successfully');</script>";
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
