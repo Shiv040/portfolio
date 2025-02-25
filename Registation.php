@@ -6,21 +6,17 @@
 <?php
     include 'conn.php';
     if(isset($_POST['btnS'])){
-        $name = $_POST['uname'];
-        $nickname = $_POST['nickname'];
         $email = $_POST['email'];
-        $fname = $_POST['fname'];
-        $lname = $_POST['lname'];
-        $gender= $_POST['gender'];
-        $phone= $_POST['Phone'];
         $pwd= $_POST['password'];
-        $pd=$_POST['rpassword'];
-        $sql = "INSERT INTO users values('$name', '$nickname', '$email', '$fname', '$lname', '$gender', '$phone', '$pwd', '$pd)";
-        $result = $conn->query($sql);
-        if($result->num_rows > 0){  
-            echo "<script>alert('Registration Successful');</script>";  
-        }else{
-            echo "<script>alert('Registration Failed');</script>";  
+        $name = $_POST['uname'];
+        $phone= $_POST['Phone'];
+        $sql = "INSERT INTO users (email, password, name, phone) VALUES ('$email', '$pwd', '$name', '$phone')";
+        if ($conn->query($sql) === TRUE) {
+            echo "<script>alert('Registration Successful');</script>"; 
+
+           
+        } else {
+            echo "<script>alert('Registration Failed: " . $conn->error . "');</script>";  
         }
     }
 ?>
@@ -94,22 +90,18 @@
                                                 <fieldset>
                                                     <div class="sl-signupform-wrap">
                                                         <div class="form-group">
-                                                            <i class="ti-info-alt toltip-content" data-tipso="name"></i>
-                                                            <input type="text" name="uname" value="" class="form-control sl-form-control" placeholder="Username*" required="">
-                                                        </div>
-                                                        
-                                                        <div class="form-group">
                                                             <input type="text" name="email" value="" class="form-control sl-form-control" placeholder="Email*" required="">
-                                                        </div>
-                                                        
-                        
-                                                        <div class="form-group form-group-half">
-                                                            <input type="number" name="Phone" value="" class="form-control sl-form-control" placeholder="Phone*" required="">
                                                         </div>
                                                         <div class="form-group form-group-half">
                                                             <input type="password" name="password" value="" class="form-control sl-form-control" placeholder="Password*" required="">
                                                         </div>
-                                                       
+                                                        <div class="form-group">
+                                                            <i class="ti-info-alt toltip-content" data-tipso="name"></i>
+                                                            <input type="text" name="uname" value="" class="form-control sl-form-control" placeholder="Username*" required="">
+                                                        </div>
+                                                        <div class="form-group form-group-half">
+                                                            <input type="number" name="Phone" value="" class="form-control sl-form-control" placeholder="Phone*" required="">
+                                                        </div>
                                                         <div class="form-group sl-btnarea">
                                                             <div class="sl-checkbox">
                                                                 <input id="terms" type="checkbox" name="category">
