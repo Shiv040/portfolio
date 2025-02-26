@@ -4,17 +4,16 @@
 <!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <?php
-    include 'conn.php';
+    include ('conn.php');
     if(isset($_POST['btnS'])){
         $email = $_POST['email'];
-        $pwd= $_POST['password'];
+        $pwd = $_POST['password'];
         $name = $_POST['uname'];
-        $phone= $_POST['Phone'];
+        $phone = $_POST['Phone'];
         $sql = "INSERT INTO users (email, password, name, phone) VALUES ('$email', '$pwd', '$name', '$phone')";
-        if ($conn->query($sql) === TRUE) {
-            echo "<script>alert('Registration Successful');</script>"; 
-
+        if (mysqli_query($conn, $sql)) {
            
+            echo "<script>alert('Registration Successful.');</script>"; 
         } else {
             echo "<script>alert('Registration Failed: " . $conn->error . "');</script>";  
         }

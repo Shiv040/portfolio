@@ -1,7 +1,7 @@
 <div class="main active">
     <small><i class="fa fa-smile-o"></i></small>
     <div class="text">
-        <h2>Your business Information</h2>
+        <h2>Your  Information</h2>
         <p>Enter your business information to get closer to companies.</p>
     </div>
 
