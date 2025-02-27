@@ -39,16 +39,7 @@
             </li>
         </ul>
     </div>
-    <div class="sl-topbar-notify__icons dropdown sl-dropdown">
-        <a href="javascript:void(0);" class="sl-topbar-notify__anchor" id="slNotifications" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="ti-info-alt"></i>
-            <span class="sl-topbar-notify__circle">
-                <em class="sl-bg-red-orange">04</em>
-            </span>
-        </a>
-
-    </div>
+    
     <div class="sl-topbar-notify__icons dropdown">
         <a href="javascript:void(0);" class="sl-topbar-notify__anchor" id="slCart" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -115,57 +106,34 @@
 <div class="sl-user sl-userdropdown">
                 <a href="javascript:void(0);">
                     <img src="images/insight/user-img.jpg" alt="Image Description">
-                    <span class="sl-user__description"><em class="d-block">Evening!</em>Stephnie</span>
+                    <span class="sl-user__description"><em class="d-block">Welcome </em><?php echo $_SESSION['name'];?></span>
                     <i class="ti-angle-down"></i>
                 </a>
                 <ul class="sl-usermenu">
-                    <li>
-                        <a href="dashboard-insight.html">
-                            <i class="ti-dashboard"></i><span>Insights</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="dashboard-vendor.html">
-                            <i class="ti-shopping-cart"></i><span>Vendors</span>
-                        </a>
-                    </li>
+                    
                     <li class="menu-item-has-children page_item_has_children">
                         <a href="javascript:void(0);" class="sl-notification sl-noticolor1">
-                            <i class="ti-star"></i><span>Manage Appointments</span>
+                            <i class="ti-star"></i><span>Manage Booking</span>
                         </a>
                         <ul class="sub-menu">
-                            <li><a href="dashboard-appointment-single.html">Appointment Single</a></li>
-                            <li><a href="dashboard-all-appointment.html">All Appointment</a></li>
-                            <li><a href="dashboard-manage-time-slots.html">Manage Time Slots</a></li>
-                            <li><a href="dashboard-manage-services.html">Manage Services &amp; Prices</a></li>
+                            <li><a href="order_booking.php">Pending</a></li>
+                            <li><a href="order_booking.php">Success</a></li>
+                            <li><a href="order_booking.php">Cancel/Reject</a></li>
+                            
                         </ul>
                     </li>
                     <li>
                         <a href="dashboard-profile-settings.html">
-                            <i class="ti-user"></i><span>Profile Settings</span>
+                            <i class="ti-user"></i><span>Profile</span>
                         </a>
                     </li>
                     <li class="menu-item-has-children page_item_has_children">
                         <a href="javascript:void(0);">
-                            <i class="ti-bookmark-alt"></i><span>Manage Articles</span>
+                            <i class="ti-layers"></i><span>Packages Status</span>
                         </a>
                         <ul class="sub-menu">
-                            <li><a href="dashboard-article-list.html">Articles List</a></li>
-                            <li><a href="dashboard-add-new-article.html">Add New Articles</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="dashboard-inbox.html">
-                            <i class="ti-email"></i><span>inbox</span>
-                        </a>
-                    </li>
-                    <li class="menu-item-has-children page_item_has_children">
-                        <a href="javascript:void(0);">
-                            <i class="ti-layers"></i><span>Packages &amp; Payouts</span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="dashboard-buy-package.html">Packages</a></li>
-                            <li><a href="dashboard-all-payouts.html">Payouts</a></li>
+                            <li><a href="dashboard-buy-package.html">Running Packages</a></li>
+                            <li><a href="dashboard-all-payouts.html">Package History</a></li>
                         </ul>
                     </li>
                     <li>
@@ -174,17 +142,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="dashboard-notifications.html">
-                            <i class="ti-bell"></i><span>Notifications</span>
-                        </a>
-                    </li>
-                    <li class="sl-active">
-                        <a href="dashboard-accountprivacy.html">
-                            <i class="ti-lock"></i><span>Account &amp; Privacy</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="index-2.html">
+                        <a href="logout.php">
                             <i class="ti-key"></i><span>Logout</span>
                         </a>
                     </li>

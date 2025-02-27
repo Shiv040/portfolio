@@ -48,8 +48,16 @@
                 <a href="javascript:void(0);" class="btn sl-btn sl-btn-active"><i class="ti-search"></i></a>
             </div>
 
-            <?php //include("login_user_header.php");?>
-            <?php include("visitor_header.php");?>
+            <?php
+                if(isset($user_id))
+                { 
+                    include("login_user_header.php");
+                }
+                else
+                {
+                    include("visitor_header.php");
+                }
+            ?>
         </div>
         <div class="sl-main-header__lower">
             <nav class="navbar-expand-lg">
@@ -1094,48 +1102,31 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="sl-modalcontent modal-content">
                 <div class="sl-popuptitle">
-                    <h4>Login</h4>
+                    <h4>User Login</h4>
                     <a href="javascript:void(0);" class="sl-closebtn close"><i class="lnr lnr-cross"
                             data-dismiss="modal"></i></a>
                 </div>
                 <div class="modal-body">
-                    <form class="sl-formtheme sl-formlogin">
+                    <form class="sl-formtheme sl-formlogin" action="check_user_login.php" method="post">
                         <fieldset>
                             <div class="form-group">
                                 <input type="text" name="email" class="form-control sl-form-control"
-                                    placeholder="Your Email*" value="user@domain.com">
+                                    placeholder="Your Email*">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control sl-form-control" placeholder="Password*"
-                                    value="user@domain.com">
+                                <input type="password" class="form-control sl-form-control" placeholder="Password*" name="password">
                             </div>
                             <div class="form-group sl-btnarea">
-                                <a href="dashboard-insight.html" class="btn sl-btn">login</a>
-                                <div class="sl-checkbox">
-                                    <input id="remember" type="checkbox">
-                                    <label for="remember">Remember me here</label>
-                                </div>
+                                <input type="submit" class="btn sl-btn" value="login"/>
                             </div>
                         </fieldset>
                     </form>
-                    <span class="sl-optionsbar"><em>or</em></span>
-                    <div class="sl-loginicon">
-                        <ul>
-                            <li><a href="javascript:void(0);" class="sl-facebookbox"><i
-                                        class="fab fa-facebook-f"></i>Via facebook</a></li>
-                            <li><a href="javascript:void(0);" class="sl-googlebox"><i class="fab fa-google"></i>Via
-                                    google</a></li>
-                        </ul>
-                    </div>
+                    
                 </div>
                 <div class="modal-footer">
-                    <div class="sl-popup-footerterms">
-                        <span>By signing in you agree to these <a href="legalprivacy.html"> Terms &amp; Conditions</a>
-                            &amp; consent to<a href="legalprivacy.html"> Cookie Policy &amp; Privacy Policy.</a></span>
-                    </div>
                     <div class="sl-loginfooterinfo">
-                        <a href="javascript:void(0);"><em>Not a member?</em> Signup Now</a>
-                        <a href="javascript:;" class="sl-forgot-password">Forgot password?</a>
+                        <a href="Registation.php"><em>Not a member?</em> Signup Now</a>
+                        <a href="forget_password.php" class="sl-forgot-password">Forgot password?</a>
                     </div>
                 </div>
             </div>
