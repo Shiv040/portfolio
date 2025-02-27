@@ -105,7 +105,6 @@
 </div>
 <div class="sl-user sl-userdropdown">
                 <a href="javascript:void(0);">
-                    <img src="images/insight/user-img.jpg" alt="Image Description">
                     <span class="sl-user__description"><em class="d-block">Welcome </em><?php echo $_SESSION['name'];?></span>
                     <i class="ti-angle-down"></i>
                 </a>
