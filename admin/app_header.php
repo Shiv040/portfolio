@@ -1,7 +1,18 @@
 <?php
 session_start();
 include '..\conn.php';
-$admin_id = $_SESSION['admin_id'];
+if(isset($_SESSION['admin_id'])){
+  $admin_id = $_SESSION['admin_id'];
+  $admin_query = "SELECT * FROM admin WHERE admin_id = '$admin_id'";
+  $admin_query_run = mysqli_query($conn, $admin_query);
+  if(mysqli_num_rows($admin_query_run) > 0){
+    $admin_data = mysqli_fetch_assoc($admin_query_run);
+  }
+}
+else{
+  header('Location: login.php');
+}
+
 
 ?>
 <div class="app-header d-flex align-items-center">
