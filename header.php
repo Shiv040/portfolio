@@ -1066,26 +1066,15 @@
                     </a>
                     <ul class="sl-dropdown__menu">
                         <li class="nav-item">
-                            <a href="vendor-single.html">Author/Vendor Detail Page</a>
+                            <a href="">Vendor Detail Page</a>
                         </li>
                         <li class="nav-item">
-                            <a href="register.html">Register as Customer</a>
+                            <a href="Registation.php?code=1">Register as Customer</a>
                         </li>
                         <li class="nav-item">
-                            <a href="register.html">Register as Service Provider</a>
+                            <a href="Registation.php?code=2">Register as Vendor</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="vendor-become.html">Become Vendor</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="product-single.html">Shipping & Refund Policy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="404.html">404 Error</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="comingsoon.html">Coming Soon</a>
-                        </li>
+                        
                     </ul>
                 </div>
             </div>

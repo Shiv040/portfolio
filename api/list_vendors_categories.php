@@ -1,7 +1,7 @@
 <?php
 include('../conn.php');
 // SQL query to fetch vendor categories
-$sql = "SELECT `category_id`, `category_name`, `category_image`, `description` FROM `vendor_categories` ORDER BY `category_name`";
+$sql = "SELECT `category_id`, ucase(category_name) as category_name, `category_image`, `description` FROM `vendor_categories` ORDER BY `category_name`";
 $result = $conn->query($sql);
 
 $categories = array();

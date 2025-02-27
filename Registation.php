@@ -1,3 +1,10 @@
+<?php
+    if(isset($_GET['code']))
+    {
+        $code=$_GET['code'];
+
+    }
+?>
 <!doctype html>
 <!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -51,7 +58,7 @@
                                     </div>
                                     <ul class="nav sl-registertabs" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="sl-signupcustomer" data-toggle="tab" href="#signupcustomer" role="tab" aria-selected="true">
+                                            <a class="nav-link <?php echo (isset($code) && $code == 1) ? 'active' : ''; ?>" id="sl-signupcustomer" data-toggle="tab" href="#signupcustomer" role="tab" aria-selected="<?php echo (isset($code) && $code == 1) ? 'true' : 'false'; ?>">
                                                 <span><i class="fa fa-check"></i></span>
                                                 <h4><em>Signup as</em> Simple Customer
                                                 </h4>
@@ -59,46 +66,49 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="sl-signupprovider" data-toggle="tab" href="#signupprovider" role="tab" aria-selected="false">
+                                            <a class="nav-link <?php echo (isset($code) && $code == 2) ? 'active' : ''; ?>" id="sl-signupprovider" data-toggle="tab" href="#signupprovider" role="tab" aria-selected="<?php echo (isset($code) && $code == 2) ? 'true' : 'false'; ?>">
                                                 <span><i class="fa fa-check"></i></span>
-                                                <h4><em>Signup as</em> Service Provider
+                                                <h4><em>Signup as</em> Vendor(Service Provider)
                                                 </h4>
                                                 <i class="ti-info-alt toltip-content" data-tipso="Provider"></i>
                                             </a>
                                         </li>
                                     </ul>
                                     <div class="tab-content sl-signup" id="pills-tabContent">
-                                        <div class="tab-pane fade show active" id="signupcustomer" role="tabpanel" aria-labelledby="sl-signupcustomer">
+                                        <div class="tab-pane fade <?php echo (isset($code) && $code == 1) ? 'show active' : ''; ?>" id="signupcustomer" role="tabpanel" aria-labelledby="sl-signupcustomer">
                                             <form class="sl-formtheme sl-signupform" method="post">
                                                 <fieldset>
-                                                    <div class="sl-signupform-wrap">
-                                                        <div class="form-group">
-                                                            <input type="text" name="email" value="" class="form-control sl-form-control" placeholder="Email*" required="">
-                                                        </div>
-                                                        <div class="form-group form-group-half">
-                                                            <input type="password" name="password" value="" class="form-control sl-form-control" placeholder="Password*" required="">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <i class="ti-info-alt toltip-content" data-tipso="name"></i>
-                                                            <input type="text" name="uname" value="" class="form-control sl-form-control" placeholder="Username*" required="">
-                                                        </div>
-                                                        <div class="form-group form-group-half">
-                                                            <input type="number" name="Phone" value="" class="form-control sl-form-control" placeholder="Phone*" required="">
-                                                        </div>
-                                                        <div class="form-group sl-btnarea">
-                                                            <div class="sl-checkbox">
-                                                                <input id="terms" type="checkbox" name="category">
-                                                                <label for="terms">
-                                                                    <span>I agree to <a href="javascript:void(0);">Terms and Conditions</a></span>
-                                                                </label>
-                                                            </div>
-                                                            <button type="submit" name="btnS" class="btn sl-btn">Signup</button>
-                                                        </div>
+                                                                <div class="sl-signupform-wrap">
+                                                                    <div class="form-group">
+                                                                        <input type="text" name="email" value="" class="form-control sl-form-control" placeholder="Email*" required="">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <input type="password" name="password" value="" class="form-control sl-form-control" placeholder="Password*" required="">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <i class="ti-info-alt toltip-content" data-tipso="name"></i>
+                                                                        <input type="text" name="uname" value="" class="form-control sl-form-control" placeholder="Username*" required="">
+                                                                    </div>
+                                                                    <div class="form-group form-group-half">
+                                                                        <input type="number" name="Phone" value="" class="form-control sl-form-control" placeholder="Phone*" required="">
+                                                                    </div>
+                                                                    <div class="form-group sl-btnarea">
+                                                                        <div class="sl-checkbox">
+                                                                            <input id="terms" type="checkbox" name="category">
+                                                                            <label for="terms">
+                                                                                <span>I agree to <a href="javascript:void(0);">Terms and Conditions</a></span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <button type="submit" name="btnS" class="btn sl-btn">Signup</button>
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
                                                     </div>
                                                 </fieldset>
                                             </form>
                                         </div>
-                                        <div class="tab-pane fade" id="signupprovider" role="tabpanel" aria-labelledby="sl-signupprovider">
+                                        <div class="tab-pane fade <?php echo (isset($code) && $code == 2) ? 'show active' : ''; ?>" id="signupprovider" role="tabpanel" aria-labelledby="sl-signupprovider">
                                             <form class="sl-formtheme sl-signupform" method="post" action="process_registration.php">
                                                 <fieldset>
                                                     <div class="sl-signupform-wrap">

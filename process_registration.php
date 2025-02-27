@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     confirmButtonText: 'OK'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = 'multi_step_form.php';
+                        window.location.href = 'multi_step_form.php?vendor_id=" . $conn->insert_id . "';
                     }
                 });
               </script>";
