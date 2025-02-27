@@ -3,6 +3,22 @@
 <!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
+<?php
+    include ('conn.php');
+    if(isset($_POST['btnS'])){
+        $email = $_POST['email'];
+        $pwd = $_POST['password'];
+        $name = $_POST['uname'];
+        $phone = $_POST['Phone'];
+        $sql = "INSERT INTO users (email, password, name, phone) VALUES ('$email', '$pwd', '$name', '$phone')";
+        if (mysqli_query($conn, $sql)) {
+           
+            echo "<script>alert('Registration Successful.');</script>"; 
+        } else {
+            echo "<script>alert('Registration Failed: " . $conn->error . "');</script>";  
+        }
+    }
+?>
 <html class="no-js" lang="zxx"> <!--<![endif]-->
 
 <!-- Mirrored from amentotech.com/htmls/servosell/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 10:15:35 GMT -->
@@ -69,44 +85,21 @@
                                     </ul>
                                     <div class="tab-content sl-signup" id="pills-tabContent">
                                         <div class="tab-pane fade show active" id="signupcustomer" role="tabpanel" aria-labelledby="sl-signupcustomer">
-                                            <form class="sl-formtheme sl-signupform">
+                                            <form class="sl-formtheme sl-signupform" method="post">
                                                 <fieldset>
                                                     <div class="sl-signupform-wrap">
-                                                        <div class="form-group form-group-half form-group-icon">
-                                                            <i class="ti-info-alt toltip-content" data-tipso="name"></i>
-                                                            <input type="text" name="name" value="" class="form-control sl-form-control" placeholder="Username*" required="">
-                                                        </div>
-                                                        <div class="form-group form-group-half form-group-icon">
-                                                            <i class="ti-info-alt toltip-content" data-tipso="name"></i>
-                                                            <input type="text" name="nickname" value="" class="form-control sl-form-control" placeholder="Nickname*" required="">
-                                                        </div>
                                                         <div class="form-group">
                                                             <input type="text" name="email" value="" class="form-control sl-form-control" placeholder="Email*" required="">
                                                         </div>
                                                         <div class="form-group form-group-half">
-                                                            <input type="text" name="name" value="" class="form-control sl-form-control" placeholder="First Name*" required="">
+                                                            <input type="password" name="password" value="" class="form-control sl-form-control" placeholder="Password*" required="">
                                                         </div>
-                                                        <div class="form-group form-group-half">
-                                                            <input type="text" name="name" value="" class="form-control sl-form-control" placeholder="Last Name*" required="">
-                                                        </div>
-                                                        <div class="form-group form-group-half">
-                                                            <div class="sl-select">
-                                                                <select>
-                                                                    <option value="" hidden="">Gender*</option>
-                                                                    <option value="Male">Male</option>
-                                                                    <option value="Female">Female</option>
-                                                                    <option value="Other">Other</option>
-                                                                </select>
-                                                            </div>
+                                                        <div class="form-group">
+                                                            <i class="ti-info-alt toltip-content" data-tipso="name"></i>
+                                                            <input type="text" name="uname" value="" class="form-control sl-form-control" placeholder="Username*" required="">
                                                         </div>
                                                         <div class="form-group form-group-half">
                                                             <input type="number" name="Phone" value="" class="form-control sl-form-control" placeholder="Phone*" required="">
-                                                        </div>
-                                                        <div class="form-group form-group-half">
-                                                            <input type="password" name="password" value="" class="form-control sl-form-control" placeholder="Password*" required="">
-                                                        </div>
-                                                        <div class="form-group form-group-half">
-                                                            <input type="password" name="password" value="" class="form-control sl-form-control" placeholder="Retype Password*" required="">
                                                         </div>
                                                         <div class="form-group sl-btnarea">
                                                             <div class="sl-checkbox">
@@ -115,7 +108,7 @@
                                                                     <span>I agree to <a href="javascript:void(0);">Terms and Conditions</a></span>
                                                                 </label>
                                                             </div>
-                                                            <button type="submit" class="btn sl-btn">Signup</button>
+                                                            <button type="submit" name="btnS" class="btn sl-btn">Signup</button>
                                                         </div>
                                                     </div>
                                                 </fieldset>

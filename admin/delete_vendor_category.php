@@ -11,7 +11,14 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $category_id);
 
 if ($stmt->execute() === TRUE) {
-    echo "<script>alert('Record deleted successfully');</script>";
+    echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+    echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Record deleted successfully',
+        });
+    </script>";
 } else {
     echo "<script>alert('Error deleting record: " . $conn->error . "');</script>";
 }

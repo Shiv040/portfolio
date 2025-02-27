@@ -503,7 +503,7 @@
                 <div class="left-side">
                     <div class="steps-content">
                         <h3>Step <span class="step-number">1</span></h3>
-                        <p class="step-number-content active">Enter your business information to get closer to
+                        <p class="step-number-content active">Enter your information to get closer to
                             companies.</p>
                         <p class="step-number-content d-none">Upload your business documents</p>
                         <p class="step-number-content d-none">Help companies get to know you better by telling then
