@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $businessInfo['email'];
     $city = $businessInfo['city'];
     $areaId = $businessInfo['area'];
-    $vendorid = $businessInfo['vendor_id'];
+    $vendorid = $_POST['business_info'];
     $businessAddress = $businessInfo['business_address'];
     $logo = $businessInfo['documents']['logo']['name'];
     $visitingCard = $businessInfo['documents']['visiting_card']['name'];

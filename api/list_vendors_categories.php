@@ -9,7 +9,13 @@ $categories = array();
 if ($result->num_rows > 0) {
     // Output data of each row
     while($row = $result->fetch_assoc()) {
+        $category_id = $row['category_id'];
+        $vendor_sql = "SELECT COUNT(*) as vendor_count FROM `vendor` WHERE `category_id` = $category_id";
+        $vendor_result = $conn->query($vendor_sql);
+        $vendor_count = $vendor_result->fetch_assoc();
+        $row['vendor_count'] = $vendor_count['vendor_count'];
         $categories[] = $row;
+
     }
 } else {
     echo json_encode(array("message" => "No categories found."));
