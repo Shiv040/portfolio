@@ -3,22 +3,6 @@
 <!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
-<?php
-    include ('conn.php');
-    if(isset($_POST['btnS'])){
-        $email = $_POST['email'];
-        $pwd = $_POST['password'];
-        $name = $_POST['uname'];
-        $phone = $_POST['Phone'];
-        $sql = "INSERT INTO users (email, password, name, phone) VALUES ('$email', '$pwd', '$name', '$phone')";
-        if (mysqli_query($conn, $sql)) {
-           
-            echo "<script>alert('Registration Successful.');</script>"; 
-        } else {
-            echo "<script>alert('Registration Failed: " . $conn->error . "');</script>";  
-        }
-    }
-?>
 <html class="no-js" lang="zxx"> <!--<![endif]-->
 
 <!-- Mirrored from amentotech.com/htmls/servosell/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 10:15:35 GMT -->
@@ -42,8 +26,8 @@
     <link rel="stylesheet" href="css/tipso.css">
     <link rel="stylesheet" href="css/select2.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
-
 <body>
     <!-- Preloader Start -->
     <div class="preloader-outer">
@@ -235,6 +219,45 @@
     <script>
         $.backstretch("images/register/main-bg.jpg");
     </script>
+    <?php
+    include ('conn.php');
+    if(isset($_POST['btnS'])){
+        $email = $_POST['email'];
+        $pwd = $_POST['password'];
+        $name = $_POST['uname'];
+        $phone = $_POST['Phone'];
+        $sql = "INSERT INTO users (email, password, name, phone) VALUES ('$email', '$pwd', '$name', '$phone')";
+        if (mysqli_query($conn, $sql)) {
+           
+            echo "<script>
+            Swal.fire({
+                title: 'Success!',
+                text: 'Registration successfully!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'index.php';
+                }
+            });
+        </script>";
+        
+    } else {
+        echo "<script>
+            Swal.fire({
+            title: 'Error!',
+            text: 'Registration failed',
+            icon: 'error',
+            confirmButtonText: 'OK'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'Registation.php';
+            }
+            });
+        </script>";
+    }
+}
+?>
 </body>
 
 <!-- Mirrored from amentotech.com/htmls/servosell/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 10:15:37 GMT -->
