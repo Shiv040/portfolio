@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $businessInfo['email'];
     $city = $businessInfo['city'];
     $areaId = $businessInfo['area'];
-    $venderid = $_POST['business_info'];
+    $vendorid = $_POST['business_info'];
     $businessAddress = $businessInfo['business_address'];
     $logo = $businessInfo['documents']['logo']['name'];
     $visitingCard = $businessInfo['documents']['visiting_card']['name'];
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 title: 'Success!',
                 text: 'Your data has been saved. Please wait for 48 hours for the activation of your account. Check your email for further updates and verification status.'
             }).then(function() {
-                window.location = 'success_page.php';
+                window.location = 'vendor/login.php';
             });
             </script>";
         } else {
