@@ -82,9 +82,9 @@ $result = $conn->query($sql);
                         echo "<td>" . $row['email'] . "</td>";
                         echo "<td>" . $row['mobile_number'] . "</td>";
                         echo "<td>" . $row['address'] ."</td>";
-                        $addhar = !empty($row['addhar_photo']) ? $row['addhar_photo'] : 'assets/images/avatar.png';
-                        echo "<td><img src='" . $addhar . "' class='rounded-circle' width='40' ></td>";
-                       echo "</tr>";
+                        $aadhar = !empty($row['aadhar_photo']) ? $row['aadhar_photo'] : 'assets/images/avatar.png';
+                        echo "<td><img src='" . $aadhar . "' class='rounded-circle' width='40' ></td>";
+                        echo "</tr>";
                 }
                     } else {
                 echo "<tr><td colspan='5'>No vendors found</td></tr>";

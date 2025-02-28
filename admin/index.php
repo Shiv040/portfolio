@@ -53,16 +53,16 @@
                   <img src="assets/images/card-thumbs/thumb3.jpg" class="thumb3" alt="Bootstrap Gallery">
                 </div>
                 <div class="ms-2">
-                 <?php 
-                     $user_count_sql = "SELECT COUNT(*) as user_count FROM users";
-                     $user_result = $conn->query($user_count_sql);
-                     if ($user_result) {
-                         $user_count = $user_result->fetch_assoc()['user_count'];
-                     } else {
-                         $user_count = 0;
+                <?php
+                    $user_count_sql = "SELECT COUNT(*) as user_count FROM users";
+                    $user_result = $conn->query($user_count_sql);
+                    if ($user_result) {
+                        $user_count = $user_result->fetch_assoc()['user_count'];
+                    } else {
+                        $user_count = 0;
                          // Optionally, log or display error here
-                     }                     
-                 ?>
+                    }
+                ?>
                   <h2 class="m-0 fw-bold text-black"><?php echo $user_count;?></h2>
                   <h5 class="m-0 fw-bold text-black">Users</h5>
                 </div>
@@ -84,7 +84,7 @@
                   if ($vendor_result) {
                         $vendor_count = $vendor_result->fetch_assoc()['vendor_count'];
                   } else {
-                   $vendor_count = 0;
+                  $vendor_count = 0;
                        // Optionally, log or display error here
                   }
                   ?>
@@ -94,35 +94,8 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-sm-6 col-12">
-            <div class="bg-danger-subtle mb-3 rounded">
-              <div class="sales-card p-2">
-                <div class="sales-thumbs">
-                  <img src="assets/images/card-thumbs/thumb2.jpg" class="thumb1" alt="Bootstrap Gallery">
-                  <img src="assets/images/card-thumbs/thumb1.jpg" class="thumb2" alt="Bootstrap Gallery">
-                  <img src="assets/images/card-thumbs/thumb4.jpg" class="thumb3" alt="Bootstrap Gallery">
-                </div>
-                <div class="ms-2">
-                  <h2 class="m-0 fw-bold text-black">3200</h2>
-                  <h6 class="m-0 fw-light">Burgers</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 col-12">
-            <div class="bg-info-subtle mb-3 rounded">
-              <div class="sales-card p-2">
-                <div class="sales-thumbs">
-                  <img src="assets/images/card-thumbs/thumb1.jpg" class="thumb1" alt="Bootstrap Gallery">
-                  <img src="assets/images/card-thumbs/thumb3.jpg" class="thumb2" alt="Bootstrap Gallery">
-                  <img src="assets/images/card-thumbs/thumb2.jpg" class="thumb3" alt="Bootstrap Gallery">
-                </div>
-                <div class="ms-2">
-                  <h2 class="m-0 fw-bold text-black">1800</h2>
-                  <h6 class="m-0 fw-light">Ice Cream</h6>
-                </div>
-              </div>
-            </div>
+          
+          
           </div>
         </div>
         <!-- App container ends -->

@@ -1,11 +1,38 @@
 <?php
 include '../conn.php';
-// Fetch registered vendors with verification status 1
-$sql = "SELECT b.logo, b.business_name, v.vender_id, b.location, v.name, v.email, t.category_name, v.verification_status
-  FROM vendor v
-  JOIN vendor_categories t ON v.category_id = t.category_id
-  JOIN business_info b ON b.vender_id = v.vender_id
-  WHERE v.verification_status = 1";
+// Fetch all vendors
+if (isset($_GET['status'])) {
+    $status = $_GET['status'];
+    if($status == 1){
+    $sql = "SELECT b.logo, b.business_name, v.vender_id, b.location, v.name, v.email, t.category_name, v.verification_status
+    FROM vendor v
+    JOIN vendor_categories t ON v.category_id = t.category_id
+    JOIN business_info b ON b.vender_id = v.vender_id
+    WHERE v.verification_status = $status";
+    }else if($status == 0){
+      $sql = "SELECT b.logo, b.business_name, v.vender_id, b.location, v.name, v.email, t.category_name, v.verification_status
+    FROM vendor v
+    JOIN vendor_categories t ON v.category_id = t.category_id
+    JOIN business_info b ON b.vender_id = v.vender_id
+    WHERE v.verification_status = $status";
+    }else if($status == 2){      $sql = "SELECT b.logo, b.business_name, v.vender_id, b.location, v.name, v.email, t.category_name, v.verification_status
+      FROM vendor v
+      JOIN vendor_categories t ON v.category_id = t.category_id
+      JOIN business_info b ON b.vender_id = v.vender_id
+      WHERE v.verification_status = $status";
+    }else if($status == 3){
+      $sql = "SELECT b.logo, b.business_name, v.vender_id, b.location, v.name, v.email, t.category_name, v.verification_status
+      FROM vendor v
+      JOIN vendor_categories t ON v.category_id = t.category_id
+      JOIN business_info b ON b.vender_id = v.vender_id
+      WHERE v.verification_status = $status";
+    }
+}
+
+//$sql = "SELECT b.logo, b.business_name, v.vender_id, b.location, v.name, v.email, t.category_name, v.verification_status
+ // FROM vendor v
+  //JOIN vendor_categories t ON v.category_id = t.category_id
+  //JOIN business_info b ON b.vender_id = v.vender_id";
 $result = $conn->query($sql);
 
 ?>
@@ -73,6 +100,7 @@ $result = $conn->query($sql);
             <th scope="col">Vendor Name</th>
             <th scope="col">Vendor Email</th>
             <th scope="col">Category</th>
+            
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -92,7 +120,7 @@ $result = $conn->query($sql);
             echo "</tr>";
         }
           } else {
-        echo "<tr><td colspan='7'>No vendors found</td></tr>";
+        echo "<tr><td colspan='8'>No vendors found</td></tr>";
           }
           ?>
         </tbody>
