@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 title: 'Success!',
                 text: 'Your data has been saved. Please wait for 48 hours for the activation of your account. Check your email for further updates and verification status.'
             }).then(function() {
-                window.location = 'success_page.php';
+                window.location = 'vendor/login.php';
             });
             </script>";
         } else {

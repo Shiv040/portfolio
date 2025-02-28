@@ -32,7 +32,7 @@
     <div class="auth-wrapper">
 
     <!-- Form starts -->
-    <form action="check_admin_login.php" method="post">
+    <form action="check_vendor_login.php" method="post">
 
       <!-- Authbox starts -->
       <div class="auth-box shadow-lg">
