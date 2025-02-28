@@ -38,13 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $businessInfo['email'];
     $city = $businessInfo['city'];
     $areaId = $businessInfo['area'];
-    $vendorid = $_POST['business_info'];
+    $vendorid = $_POST['vendor_id'];
     $businessAddress = $businessInfo['business_address'];
     $logo = $businessInfo['documents']['logo']['name'];
     $visitingCard = $businessInfo['documents']['visiting_card']['name'];
     $businessLicense = $businessInfo['documents']['business_licence']['name'];
 
-    $sql = "INSERT INTO `business_info`(`business_name`, `location`, `area_id`, `mobile_number`, `email_id`, `visiting_card`, `logo`, `business_license`,vendor_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
+    $sql = "INSERT INTO `business_info`(`business_name`, `location`, `area_id`, `mobile_number`, `email_id`, `visiting_card`, `logo`, `business_license`,vender_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssisssssi", $businessName, $businessAddress, $areaId, $phoneNumber, $email, $visitingCard, $logo, $businessLicense,$vendorid);
 
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 title: 'Success!',
                 text: 'Your data has been saved. Please wait for 48 hours for the activation of your account. Check your email for further updates and verification status.'
             }).then(function() {
-                window.location = 'success_page.php';
+                window.location = 'vendor/login.php';
             });
             </script>";
         } else {
