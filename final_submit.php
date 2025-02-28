@@ -38,15 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $businessInfo['email'];
     $city = $businessInfo['city'];
     $areaId = $businessInfo['area'];
-    $vendorid = $_POST['business_info'];
+    $venderid = $_POST['business_info'];
     $businessAddress = $businessInfo['business_address'];
     $logo = $businessInfo['documents']['logo']['name'];
     $visitingCard = $businessInfo['documents']['visiting_card']['name'];
     $businessLicense = $businessInfo['documents']['business_licence']['name'];
 
-    $sql = "INSERT INTO `business_info`(`business_name`, `location`, `area_id`, `mobile_number`, `email_id`, `visiting_card`, `logo`, `business_license`,vendor_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
+    $sql = "INSERT INTO `business_info`(`business_name`, `location`, `area_id`, `mobile_number`, `email_id`, `visiting_card`, `logo`, `business_license`,vender_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssisssssi", $businessName, $businessAddress, $areaId, $phoneNumber, $email, $visitingCard, $logo, $businessLicense,$vendorid);
+    $stmt->bind_param("ssisssssi", $businessName, $businessAddress, $areaId, $phoneNumber, $email, $visitingCard, $logo, $businessLicense,$venderid);
 
     if ($stmt->execute()) {
         $businessId = $stmt->insert_id;
