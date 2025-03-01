@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "INSERT INTO `business_info`(`business_name`, `location`, `area_id`, `mobile_number`, `email_id`, `visiting_card`, `logo`, `business_license`,vender_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssisssssi", $businessName, $businessAddress, $areaId, $phoneNumber, $email, $visitingCard, $logo, $businessLicense,$venderid);
+    $stmt->bind_param("ssisssssi", $businessName, $businessAddress, $areaId, $phoneNumber, $email, $visitingCard, $logo, $businessLicense,$vendorid);
 
     if ($stmt->execute()) {
         $businessId = $stmt->insert_id;
