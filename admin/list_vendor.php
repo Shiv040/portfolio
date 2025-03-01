@@ -1,6 +1,7 @@
 <?php
 include '../conn.php';
 // Fetch all vendors
+
 if (isset($_GET['status'])) {
   $status = $_GET['status'];
   $sql = "SELECT b.logo, b.business_name, v.vender_id, b.location, v.name, v.email, t.category_name, v.verification_status
@@ -8,11 +9,12 @@ if (isset($_GET['status'])) {
   JOIN vendor_categories t ON v.category_id = t.category_id
   JOIN business_info b ON b.vender_id = v.vender_id
   WHERE v.verification_status = $status";
+  $result = $conn->query($sql);
 } else {
   echo "Please provide a valid status to filter the vendors.";
   exit;
 }
-$result = $conn->query($sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

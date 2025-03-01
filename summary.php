@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'city' => $_POST['city'] ?? '',
         'area' => $_POST['area'] ?? '',
         'business_address' => $_POST['txtBa'] ?? '',
-        'vendor_id' => $_POST['vendor_id'] ?? ''
+        'vendor_id' => $_POST['vender_id'] ?? ''
     ];
     $businessDocuments = [
         'logo' => $_FILES['txtLogo'] ?? null,
@@ -203,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </table>
                 <div class="text-center mt-4">
                     <form action="final_submit.php" method="post">
-                        <input type="hidden" name="vendor_id" value="<?php echo $_POST['vendor_id']; ?>">
+                        <input type="hidden" name="vender_id" value="<?php echo $_POST['vender_id']; ?>">
                         <input type="hidden" name="business_info" value="<?php echo htmlspecialchars(json_encode($businessInfo)); ?>">
                         <button type="submit" class="btn btn-success">Final Submit</button>
                     </form>

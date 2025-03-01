@@ -523,7 +523,7 @@
                 </div>
                 <div class="right-side">
                     <form action="summary.php" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="vendor_id" value="<?php $_GET['vendor_id'] ?>">
+                        <input type="hidden" name="vender_id" value="<?php echo $_GET['vender_id'] ?>">
                     <?php include("step1.php"); ?>  
                     <?php include("step2.php"); ?>  
                     <?php include("step3.php"); ?>  

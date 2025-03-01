@@ -32,13 +32,15 @@
     <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $businessInfo = json_decode($_POST['business_info'], true);
+    
     include 'conn.php';
     $businessName = $businessInfo['business_name'];
     $phoneNumber = $businessInfo['phone_number'];
     $email = $businessInfo['email'];
     $city = $businessInfo['city'];
     $areaId = $businessInfo['area'];
-    $vendorid = $_POST['business_info'];
+    $vendorid = isset($_POST['vender_id']) ? intval($_POST['vender_id']) : 0;
+    
     $businessAddress = $businessInfo['business_address'];
     $logo = $businessInfo['documents']['logo']['name'];
     $visitingCard = $businessInfo['documents']['visiting_card']['name'];
@@ -47,8 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO `business_info`(`business_name`, `location`, `area_id`, `mobile_number`, `email_id`, `visiting_card`, `logo`, `business_license`,vender_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssisssssi", $businessName, $businessAddress, $areaId, $phoneNumber, $email, $visitingCard, $logo, $businessLicense,$vendorid);
-
-    if ($stmt->execute()) {
+    if ($stmt->execute() == TRUE) {
         $businessId = $stmt->insert_id;
         $instagram = $businessInfo['social_media_links']['instagram'];
         $facebook = $businessInfo['social_media_links']['facebook'];
@@ -71,12 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             });
             </script>";
         } else {
-            echo "Error: " . $sqlSocial . "<br>" . $conn->error;
+            echo "Error: {$sqlSocial}<br>{$conn->error}";
         }
 
         $stmtSocial->close();
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: {$sql}<br>{$conn->error}";
     }
 
     $stmt->close();
