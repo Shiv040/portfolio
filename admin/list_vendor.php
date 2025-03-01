@@ -54,7 +54,7 @@ if (isset($_GET['status'])) {
   <li class="breadcrumb-item">
     <i class="bi bi-house lh-1 me-3"></i>
   </li>
-  <li class="breadcrumb-item" aria-current="page"><?php //echo $msg;?>
+  <li class="breadcrumb-item" aria-current="page"><?php echo "List Vendors";?>
   </ol>
   <!-- Breadcrumb ends -->
 
@@ -88,7 +88,7 @@ if (isset($_GET['status'])) {
       if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
       echo "<tr>";
-      $logo = !empty($row['logo']) ? $row['logo'] : 'assets/images/avatar.png';
+      $logo = '../vendor/logo_image/' . $row['logo'];
       echo "<td><img src='" . $logo . "' class='rounded-circle' width='40'></td>";
       echo "<td>" . $row['business_name'] . "</td>";
       echo "<td>" . $row['location'] . "</td>";

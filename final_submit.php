@@ -42,9 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $vendorid = isset($_POST['vender_id']) ? intval($_POST['vender_id']) : 0;
     
     $businessAddress = $businessInfo['business_address'];
-    $logo = $businessInfo['documents']['logo']['name'];
-    $visitingCard = $businessInfo['documents']['visiting_card']['name'];
-    $businessLicense = $businessInfo['documents']['business_licence']['name'];
+    $logo = $businessInfo['business_name'] . '_' .$businessInfo['documents']['logo']['name'];
+    $visitingCard = $businessInfo['business_name'] . '_' .$businessInfo['documents']['visiting_card']['name'];
+    $businessLicense = $businessInfo['business_name'] . '_' .$businessInfo['documents']['business_licence']['name'];
 
     $sql = "INSERT INTO `business_info`(`business_name`, `location`, `area_id`, `mobile_number`, `email_id`, `visiting_card`, `logo`, `business_license`,vender_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
     $stmt = $conn->prepare($sql);
