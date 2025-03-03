@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include '..\conn.php';
 if(isset($_SESSION['vendor_id'])){
   $v_id = $_SESSION['vendor_id'];

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +17,7 @@
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) == 1) {
-        session_start();
+    
         $row=mysqli_fetch_assoc($result);
         $_SESSION['vendor_id'] = $row['vender_id'];
         $_SESSION['vender_name'] = $row['name'];
