@@ -17,12 +17,17 @@
             </a>
         </li>
         <li>
-                <a href="manage_service.php">
-                  <i class="bi bi-map"></i>
-                  <span class="menu-text">Manage Service</span>
-                </a>
-              </li>
-
+            <a href="manage_service.php">
+                <i class="bi bi-map"></i>
+                <span class="menu-text">Manage Service</span>
+            </a>
+        </li>
+        <li>
+            <a href="manage_album.php">
+                <i class="bi bi-photo"></i>
+                <span class="menu-text">Manage Album</span>
+            </a>
+        </li>
     </ul>
 </div>
 <!-- Sidebar menu ends -->
