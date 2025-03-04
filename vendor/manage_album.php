@@ -107,7 +107,7 @@ if (!isset($vendor_id)) {
                                             $result = mysqli_query($conn, $query);
                                             $i = 1;
                                             while ($row1 = mysqli_fetch_assoc($result)) {
-                                            
+                                                $album_id = $row1['album_id'];
                                             ?>
                                             <tr>
                                                 <td><?php echo $i; ?></td>
@@ -115,8 +115,11 @@ if (!isset($vendor_id)) {
                                                 <td>0</td>
                                                 <td>0</td>
                                                 <td>
-                                                    <a href="edit_album.php?album_id=<?php echo $row1['album_id']; ?>" class="btn btn-primary btn-sm">Edit</a>
-                                                    <a href="delete_album.php?album_id=<?php echo $row1['album_id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                                    <div class="dropdown">
+                                                    <button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#addImageModal<?php echo $album_id; ?>">Add Image</button>
+                                                    <button class="btn btn-sm btn-info">Add Video</button>
+                                                        <button class="btn btn-sm btn-primary">View Album</button>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <?php
@@ -130,6 +133,38 @@ if (!isset($vendor_id)) {
                         </div>
                     </div>
                     <!-- Row ends -->
+                    <?php
+                    $result = mysqli_query($conn, $query);
+                    while ($row1 = mysqli_fetch_assoc($result)) {
+                        $album_id = $row1['album_id'];
+                    ?>
+                    <!-- Add Image Modal -->
+                    <div class="modal fade" id="addImageModal<?php echo $album_id; ?>" tabindex="-1" aria-labelledby="addImageModalLabel<?php echo $album_id; ?>" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addImageModalLabel<?php echo $album_id; ?>">Add Image to <?php echo $row1['album_name']; ?></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="addImageForm<?php echo $album_id; ?>" action="add_image.php" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="album_id" value="<?php echo $album_id; ?>">
+                                        <div class="mb-3">
+                                            <label for="imageFile<?php echo $album_id; ?>" class="form-label">Select Image</label>
+                                            <input type="file" class="form-control" id="imageFile<?php echo $album_id; ?>" name="image_file" required>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" form="addImageForm<?php echo $album_id; ?>">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
             <!-- App body ends -->

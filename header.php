@@ -1074,7 +1074,9 @@
                         <li class="nav-item">
                             <a href="Registation.php?code=2">Register as Vendor</a>
                         </li>
-                        
+                        <li class="nav-item">
+                            <a href="vendor/login.php">Login as Vendor</a>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -24,7 +24,7 @@
         </li>
         <li>
             <a href="manage_album.php">
-                <i class="bi bi-photo"></i>
+                <i class="bi bi-bounding-box"></i>
                 <span class="menu-text">Manage Album</span>
             </a>
         </li>
