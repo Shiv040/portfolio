@@ -112,8 +112,20 @@ if (!isset($vendor_id)) {
                                             <tr>
                                                 <td><?php echo $i; ?></td>
                                                 <td><?php echo $row1['album_name']; ?></td>
-                                                <td>0</td>
-                                                <td>0</td>
+                                                <?php
+                                                $query1 = "SELECT * FROM `vendor_wise_work_image`
+                                                WHERE `album_id` = $album_id";
+                                                $result1 = mysqli_query($conn, $query1);
+                                                $total_images = mysqli_num_rows($result1);
+                                                ?>
+                                                <td><?php echo $total_images;?></td>
+                                                <?php
+                                                $query1 = "SELECT * FROM `vendor_wise_work_video`
+                                                WHERE `album_id` = $album_id";
+                                                $result1 = mysqli_query($conn, $query1);
+                                                $total_video = mysqli_num_rows($result1);
+                                                ?>
+                                                <td><?php echo $total_video;?></td>
                                                 <td>
                                                     <div class="dropdown">
                                                     <button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#addImageModal<?php echo $album_id; ?>">Add Image</button>
