@@ -130,7 +130,7 @@ if (!isset($vendor_id)) {
                                                     <div class="dropdown">
                                                     <button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#addImageModal<?php echo $album_id; ?>">Add Image</button>
                                                     <button class="btn btn-sm btn-info">Add Video</button>
-                                                        <button class="btn btn-sm btn-primary">View Album</button>
+                                                    <a href="view_album.php?album_id=<?php echo $album_id;?>" class="btn btn-sm btn-primary">View Album</a>
                                                     </div>
                                                 </td>
                                             </tr>
