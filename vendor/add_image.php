@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    
 <?php
 // Include the database connection file
 include('../conn.php');
@@ -19,40 +29,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($check !== false) {
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        echo "<script>Swal.fire('Error', 'File is not an image.', 'error');</script>";
         $uploadOk = 0;
     }
 
     // Check if file already exists
     if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
+        echo "<script>Swal.fire('Error', 'Sorry, file already exists.', 'error');</script>";
         $uploadOk = 0;
     }
 
     // Check file size
     if ($_FILES["image_file"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
+        echo "<script>Swal.fire('Error', 'Sorry, your file is too large.', 'error');</script>";
         $uploadOk = 0;
     }
 
     // Allow certain file formats
     if ($imageFileType != "avif" && $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        echo "<script>Swal.fire('Error', 'Sorry, only JPG, JPEG, PNG & GIF files are allowed.', 'error');</script>";
         $uploadOk = 0;
     }
 
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        echo "<script>Swal.fire('Error', 'Sorry, your file was not uploaded.', 'error');</script>";
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["image_file"]["tmp_name"], $target_file)) {
-            echo "The file ". htmlspecialchars(basename($_FILES["image_file"]["name"])). " has been uploaded.";
             $image_name = basename($_FILES["image_file"]["name"]);
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            echo "<script>Swal.fire('Error', 'Sorry, there was an error uploading your file.', 'error');</script>";
         }
     }
+
     // Prepare the SQL statement
     $sql = "INSERT INTO vendor_wise_work_image (album_id,  image_name) VALUES (?, ?)";
 
@@ -63,18 +73,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Execute the statement
         if ($stmt->execute()) {
-            echo "New record created successfully";
+            echo "<script>
+                    Swal.fire('Success', 'New record created successfully', 'success').then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'manage_album.php';
+                        }
+                    });
+                  </script>";
         } else {
-            echo "Error: " . $stmt->error;
+            echo "<script>Swal.fire('Error', 'Error: " . $stmt->error . "', 'error');</script>";
         }
 
         // Close the statement
         $stmt->close();
     } else {
-        echo "Error: " . $conn->error;
+        echo "<script>Swal.fire('Error', 'Error: " . $conn->error . "', 'error');</script>";
     }
 
     // Close the connection
     $conn->close();
 }
 ?>
+</body>
+</html>
