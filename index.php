@@ -52,7 +52,7 @@
                             <div class="col-lg-10">
                                 <div class="sl-community__content sl-main-section">
                                     <div class="sl-community__description">
-                                        <h5>We’re Spreading Day by Day</h5>
+                                        <h5>We're Spreading Day by Day</h5>
                                         <h2>Join Our Friendy Community</h2>
                                         <p>Consectetur adipisicing elit sed dotiane eiusmod tempor incididunt utna labore etnalorale magna aliqua enim ad minim veniam quis nostrud exerciteon ullamco.</p>
                                     </div>
