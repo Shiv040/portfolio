@@ -70,9 +70,9 @@ $conn->close();
                                 <div class="card-body">
                                     <div class="card-img">
                                         <img src="vendor_work/<?php echo $row['image_name']; ?>" class="img-fluid rounded-3 mb-3"
-                                            alt="Image" />
+                                            alt="Image" style="width: 100%; height: 200px; object-fit: cover;" />
                                     </div>
-                                    <a href="#" class="btn btn-warning">Delete</a>
+                                    <a href="#" class="btn btn-warning delete-btn" data-id="<?php echo $row['image_id']; ?>">Delete</a>
                                 </div>
                             </div>
                         </div>
@@ -102,6 +102,52 @@ $conn->close();
   ************* -->
     <!-- Required jQuery first, then Bootstrap Bundle JS -->
     <?php include("down_link.php"); ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const imageId = this.getAttribute('data-id');
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch(`delete_image.php?image_id=${imageId}`, {
+                            method: 'GET'
+                        })
+                        .then(response => response.text())
+                        .then(data => {
+                            //console.log(data);
+                            data = JSON.parse(data);
+                            //console.log(data.status);
+                            console.log(data["status"]);
+                            if (data["status"] === 'success') {
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your image has been deleted.',
+                                    'success'
+                                ).then(() => {
+                                    location.reload();
+                                });
+                            } else {
+                                Swal.fire(
+                                    'Error!',
+                                    'There was a problem deleting your image.',
+                                    'error'
+                                );
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
