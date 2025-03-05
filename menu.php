@@ -933,26 +933,31 @@
                 foreach ($categories as $category) {
 
                 ?>
-                 <li class="menu-item-has-children page_item_has_children">
-                     <a href="javascript:void(0);"><?php echo $category['category_name']; ?></a>
-                     <ul class="sub-menu">
-                         <li>
-                             <a href="product-single.html">Product Single</a>
-                         </li>
-                         <li class="current-menu-item">
-                             <a href="search-result-products.html">Search Result Products</a>
-                         </li>
-                     </ul>
-                 </li>
+                <li class="menu-item-has-children page_item_has_children">
+                    <a href="javascript:void(0);"><?php echo $category['category_name']; ?></a>
+                    <ul class="sub-menu">
+                        <?php
+                        $services_json = file_get_contents('http://localhost/utsav_hub/api/list_vendor_wise_service.php?category_id=' . $category['category_id']);
+                        $services = json_decode($services_json, true);
+                        foreach ($services as $service) {
+                        ?>
+                            <li>
+                                <a href="product-single.html" title="<?php echo $service['service_name']; ?>"><?php echo $service['service_name']; ?></a>
+                            </li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </li>
              <?php
                     $i++;
                     if ($i == 5)
                         break;
                 }
                 ?>
-                 <li class="menu-item">
+             <li class="menu-item">
                  <a href="vendors.php">View ALL</a>
-            </li>
+             </li>
          </ul>
      </li>
  </ul>

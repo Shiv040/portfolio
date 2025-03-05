@@ -5,11 +5,11 @@ if (!isset($vendor_id)) {
     header("Location:login.php");
 }
 include('../conn.php');
-$query = "SELECT * 
+$query = "SELECT *,s.service_id as sid
 FROM service s 
 left join vendor_wise_services vs 
 on s.service_id=vs.service_id
-WHERE category_id=(SELECT `category_id`
+WHERE category_id in(SELECT `category_id`
                 FROM `vendor`
                 WHERE `vender_id`='$vendor_id')";
 
@@ -83,7 +83,7 @@ WHERE category_id=(SELECT `category_id`
                                             $result = mysqli_query($conn, $query);
                                             $i = 1;
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                $service_id = $row['service_id'];
+                                                $service_id = $row['sid'];
                                                 $price = $row['price'];
                                                 $status = $row['status'];   
                                                
@@ -92,6 +92,7 @@ WHERE category_id=(SELECT `category_id`
                                                     <input type="hidden" value="<?php echo $service_id;?>" name="service_id[]" />
                                                     <td><?php echo $i; ?></td>
                                                     <td><?php echo $row['service_name']; ?></td>
+                                                    
                                                     <td>
                                                         <div class="input-group m-0">
                                                         <span class="input-group-text">

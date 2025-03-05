@@ -16,13 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnU'])) {
     foreach ($_POST['service_id'] as $index => $service_id) {
         $status = 0;
         $services[] = [
-            'service_id' => $service_id,
+            'service_id' => $_POST['service_id'][$index],
             'vender_id' => $vendor_id,
             'price' => $_POST['price'][$index],
             'status' => empty($_POST['status'.$service_id]) ? 0 : 1
         ];
     }
-
+  
     // Database connection
     include('../conn.php');
 
