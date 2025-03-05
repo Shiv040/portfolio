@@ -20,7 +20,7 @@ $conn->close();
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Admin </title>
+    <title>Vendor </title>
     <?php include "up_link.php"; ?>
 </head>
 
@@ -53,7 +53,7 @@ $conn->close();
                         <li class="breadcrumb-item">
                             <i class="bi bi-house lh-1 me-3"></i>
                         </li>
-                        <li class="breadcrumb-item" aria-current="page">Admin Dashboard</li>
+                        <li class="breadcrumb-item" aria-current="page">View Album </li>
                     </ol>
                     <!-- Breadcrumb ends -->
 
@@ -72,7 +72,7 @@ $conn->close();
                                         <img src="vendor_work/<?php echo $row['image_name']; ?>" class="img-fluid rounded-3 mb-3"
                                             alt="Image" />
                                     </div>
-                                    <a href="#" class="btn btn-warning">Button</a>
+                                    <a href="#" class="btn btn-warning">Delete</a>
                                 </div>
                             </div>
                         </div>
