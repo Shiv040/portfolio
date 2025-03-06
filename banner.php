@@ -12,7 +12,7 @@
         <div class="item"><img src="images/index/main-banner/img-02.jpg" alt="Image Description"></div>
         <div class="item"><img src="images/index/main-banner/img-03.jpg" alt="Image Description"></div>
         <div class="item"><img src="images/index/main-banner/img-04.jpg" alt="Image Description"></div>
-        <div class="item"><img src="images/index/main-banner/img1.jpg" alt="Image Description"></div>
+        <div class="item"><img src="images/index/main-banner/img-05.jpg" alt="Image Description"></div>
         <div class="item"><img src="images/index/main-banner/img-06.jpg" alt="Image Description"></div>
         <div class="item"><img src="images/index/main-banner/img-07.jpg" alt="Image Description"></div>
         <div class="item"><img src="images/index/main-banner/img-08.jpg" alt="Image Description"></div>

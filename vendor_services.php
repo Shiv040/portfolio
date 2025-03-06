@@ -206,7 +206,7 @@
 
                                 <?php
                                     $cat_id=$_GET['category_id'];
-                                    $query = "SELECT price, status, v.vender_id, name, service_name
+                                    $query = "SELECT price, status, v.vender_id, name, service_name, cover_image
                                               FROM vendor_wise_services vs 
                                               JOIN vendor v ON vs.vender_id = v.vender_id 
                                               JOIN service s ON s.service_id = vs.service_id
@@ -218,10 +218,12 @@
                                     <div class="col-sm-6 col-xl-4">
                                         <div class="sl-featuredProducts--post">
                                             <figure>
-                                                <img src="images/index/featured-products/img-01.jpg" alt="Image Description">
+                                                <img src="vendor/<?php echo $row['cover_image'];?>" alt="Image Description" style="height: 200px;">
                                                 <figcaption>
                                                     <div class="sl-slider__tags">
-                                                        <span class="sl-bg-red-orange"><?php echo $row['status']; ?></span>
+                                                        <?php if ($row['status'] == 0) { ?>
+                                                            <span class="sl-bg-red-orange">Service not available</span>
+                                                        <?php } ?>
                                                     </div>
                                                     <a href="javascript:void(0);"><i class="far fa-heart"></i></a>
                                                 </figcaption>
