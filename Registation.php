@@ -104,9 +104,6 @@
                                                                 </div>
                                                             </fieldset>
                                                         </form>
-                                                    </div>
-                                                </fieldset>
-                                            </form>
                                         </div>
                                         <div class="tab-pane fade <?php echo (isset($code) && $code == 2) ? 'show active' : ''; ?>" id="signupprovider" role="tabpanel" aria-labelledby="sl-signupprovider">
                                             <form class="sl-formtheme sl-signupform" method="post" action="process_registration.php">
@@ -192,10 +189,13 @@
                             </div>
                             <div class="sl-registercontent">
                                 <figure class="sl-registercontent__img">
-                                    <img src="images/register/img-01.jpg" alt="img">
+                                    <img src="images/register/img-01.jpg " alt="img">
                                     <figcaption>
-                                       
-                                        
+                                        <strong class="sl-registerlogo">
+                                            <a href="index-2.html"><img src="images/register/create utsav hub logo.jpg" alt="Images Description" style="width: 150px; height: auto;"></a>
+                                        </strong>
+                                    
+                             
                                         <div class="sl-descritpion">
                                             <p>Welcome to UtsavHub, your trusted partner in seamless wedding management. Our login page is designed to be both elegant and user-friendly, reflecting the joy and sophistication of your special day. Here’s what you can expect:</p>
                                         </div>
