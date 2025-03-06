@@ -5,13 +5,11 @@ if (!isset($vendor_id)) {
     header("Location:login.php");
 }
 include('../conn.php');
-$query = "SELECT *,s.service_id as sid
-FROM service s 
-left join vendor_wise_services vs 
-on s.service_id=vs.service_id
-WHERE category_id in(SELECT `category_id`
-                FROM `vendor`
-                WHERE `vender_id`='$vendor_id')";
+$query = "SELECT *, s.service_id as sid
+FROM service s
+right JOIN vendor_wise_services vs ON s.service_id = vs.service_id
+LEFT JOIN vendor v ON s.category_id = v.category_id
+WHERE vs.vender_id = '$vendor_id'";
 
 ?>
 <!DOCTYPE html>
