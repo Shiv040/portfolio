@@ -31,7 +31,7 @@ else{
   <!-- App brand starts -->
   <div class="app-brand">
     <a href="index.php" class="d-flex">
-      <img src="assets/images/create utsav hub logo.jpg" class="logo" alt="Utsav Hub Logo" width="100" height="50" style="margin: 10px; padding:0px;"/>
+      <img src="assets/images/LOGO1.jpg" class="logo" alt="Utsav Hub Logo" width="100" height="50" style="margin: 10px; padding:0px;"/>
     </a>
   </div>
   <!-- App brand ends -->

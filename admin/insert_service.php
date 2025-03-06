@@ -13,10 +13,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sis", $serviceName, $categoryId, $serviceDescription);
 
     // Execute the statement
+    echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
     if ($stmt->execute()) {
-        echo "<script>alert('Record insert successfully');</script>";
+        echo "<script>
+            Swal.fire({
+                title: 'Success!',
+                text: 'Record inserted successfully',
+                icon: 'success',
+            }).then(function() {
+                window.location.href = 'vendor_categories.php';
+            }); 
+        </script>";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "<script>
+            Swal.fire({
+            title: 'Error!',
+            text: 'Error: " . $stmt->error . "',
+            icon: 'error',
+            confirmButtonText: 'OK'
+            });
+        </script>";
     }
 
     // Close connections

@@ -197,7 +197,7 @@
                                     
                              
                                         <div class="sl-descritpion">
-                                            <p>Welcome to UtsavHub, your trusted partner in seamless wedding management. Our login page is designed to be both elegant and user-friendly, reflecting the joy and sophistication of your special day. Here’s what you can expect:</p>
+                                            <p>Welcome to UtsavHub, your trusted partner in seamless wedding management,Birthday celebration,and other management. Our login page is designed to be both elegant and user-friendly, reflecting the joy and sophistication of your special day. Here’s what you can expect:</p>
                                         </div>
                                     </figcaption>
                                 </figure>
