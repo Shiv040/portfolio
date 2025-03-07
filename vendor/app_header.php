@@ -45,7 +45,6 @@ else{
       <i class="bi-search"></i>
     </div>
     <!-- Search container end -->
-     
 
     <!-- User settings start -->
     <div class="dropdown">
