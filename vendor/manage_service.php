@@ -7,9 +7,8 @@ if (!isset($vendor_id)) {
 include('../conn.php');
 $query = "SELECT *, s.service_id as sid
 FROM service s
-right JOIN vendor_wise_services vs ON s.service_id = vs.service_id
-LEFT JOIN vendor v ON s.category_id = v.category_id
-WHERE vs.vender_id = '$vendor_id'";
+JOIN vendor v ON s.category_id = v.category_id
+WHERE v.vender_id = '$vendor_id'";
 
 ?>
 <!DOCTYPE html>
@@ -83,8 +82,20 @@ WHERE vs.vender_id = '$vendor_id'";
                                                 $i = 1;
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     $service_id = $row['sid'];
-                                                    $price = $row['price'];
-                                                    $status = $row['status'];
+                                                    $q2 = "SELECT * 
+                                                    FROM `vendor_wise_services` 
+                                                    WHERE `service_id`=$service_id and `vender_id`=$vendor_id";
+                                                    $r2 = mysqli_query($conn, $q2);
+                                                    $row2 = mysqli_fetch_assoc($r2);
+                                                    if ($row2 == null) {
+                                                        $price = 0;
+                                                        $status = 0;
+                                                        $cover_image = "";
+                                                    } else {
+                                                        $cover_image = $row2['cover_image'];
+                                                        $price = $row2['price'];
+                                                        $status = $row2['status'];
+                                                    }
 
                                                 ?>
                                                     <tr>
@@ -103,72 +114,82 @@ WHERE vs.vender_id = '$vendor_id'";
                                                         </td>
                                                         <td></td>
                                                         <td>
-                                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#imageModal<?php echo $service_id; ?>">
-                                                                Add Image
-                                                            </button>
+                                                            <?php
+                                                            if ($cover_image == "cover_image/no.jpg") {
+                                                            ?>
+                                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#imageModal<?php echo $service_id; ?>">
+                                                                    Add Image
+                                                                </button>
 
-                                                            <!-- Image Modal -->
+                                                                <!-- Image Modal -->
 
-                                                            <div class="modal fade" id="imageModal<?php echo $service_id; ?>" tabindex="-1" aria-labelledby="imageModalLabel<?php echo $service_id; ?>" aria-hidden="true">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="imageModalLabel<?php echo $service_id; ?>">Add Cover Image</h5>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <input type="file" class="form-control" name="cover_image<?php echo $service_id; ?>" accept="image/*">
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            
-                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                            <button type="submit" class="btn btn-primary" name="btnAddImage">Add Cover Image</button>
+                                                                <div class="modal fade" id="imageModal<?php echo $service_id; ?>" tabindex="-1" aria-labelledby="imageModalLabel<?php echo $service_id; ?>" aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="imageModalLabel<?php echo $service_id; ?>">Add Cover Image</h5>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <input type="file" class="form-control" name="cover_image<?php echo $service_id; ?>" accept="image/*">
+                                                                            </div>
+                                                                            <div class="modal-footer">
+
+                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                                <button type="submit" class="btn btn-primary" name="btnAddImage">Add Cover Image</button>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            <?php
+                                                            }
+                                                            else{
+                                                            ?>
+                                                                <img src="<?php echo $cover_image; ?>" alt="cover image" width="100" height="100" />
+                                                            <?php    
+                                                            }
+                                                            ?>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-check form-switch m-0">
+                                                                <input class="form-check-input" type="checkbox" id="chk<?php echo $service_id; ?>" role="switch" name="status<?php echo $service_id; ?>" value="1" <?php if ($status == 1) echo "checked"; ?> />
                                                             </div>
-                            
-                            </td>
-                            <td>
-                                <div class="form-check form-switch m-0">
-                                    <input class="form-check-input" type="checkbox" id="chk<?php echo $service_id; ?>" role="switch" name="status<?php echo $service_id; ?>" value="1" <?php if ($status == 1) echo "checked"; ?> />
-                                </div>
-                            </td>
-                            </tr>
-                        <?php
+                                                        </td>
+                                                    </tr>
+                                                <?php
                                                     $i++;
                                                 }
-                        ?>
-                        </tbody>
-                        </table>
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- Buttons starts -->
+                                <div class="d-flex gap-2 justify-content-end">
+                                    <button type="button" class="btn btn-outline-primary" onclick="location.reload();">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" class="btn btn-primary" name="btnU">
+                                        Update
+                                    </button>
+                                </div>
+                                <!-- Buttons ends -->
+                            </form>
                         </div>
                     </div>
-                    <!-- Buttons starts -->
-                    <div class="d-flex gap-2 justify-content-end">
-                        <button type="button" class="btn btn-outline-primary" onclick="location.reload();">
-                            Cancel
-                        </button>
-                        <button type="submit" class="btn btn-primary" name="btnU">
-                            Update
-                        </button>
-                    </div>
-                    <!-- Buttons ends -->
-                    </form>
+                    <!-- Row ends -->
                 </div>
+                <!-- App body ends -->
+
+                <!-- App footer starts -->
+                <?php include("footer.php"); ?>
+                <!-- App footer ends -->
+
             </div>
-            <!-- Row ends -->
+            <!-- App container ends -->
+
         </div>
-        <!-- App body ends -->
-
-        <!-- App footer starts -->
-        <?php include("footer.php"); ?>
-        <!-- App footer ends -->
-
-    </div>
-    <!-- App container ends -->
-
-    </div>
-    <!-- Main container ends -->
+        <!-- Main container ends -->
 
     </div>
     <!-- Page wrapper ends -->

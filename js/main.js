@@ -560,7 +560,7 @@ if (toltip_content !== null) {
     })
     	/* PRELOADER*/
 	jQuery(window).on('load', function() {
-    jQuery(".preloader-outer").delay(600).fadeOut();
+    jQuery(".preloader-outer").delay(300).fadeOut();
 	});
 
   /*  APPOINTMENTS CALENDER  */

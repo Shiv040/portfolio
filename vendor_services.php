@@ -211,9 +211,20 @@
                                               JOIN vendor v ON vs.vender_id = v.vender_id 
                                               JOIN service s ON s.service_id = vs.service_id
                                               JOIN vendor_categories vc ON vc.category_id = v.category_id
-                                              WHERE vc.category_id = $cat_id";
+                                              WHERE vc.category_id = $cat_id
+                                              order by service_name";
                                     $result = mysqli_query($conn, $query);
+                                    $total_data=mysqli_num_rows($result);
+                                    if($total_data==0){
+                                        echo '<br/>
+                                        <br/>';
+                                        echo "<h3>Currently, no vendor provides this service</h3>";
+                                    }
+                                    else
+                                    {
                                     while ($row = mysqli_fetch_assoc($result)) {
+                                        if($row['status']==1){
+                                            
                                 ?>
                                     <div class="col-sm-6 col-xl-4">
                                         <div class="sl-featuredProducts--post">
@@ -240,16 +251,20 @@
                                                     <em>(1887 Feedback)</em>
                                                 </div>
                                                 <em>By: <a href="javascript:void(0);"><?php echo $row['name']; ?></a></em>
-                                                <button class="btn sl-btn">Add To Cart</button>
+                                                <button class="btn sl-btn">View More Info</button>
                                             </div>
                                         </div>
                                     </div>
                                 <?php
+                                        }
                                     }
+                                }
                                 ?>
                                
                             </div>
-                            <div class="sl-pagination">
+                            <?php if($total_data>0){ ?>
+                            <!-- pagination 
+                                <div class="sl-pagination">
                                 <div class="sl-pagination__button-left">
                                     <a class="btn sl-btn sl-btn-small" href="javascript:void(0);"><span class="lnr lnr-chevron-left"></span></a>
                                 </div>
@@ -265,6 +280,8 @@
                                     <a class="btn sl-btn sl-btn-small sl-btn-active" href="javascript:void(0);"><span class="lnr lnr-chevron-right"></span></a>
                                 </div>
                             </div>
+                            -->
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
