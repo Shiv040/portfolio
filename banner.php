@@ -8,7 +8,7 @@
 
 <div class="sl-main-banner">
     <div id="slBannerOwl" class="owl-carousel owl-theme">
-        <div class="item"><img src="images/index/main-banner/img-01.jpg" alt="Image Description"></div>
+        <div class="item"><img src="images/index/main-banner/img1.jpg" alt="Image Description"></div>
         <div class="item"><img src="images/index/main-banner/img-02.jpg" alt="Image Description"></div>
         <div class="item"><img src="images/index/main-banner/img-03.jpg" alt="Image Description"></div>
         <div class="item"><img src="images/index/main-banner/img-04.jpg" alt="Image Description"></div>

@@ -115,7 +115,7 @@ WHERE v.vender_id = '$vendor_id'";
                                                         <td></td>
                                                         <td>
                                                             <?php
-                                                            if ($cover_image == "cover_image/no.jpg") {
+                                                            if ($cover_image == "" || $cover_image=="cover_image/no.jpg") {
                                                             ?>
                                                                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#imageModal<?php echo $service_id; ?>">
                                                                     Add Image
