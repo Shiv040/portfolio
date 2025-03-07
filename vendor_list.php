@@ -17,15 +17,15 @@
             $json = file_get_contents('http://localhost/utsav_hub/api/list_vendors_categories.php');
             $categories = json_decode($json, true);
 
-            foreach ($categories as $category) {
+            for ($i = 0; $i < count($categories); $i++) {
                 echo '<div class="sl-col sl-col-sm-1-of-2 sl-col-md-1-of-3 sl-col-lg-1-of-4 sl-col-xl-1-of-5">';
                 echo '    <div class="sl-category__service">';
-                echo '        <img src="utsav_hub/' . $category['category_image'] . '" alt="image Description" style="width: 100px; height: 100px;">';
+                echo '        <img src="utsav_hub/' . $categories[$i]['category_image'] . '" alt="image Description" style="width: 100px; height: 100px;">';
                 echo '        <div class="sl-category__description">';
-                echo '            <h5>' . $category['category_name'] . '</h5>';
-                echo '            <span>' . $category['vendor_count'] . ' Providers</span>';
+                echo '            <h5>' . $categories[$i]['category_name'] . '</h5>';
+                echo '            <span>' . $categories[$i]['vendor_count'] . ' Providers</span>';
                 echo '        </div>';
-                echo '        <a href="vendor_services.php?category_id=' . $category['category_id'] . '" class="sl-category__icon"><i class="ti-arrow-right"></i></a>';
+                echo '        <a href="vendor_services.php?category_id=' . $categories[$i]['category_id'] . '" class="sl-category__icon"><i class="ti-arrow-right"></i></a>';
                 echo '    </div>';
                 echo '</div>';
             }
