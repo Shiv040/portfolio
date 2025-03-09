@@ -1,4 +1,4 @@
- <section class="sl-feedbackBanner">
+<section class="sl-feedbackBanner">
             <div class="sl-overlay">
                 <div class="container">
                     <div class="row justify-content-center">
