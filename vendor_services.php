@@ -72,7 +72,7 @@
                                                     <div class="mCustomScrollbar">
                                                         <ul class="sl-sider-ul">
                                                             <?php
-                                                                $json = file_get_contents('http://localhost/utsav_hub/api/list_vendors_categories.php');
+                                                                $json = file_get_contents('http://localhost/UTSAV_HUB/api/list_vendors_categories.php');
                                                                 $categories = json_decode($json, true);
                                                                 foreach ($categories as $category) {
                                                                     ?>
@@ -85,7 +85,7 @@
                                                                         </div>
                                                                         <ul>
                                                                             <?php
-                                                                                $json = file_get_contents('http://localhost/utsav_hub/api/list_vendor_wise_service.php?category_id=' . $category['category_id']);
+                                                                                $json = file_get_contents('http://localhost/UTSAV_HUB/api/list_vendor_wise_service.php?category_id='. $category['category_id']);
                                                                                 $services = json_decode($json, true);
                                                                                 foreach ($services as $service) {
                                                                             ?>
@@ -206,7 +206,7 @@
 
                                 <?php
                                     $cat_id=$_GET['category_id'];
-                                    $query = "SELECT price, status, v.vender_id, name, service_name, cover_image
+                                    $query = "SELECT price, status, v.vender_id, name, service_name, cover_image,vs.vendor_ws_id
                                               FROM vendor_wise_services vs 
                                               JOIN vendor v ON vs.vender_id = v.vender_id 
                                               JOIN service s ON s.service_id = vs.service_id
@@ -224,6 +224,7 @@
                                     {
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         if($row['status']==1){
+                                            $vw_id=$row['vendor_ws_id'];                      
                                             
                                 ?>
                                     <div class="col-sm-6 col-xl-4">
@@ -251,7 +252,11 @@
                                                     <em>(1887 Feedback)</em>
                                                 </div>
                                                 <em>By: <a href="javascript:void(0);"><?php echo $row['name']; ?></a></em>
-                                                <button class="btn sl-btn">View More Info</button>
+                                                <?php if(!isset($_SESSION['user_id'])){ ?>
+                                                <button class="btn sl-btn" onclick="alert('Please login first');">View More Info</button>
+                                                <?php }else{ ?>
+                                                <a href="service_details.php?vwid=<?php echo $vw_id;?>" class="btn sl-btn">View More Info</a>
+                                                <?php } ?>    
                                             </div>
                                         </div>
                                     </div>
@@ -262,8 +267,8 @@
                                 ?>
                                
                             </div>
-                            <?php if($total_data>0){ ?>
-                            <!-- pagination 
+                            <?php /*if($total_data>0){ ?>
+                              
                                 <div class="sl-pagination">
                                 <div class="sl-pagination__button-left">
                                     <a class="btn sl-btn sl-btn-small" href="javascript:void(0);"><span class="lnr lnr-chevron-left"></span></a>
@@ -280,8 +285,8 @@
                                     <a class="btn sl-btn sl-btn-small sl-btn-active" href="javascript:void(0);"><span class="lnr lnr-chevron-right"></span></a>
                                 </div>
                             </div>
-                            -->
-                            <?php } ?>
+                            
+                            <?php }*/ ?>
                         </div>
                     </div>
                 </div>

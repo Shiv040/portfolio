@@ -1,5 +1,5 @@
-<section class="sl-footer-section sl-footerUpper">
-            <div class="container">
+<!--<section class="sl-footer-section sl-footerUpper">
+            <div class="container">-->
                 <div class="row">
                     <div class="col-sm-6 col-lg-4 col-xl-3">
                         <ul>

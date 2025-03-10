@@ -1,7 +1,7 @@
 <?php
-$servername = "217.21.91.154";
-$username = "u943886398_netxgroup";
-$password = "Polo@1476";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "u943886398_myDb";
 
 // Create connection

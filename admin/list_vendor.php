@@ -96,9 +96,16 @@ if (isset($_GET['status'])) {
       echo "<td>" . $row['email'] . "</td>";
       echo "<td>" . $row['category_name'] . "</td>";
       echo "<td><a href='view_vendor.php?id=" . $row['vender_id'] . "' class='btn btn-success btn-lg bi-eye'></a></td>";
+      if ($status != 2) {
+        echo "<td><a href='reject_vendor.php?id=" . $row['vender_id'] . "' class='btn btn-danger btn-lg bi-x-circle'>Reject</a></td>";
+      }
+      if ($status != 1) {
+      echo "<td><a href='accept_vendor.php?id=" . $row['vender_id'] . "' class='btn btn-success btn-lg bi-check-circle'>Accept</a></td>";
+      }
       echo "</tr>";
     }
-      } else {
+    }
+       else {
     echo "<tr><td colspan='7'>No vendors found</td></tr>";
       }
       ?>
