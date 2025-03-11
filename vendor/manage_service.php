@@ -19,6 +19,7 @@ WHERE v.vender_id = '$vendor_id'";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vendor Manage Service </title>
     <?php include "up_link.php"; ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="tinymce_7.7.1\tinymce\js\tinymce\tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
@@ -147,8 +148,7 @@ WHERE v.vender_id = '$vendor_id'";
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <?php
-                                                                            if(!isset($vendor_ws_id))
-                                                                            {
+                                                                            if (!isset($vendor_ws_id)) {
                                                                                 $vendor_ws_id = 0;
                                                                             }
                                                                             $sql_2 = "SELECT * FROM `booking_policy` WHERE `vendor_ws_id` = $vendor_ws_id";
@@ -159,7 +159,8 @@ WHERE v.vender_id = '$vendor_id'";
                                                                                 }
                                                                             } else {
                                                                                 ?>
-                                                                                <input type="hidden" name="h[]" value="<?php echo $vendor_ws_id; ?>"
+                                                                                <input type="hidden" name="h[]"
+                                                                                    value="<?php echo $vendor_ws_id; ?>"
                                                                                     value="<?php echo $vendor_ws_id; ?>">
                                                                                 <textarea id="myTextarea" class="form-control"
                                                                                     name="policy<?php echo $vendor_ws_id; ?>"
@@ -174,6 +175,22 @@ WHERE v.vender_id = '$vendor_id'";
                                                                                 name="btnAddPolicy">Save Policy</button>
                                                                             <button type="button" class="btn btn-secondary"
                                                                                 data-bs-dismiss="modal">Close</button>
+                                                                            <button type="button" class="btn btn-danger" onclick="Swal.fire({
+                                                                                title: 'Are you sure?',
+                                                                                text: 'You won\'t be able to revert this!',
+                                                                                icon: 'warning',
+                                                                                showCancelButton: true,
+                                                                                confirmButtonColor: '#3085d6',
+                                                                                cancelButtonColor: '#d33',
+                                                                                confirmButtonText: 'Yes, delete it!'
+                                                                            }).then((result) => {
+                                                                                if (result.isConfirmed) {
+                                                                                    window.location.href='delete_policy.php?vendor_ws_id=<?php echo $vendor_ws_id; ?>';
+                                                                                }
+                                                                            })">
+                                                                                Delete Policy
+                                                                            </button>
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -315,7 +332,7 @@ WHERE v.vender_id = '$vendor_id'";
   ************* -->
     <!-- Required jQuery first, then Bootstrap Bundle JS -->
     <?php include "down_link.php"; ?>
-    
+
 </body>
 
 </html>

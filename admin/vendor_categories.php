@@ -45,7 +45,9 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVendorCategoryModal">
               Add New Categories
             </button>
-
+            <a href="table_layout_categories.php" class="btn btn-primary">
+              <i class="bi bi-table"></i> Table Layout
+            </a>      
 
           </div>
           <!-- Breadcrumb ends -->
