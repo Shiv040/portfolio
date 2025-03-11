@@ -4,9 +4,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
     // Get form data
-    echo $serviceName = $_POST['serviceName'];
-    echo $serviceDescription = $_POST['serviceDescription'];
-    echo $categoryId = $_POST['categoryId'];
+    $serviceName = $_POST['serviceName'];
+    $serviceDescription = $_POST['serviceDescription'];
+    $categoryId = $_POST['categoryId'];
     
     // Prepare and bind
     $stmt = $conn->prepare("INSERT INTO service (service_name, category_id, description) VALUES (?, ?, ?)");

@@ -4,7 +4,7 @@ $vendor_id = $_SESSION['vendor_id'];
 if (!isset($vendor_id)) {
     header("Location:login.php");
 }
-include('../conn.php');
+include '../conn.php';
 $query = "SELECT *, s.service_id as sid
 FROM service s
 JOIN vendor v ON s.category_id = v.category_id
@@ -19,6 +19,13 @@ WHERE v.vender_id = '$vendor_id'";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vendor Manage Service </title>
     <?php include "up_link.php"; ?>
+    <script src="tinymce_7.7.1\tinymce\js\tinymce\tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#myTextarea',
+            placeholder: 'Type here...'
+        });
+    </script>
 </head>
 
 <body>
@@ -39,7 +46,7 @@ WHERE v.vender_id = '$vendor_id'";
             <div class="app-container">
 
                 <!-- App header starts -->
-                <?php include("app_header.php"); ?>
+                <?php include "app_header.php"; ?>
                 <!-- App header ends -->
 
                 <!-- App hero header starts -->
@@ -99,9 +106,10 @@ WHERE v.vender_id = '$vendor_id'";
                                                         $status = $row2['status'];
                                                     }
 
-                                                ?>
+                                                    ?>
                                                     <tr>
-                                                        <input type="hidden" value="<?php echo $service_id; ?>" name="service_id[]" />
+                                                        <input type="hidden" value="<?php echo $service_id; ?>"
+                                                            name="service_id[]" />
                                                         <td><?php echo $i; ?></td>
                                                         <td><?php echo $row['service_name']; ?></td>
 
@@ -110,64 +118,96 @@ WHERE v.vender_id = '$vendor_id'";
                                                                 <span class="input-group-text">
                                                                     <i class="bi bi-currency-rupee"></i>
                                                                 </span>
-                                                                <input type="text" class="form-control" value="<?php echo $price; ?>" name="price[]" />
+                                                                <input type="text" class="form-control"
+                                                                    value="<?php echo $price; ?>" name="price[]" />
                                                             </div>
 
                                                         </td>
                                                         <td>
-                                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#policyModal<?php echo $service_id; ?>">
+                                                            <button type="button" class="btn btn-outline-secondary"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#policyModal<?php echo $service_id; ?>">
                                                                 View Policy
                                                             </button>
 
                                                             <!-- Policy Modal -->
-                                                            <div class="modal fade" id="policyModal<?php echo $service_id; ?>" tabindex="-1" aria-labelledby="policyModalLabel<?php echo $service_id; ?>" aria-hidden="true">
+                                                            <div class="modal fade"
+                                                                id="policyModal<?php echo $service_id; ?>" tabindex="-1"
+                                                                aria-labelledby="policyModalLabel<?php echo $service_id; ?>"
+                                                                aria-hidden="true">
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                            <h5 class="modal-title" id="policyModalLabel<?php echo $service_id; ?>">Service Policy</h5>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            <h5 class="modal-title"
+                                                                                id="policyModalLabel<?php echo $service_id; ?>">
+                                                                                Service Policy</h5>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <?php 
-                                                                                $sql_2 = "SELECT * FROM `booking_policy` WHERE `vendor_ws_id` = $vendor_ws_id";
-                                                                                $result_2 = mysqli_query($conn, $sql_2);
-                                                                                if (mysqli_num_rows($result_2) > 0) {
-                                                                                    while ($row_2 = mysqli_fetch_assoc($result_2)) {
-                                                                                        echo $row_2['policy'] . "<br>";
-                                                                                    }
-                                                                                } else {
-                                                                            ?>
-                                                                                    <textarea class="form-control" name="policy<?php echo $service_id; ?>" rows="4" placeholder="Enter policy here..."></textarea>
                                                                             <?php
+                                                                            if(!isset($vendor_ws_id))
+                                                                            {
+                                                                                $vendor_ws_id = 0;
+                                                                            }
+                                                                            $sql_2 = "SELECT * FROM `booking_policy` WHERE `vendor_ws_id` = $vendor_ws_id";
+                                                                            $result_2 = mysqli_query($conn, $sql_2);
+                                                                            if (mysqli_num_rows($result_2) > 0) {
+                                                                                while ($row_2 = mysqli_fetch_assoc($result_2)) {
+                                                                                    echo $row_2['policy'] . "<br>";
                                                                                 }
+                                                                            } else {
+                                                                                ?>
+                                                                                <input type="hidden" name="h[]" value="<?php echo $vendor_ws_id; ?>"
+                                                                                    value="<?php echo $vendor_ws_id; ?>">
+                                                                                <textarea id="myTextarea" class="form-control"
+                                                                                    name="policy<?php echo $vendor_ws_id; ?>"
+                                                                                    rows="4"
+                                                                                    placeholder="Enter policy here..."></textarea>
+                                                                                <?php
+                                                                            }
                                                                             ?>
                                                                         </div>
                                                                         <div class="modal-footer">
-                                                                        <button type="submit" class="btn btn-primary" name="btnAddPolicy">Save Policy</button>
-                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-primary"
+                                                                                name="btnAddPolicy">Save Policy</button>
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Close</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#descriptionModal<?php echo $service_id; ?>">
+                                                            <button type="button" class="btn btn-outline-secondary"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#descriptionModal<?php echo $service_id; ?>">
                                                                 View Description
                                                             </button>
 
                                                             <!-- Description Modal -->
-                                                            <div class="modal fade" id="descriptionModal<?php echo $service_id; ?>" tabindex="-1" aria-labelledby="descriptionModalLabel<?php echo $service_id; ?>" aria-hidden="true">
+                                                            <div class="modal fade"
+                                                                id="descriptionModal<?php echo $service_id; ?>"
+                                                                tabindex="-1"
+                                                                aria-labelledby="descriptionModalLabel<?php echo $service_id; ?>"
+                                                                aria-hidden="true">
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                            <h5 class="modal-title" id="descriptionModalLabel<?php echo $service_id; ?>">Service Description</h5>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            <h5 class="modal-title"
+                                                                                id="descriptionModalLabel<?php echo $service_id; ?>">
+                                                                                Service Description</h5>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <?php echo $row['description']; ?>
                                                                         </div>
                                                                         <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Close</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -175,48 +215,64 @@ WHERE v.vender_id = '$vendor_id'";
                                                         </td>
                                                         <td>
                                                             <?php
-                                                            if ($cover_image == "" || $cover_image=="cover_image/no.jpg") {
-                                                            ?>
-                                                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#imageModal<?php echo $service_id; ?>">
+                                                            if ($cover_image == "" || $cover_image == "cover_image/no.jpg") {
+                                                                ?>
+                                                                <button type="button" class="btn btn-outline-secondary"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#imageModal<?php echo $service_id; ?>">
                                                                     Add Image
                                                                 </button>
 
                                                                 <!-- Image Modal -->
 
-                                                                <div class="modal fade" id="imageModal<?php echo $service_id; ?>" tabindex="-1" aria-labelledby="imageModalLabel<?php echo $service_id; ?>" aria-hidden="true">
+                                                                <div class="modal fade"
+                                                                    id="imageModal<?php echo $service_id; ?>" tabindex="-1"
+                                                                    aria-labelledby="imageModalLabel<?php echo $service_id; ?>"
+                                                                    aria-hidden="true">
                                                                     <div class="modal-dialog">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
-                                                                                <h5 class="modal-title" id="imageModalLabel<?php echo $service_id; ?>">Add Cover Image</h5>
-                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                <h5 class="modal-title"
+                                                                                    id="imageModalLabel<?php echo $service_id; ?>">
+                                                                                    Add Cover Image</h5>
+                                                                                <button type="button" class="btn-close"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    aria-label="Close"></button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                                <input type="file" class="form-control" name="cover_image<?php echo $service_id; ?>" accept="image/*">
+                                                                                <input type="file" class="form-control"
+                                                                                    name="cover_image<?php echo $service_id; ?>"
+                                                                                    accept="image/*">
                                                                             </div>
                                                                             <div class="modal-footer">
 
-                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                                <button type="submit" class="btn btn-primary" name="btnAddImage">Add Cover Image</button>
+                                                                                <button type="button" class="btn btn-secondary"
+                                                                                    data-bs-dismiss="modal">Close</button>
+                                                                                <button type="submit" class="btn btn-primary"
+                                                                                    name="btnAddImage">Add Cover Image</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            <?php
-                                                            }
-                                                            else{
-                                                            ?>
-                                                                <img src="<?php echo $cover_image; ?>" alt="cover image" width="100" height="100" />
-                                                            <?php    
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                <img src="<?php echo $cover_image; ?>" alt="cover image"
+                                                                    width="100" height="100" />
+                                                                <?php
                                                             }
                                                             ?>
                                                         </td>
                                                         <td>
                                                             <div class="form-check form-switch m-0">
-                                                                <input class="form-check-input" type="checkbox" id="chk<?php echo $service_id; ?>" role="switch" name="status<?php echo $service_id; ?>" value="1" <?php if ($status == 1) echo "checked"; ?> />
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    id="chk<?php echo $service_id; ?>" role="switch"
+                                                                    name="status<?php echo $service_id; ?>" value="1" <?php if ($status == 1)
+                                                                           echo "checked"; ?> />
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                <?php
+                                                    <?php
                                                     $i++;
                                                 }
                                                 ?>
@@ -242,7 +298,7 @@ WHERE v.vender_id = '$vendor_id'";
                 <!-- App body ends -->
 
                 <!-- App footer starts -->
-                <?php include("footer.php"); ?>
+                <?php include "footer.php"; ?>
                 <!-- App footer ends -->
 
             </div>
@@ -258,8 +314,8 @@ WHERE v.vender_id = '$vendor_id'";
     ************ JavaScript Files *************
   ************* -->
     <!-- Required jQuery first, then Bootstrap Bundle JS -->
-    <?php include("down_link.php"); ?>
-    <script src="https://cdn.tiny.cloud/1/API_KEY/tinymce/6/tinymce.min.js"></script>
+    <?php include "down_link.php"; ?>
+    
 </body>
 
 </html>
