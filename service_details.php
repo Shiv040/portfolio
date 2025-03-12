@@ -1,11 +1,12 @@
 <?php
 session_start();
-include('conn.php');
+include 'conn.php';
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 }
 $vw_id = $_GET['vwid'];
-$query = "SELECT * 
+
+$query = "SELECT vs.description, vs.price, vs.cover_image, s.service_name 
     FROM vendor_wise_services vs 
     join service s 
     on s.service_id=vs.service_id
@@ -34,7 +35,7 @@ $service_details = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.html">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    <?php include('up_link.php'); ?>
+    <?php include 'up_link.php'; ?>
 </head>
 
 <body class="sl-home">
@@ -48,7 +49,7 @@ $service_details = $result->fetch_assoc();
     <!-- Preloader End -->
     <!-- HEADER START -->
     <header>
-        <?php include('header.php'); ?>
+        <?php include 'header.php'; ?>
     </header>
     <!-- MAIN START -->
     <main class="sl-main">
@@ -220,120 +221,30 @@ $service_details = $result->fetch_assoc();
                                         <div class="sl-productDescripton">
                                             <div class="sl-productDescripton__premium">
                                                 <div class="sl-productDescripton__text">
-                                                    <h5>We Give Special Attention To Quality</h5>
-                                                    <div class="sl-productDescripton__text--para">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                                                            do eiusmod tempoer incididunt ut labore et dolore magna
-                                                            aliqua. Ut enim ad minim veniam, quis nrud exercitation
-                                                            ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                            Duis auete irure dolor in reprehenderit in voluptate velit.
-                                                        </p>
-                                                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                                                            qui officia deserunt mollit anim id est laborum. Sed ut
-                                                            perspiciatis unde omnis iste natus error sitame voluptatem
-                                                            accusantium doloremque laudantium, totam rem aperiam, eaque
-                                                            ipsa quae ab illo inventore veritatis et quasi architecto
-                                                            beatae vitae dicta sunt explicoe Nemo enim ipsam voluptatem.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <img src="images/product-single/img-03.jpg" alt="Image Description">
-                                            </div>
-                                            <div class="sl-tab__text">
-                                                <h5>Came With Beast Inside Beauty</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                    eiusmod tempor incididunt utnaloek labore et dolore magna aliqua. Ut
-                                                    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                                                    ut aliquip extainea commodo consequat. Duis aute irure dolor in
-                                                    reprehenderit in voluptate velit esse cillum dolore.</p>
-                                            </div>
-                                            <div class="sl-productDescripton__product">
-                                                <img src="images/product-single/img-04.jpg" alt="Image Description">
-                                                <div class="sl-productDescripton__product--items">
-                                                    <img src="images/product-single/img-05.jpg" alt="Image Description">
-                                                    <img src="images/product-single/img-06.jpg" alt="Image Description">
-                                                    <img src="images/product-single/img-07.jpg" alt="Image Description">
-                                                </div>
-                                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                                                    officia deserunt mollit anim id est laborum. Sede ut perspiciatis
-                                                    unde omnis iste natus error sit voluptatem accusantium doloremque
-                                                    laudantium, totam remea aperiam, eaque ipsa quae ab illo inventore
-                                                    veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                                                    Nemoea enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                                                    aut fugit, sed quia consequuntur magni dolores eos quivere ratione
-                                                    voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                                                    ipsum quia dolor sit amet, aconsectetur, adipisci velit, sed quia
-                                                    non numquam eius modi</p>
-                                            </div>
-                                            <div class="sl-tab__text">
-                                                <h5>We Don’t Leave You Alone</h5>
-                                                <p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                    Duis autetaewe irure dolor in reprehenderit in voluptate velit esse
-                                                    cillum dolore. Excepteur sint occaecat cupidatat non proident, sunt
-                                                    in teculpa qui officia deserunt mollit anim id est laborum. Sed ut
-                                                    perspiciatis unde omnis iste natus error site voluptatem
-                                                    accusantium  doloremque laudantium, totam rem aperiam, eaque ipsa
-                                                    quae ab illo inventore veritatis et quasi architecto beatae vitae
-                                                    dicta sunt explicabo. Nemo enim ipsam voluptatem.</p>
-                                            </div>
-                                            <div class="sl-video">
-                                                <ul class="la-blogliststyle">
-                                                    <li><span><i class="fa fa-check"></i>Sed uperspiciatis unde omnis
-                                                            iste</span></li>
-                                                    <li><span><i class="fa fa-check"></i>Natus error site voluptatem
-                                                            accusantium</span></li>
-                                                    <li><span><i class="fa fa-check"></i>Doloremque laudantium</span>
-                                                    </li>
-                                                    <li><span><i class="fa fa-check"></i>Totam rem aperiam eaque
-                                                            ipsaquae</span></li>
-                                                    <li><span><i class="fa fa-check"></i>Inventore veritatis et quasi
-                                                            architecto</span></li>
-                                                    <li><span><i class="fa fa-check"></i>Beatae vitae dicsunt
-                                                            explicabo</span></li>
-                                                    <li><span><i class="fa fa-check"></i>Nemo enim ipsam voluptatem
-                                                            quia</span></li>
-                                                    <li><span><i class="fa fa-check"></i>Natus error site voluptatem
-                                                            accusantium</span></li>
-                                                    <li><span><i class="fa fa-check"></i>Doloremque laudantium</span>
-                                                    </li>
-                                                    <li><span><i class="fa fa-check"></i>Totam rem aperiam eaque
-                                                            ipsaquae</span></li>
-                                                </ul>
-                                                <figure class="sl-video__banner">
-                                                    <a class="sl-video__img" data-rel="prettyPhoto"
-                                                        href="https://youtu.be/XxxIEGzhIG8">
-                                                        <img src="images/product-single/img-video.jpg"
-                                                            alt="img description">
-                                                    </a>
-                                                </figure>
-                                                <div class="w-100">
-                                                    <p>Weuia voluptas sit aspernatur aut odit aut fugit, sed quia
-                                                        consequuntur magni dolores eostateums asdeyyqui ratione
-                                                        voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                                                        ipsum quia dolor sitam amet, sasctetur, adipisci velit, sed quia
-                                                        non numquam eius modi</p>
+                                                    <h4>Service Description</h4>
+                                                    <p><?php echo $service_details['description']; ?></p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="nav-faqs" role="tabpanel"
-                                        aria-labelledby="nav-faqs-tab">
-                                        <div class="sl-faqs">
-                                            <div class="sl-tab__text">
-                                                <h4>Booking Policy</h4>
-                                                <?php
-                                                $query_policy = "SELECT * FROM booking_policy WHERE vendor_ws_id = ?";
-                                                $stmt_policy = $conn->prepare($query_policy);
-                                                $stmt_policy->bind_param("i", $vw_id);
-                                                $stmt_policy->execute();
-                                                $result_policy = $stmt_policy->get_result();
-                                                if ($result_policy->num_rows > 0) {
-                                                    $policy_details = $result_policy->fetch_assoc();
-                                                    echo "<p>" . $policy_details['policy'] . "</p>";
-                                                } else {
-                                                    echo "<p>No policy found</p>";
-                                                }
-                                                ?>
+                                </div>
+                                <div class="tab-pane fade" id="nav-faqs" role="tabpanel" aria-labelledby="nav-faqs-tab">
+                                    <div class="sl-faqs">
+                                        <div class="sl-tab__text">
+                                            <h4>Booking Policy</h4>
+                                            <?php
+                                            $query_policy = "SELECT * FROM booking_policy WHERE vendor_ws_id = ?";
+                                            $stmt_policy = $conn->prepare($query_policy);
+                                            $stmt_policy->bind_param("i", $vw_id);
+                                            $stmt_policy->execute();
+                                            $result_policy = $stmt_policy->get_result();
+                                            if ($result_policy->num_rows > 0) {
+                                                $policy_details = $result_policy->fetch_assoc();
+                                                echo "<p>" . $policy_details['policy'] . "</p>";
+                                            } else {
+                                                echo "<p>No policy found</p>";
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -599,10 +510,10 @@ $service_details = $result->fetch_assoc();
     <!-- MAIN END -->
     <!-- FOOTER START -->
     <footer>
-        <?php include("footer.php"); ?>
+        <?php include "footer.php"; ?>
     </footer>
     <!-- FOOTER END -->
-    <?php include("down_link.php"); ?>
+    <?php include "down_link.php"; ?>
     <script src="js/vendor/prettyPhoto.js"></script>
 </body>
 

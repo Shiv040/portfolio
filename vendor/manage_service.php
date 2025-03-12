@@ -13,7 +13,6 @@ WHERE v.vender_id = '$vendor_id'";
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,14 +25,16 @@ WHERE v.vender_id = '$vendor_id'";
             selector: '#myTextarea',
             placeholder: 'Type here...'
         });
+        tinymce.init({
+            selector: '#myTextarea2',
+            placeholder: 'Type here...'
+        });
     </script>
 </head>
 
 <body>
-
     <!-- Page wrapper starts -->
     <div class="page-wrapper">
-
         <!-- Main container starts -->
         <div class="main-container">
 
@@ -160,7 +161,6 @@ WHERE v.vender_id = '$vendor_id'";
                                                                             } else {
                                                                                 ?>
                                                                                 <input type="hidden" name="h[]"
-                                                                                    value="<?php echo $vendor_ws_id; ?>"
                                                                                     value="<?php echo $vendor_ws_id; ?>">
                                                                                 <textarea id="myTextarea" class="form-control"
                                                                                     name="policy<?php echo $vendor_ws_id; ?>"
@@ -220,11 +220,38 @@ WHERE v.vender_id = '$vendor_id'";
                                                                                 aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <?php echo $row['description']; ?>
+                                                                        <input type="hidden" name="v[]"
+                                                                        value="<?php echo $vendor_ws_id; ?>">
+                                                                        <textarea id="myTextarea2" class="form-control"
+                                                                                    name="desc<?php echo $vendor_ws_id; ?>"
+                                                                                    rows="4"
+                                                                                    placeholder="Enter Service Description here..."></textarea>
+                                                                                
                                                                         </div>
                                                                         <div class="modal-footer">
+                                                                        <button type="submit" class="btn btn-primary"
+                                                                                name="btnAddDesc">Save Description</button>
+                                                                            
                                                                             <button type="button" class="btn btn-secondary"
                                                                                 data-bs-dismiss="modal">Close</button>
+
+                                                                                <button type="button" class="btn btn-danger" onclick="Swal.fire({
+                                                                                title: 'Are you sure?',
+                                                                                text: 'You won\'t be able to revert this!',
+                                                                                icon: 'warning',
+                                                                                showCancelButton: true,
+                                                                                confirmButtonColor: '#3085d6',
+                                                                                cancelButtonColor: '#d33',
+                                                                                confirmButtonText: 'Yes, delete it!'
+                                                                            }).then((result) => {
+                                                                                if (result.isConfirmed) {
+                                                                                    window.location.href='delete_description.php?vendor_ws_id=<?php echo $vendor_ws_id; ?>';
+                                                                                }
+                                                                            })">
+                                                                                Delete description
+                                                                            </button>
+
+                                                                               
                                                                         </div>
                                                                     </div>
                                                                 </div>

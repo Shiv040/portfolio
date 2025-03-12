@@ -12,39 +12,48 @@
 
     <?php
     // Database connection
-
+    
     session_start();
     include('../conn.php');
 
     $vendor_id = $_SESSION['vendor_id'];
-    if(isset($_POST['btnAddPolicy']))
-    {
-        foreach($_POST['h'] as $index)
-        {
-            $ws_id=$index;
-            $policy=$_POST['policy'.$index];
-            if($policy != "")
-            {
-            $sql = "SELECT policy_id FROM booking_policy WHERE vendor_ws_id = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("i", $ws_id);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result->num_rows > 0) {
-                // Update the existing record
-                $sql = "UPDATE booking_policy SET policy = ? WHERE vendor_ws_id = ?";
+    if (isset($_POST['btnAddDesc'])) {
+        foreach ($_POST['v'] as $index) {
+            $ws_id = $index;
+            $desc = $_POST['desc' . $index];
+            if ($desc != "") {
+                $sql = "UPDATE vendor_wise_services SET description = ? WHERE vendor_ws_id = ?";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("si", $policy, $ws_id);
-                $stmt->execute();
-            } else {
-                // Insert a new record
-                $sql = "INSERT INTO booking_policy (policy, vendor_ws_id) VALUES (?, ?)";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("si", $policy, $ws_id);
+                $stmt->bind_param("si", $desc, $ws_id);
                 $stmt->execute();
             }
         }
+    }
+    if (isset($_POST['btnAddPolicy'])) {
+        foreach ($_POST['h'] as $index) {
+            $ws_id = $index;
+            $policy = $_POST['policy' . $index];
+            if ($policy != "") {
+                $sql = "SELECT policy_id FROM booking_policy WHERE vendor_ws_id = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("i", $ws_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if ($result->num_rows > 0) {
+                    // Update the existing record
+                    $sql = "UPDATE booking_policy SET policy = ? WHERE vendor_ws_id = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("si", $policy, $ws_id);
+                    $stmt->execute();
+                } else {
+                    // Insert a new record
+                    $sql = "INSERT INTO booking_policy (policy, vendor_ws_id) VALUES (?, ?)";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("si", $policy, $ws_id);
+                    $stmt->execute();
+                }
+            }
 
         }
     }
@@ -52,7 +61,7 @@
         foreach ($_POST['service_id'] as $index => $service_id) {
             if ($_FILES['cover_image' . $service_id]['size'] > 0) {
                 //print_r($_FILES['cover_image' . $service_id]);
-
+    
 
 
                 $target_dir = "cover_image/";
@@ -61,7 +70,7 @@
 
                 move_uploaded_file($_FILES['cover_image' . $service_id]["tmp_name"], $target_file);
 
-                
+
                 // Update the cover image in the database
                 $sql = "UPDATE vendor_wise_services
                 SET cover_image = ? WHERE service_id = ? AND vender_id = ?";
@@ -69,7 +78,7 @@
                 $stmt->bind_param("sii", $target_file, $service_id, $vendor_id);
                 $stmt->execute();
 
-               
+
 
                 $stmt->close();
                 $conn->close();

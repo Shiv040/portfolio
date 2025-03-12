@@ -22,6 +22,7 @@ $result = $conn->query($sql);
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Business Name</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,6 +37,9 @@ $result = $conn->query($sql);
                                 <td>{$row['email']}</td>
                                 <td>{$row['mobile_number']}</td>
                                 <td>{$bname}</td>
+                                <td>
+                                    <a href='view_vendor.php?vender_id={$row['vender_id']}' class='btn btn-primary'>View More</a>
+                                </td>
                               </tr>";
                               $i++;
                     }
