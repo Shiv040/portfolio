@@ -109,7 +109,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="sl-footerCenter__logoSection">
-                            <a href="javascript:void(0);"><img src="images/index/footer/footer-logo.png" alt="Image Description"></a>
+                            <a href="javascript:void(0);"><img src="images/index/footer/footer1.logo.jpg" alt="Image Description" width="100" height="50"></a>
                             <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt labore etolore magna aliqua enim adena minim veniam quistane nostrud catate ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             <ul class="sl-brands">
                                 <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
