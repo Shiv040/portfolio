@@ -4,7 +4,7 @@ include 'conn.php';
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 }
-$vw_id = $_GET['vwid'];
+$vw_id = filter_input(INPUT_GET, 'vwid', FILTER_SANITIZE_NUMBER_INT);
 
 $query = "SELECT vs.description, vs.price, vs.cover_image, s.service_name 
     FROM vendor_wise_services vs 
@@ -89,11 +89,8 @@ $service_details = $result->fetch_assoc();
                                     </div>
                                 </div>
 
-
                                 <div class="sl-product__stock">
-
                                     <div class="sl-product__stock--content">
-
                                         <a href="javascript:void(0);" class="btn sl-btn sl-cart-btn">Inquiry</a>
                                         <a href="javascript:void(0);" class="btn sl-btn sl-btn-active">Book Now</a>
                                     </div>
@@ -221,11 +218,12 @@ $service_details = $result->fetch_assoc();
                                         <div class="sl-productDescripton">
                                             <div class="sl-productDescripton__premium">
                                                 <div class="sl-productDescripton__text">
-                                                    <h4>Service Description</h4>
+                                                    <!--<h4>Service Description</h4>-->
                                                     <p><?php echo $service_details['description']; ?></p>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="nav-faqs" role="tabpanel" aria-labelledby="nav-faqs-tab">
@@ -386,13 +384,13 @@ $service_details = $result->fetch_assoc();
         </section>
         <section>
             <div class="container">
-                <div class="sl-sellerRecommend">
+                <na alidiv class="m adsl-sellerRecommend">
                     <h4>Seller Recommendations</h4>
                     <div class="row">
                         <div class="col-sm-6 col-lg-4 col-xl-3">
                             <div class="sl-featuredProducts--post">
                                 <figure>
-                                    <img src="images/index/featured-products/img-13.jpg" alt="Image Description">
+                                    <img src="images/index/featured-products/img-13.jpgontent" alt="Image Description">
                                     <figcaption>
                                         <div class="sl-slider__tags">
                                             <span class="sl-bg-red-orange">25% OFF</span>
@@ -407,7 +405,7 @@ $service_details = $result->fetch_assoc();
                                     <div class="sl-featuredProducts--post__price">
                                         <h5>$212.30</h5>
                                         <h6>$220.30</h6>
-                                    </div>
+                                           </div>
                                     <div class="sl-featureRating">
                                         <span class="sl-featureRating__stars"><span></span></span>
                                         <em>(1887 Feedback)</em>
@@ -437,7 +435,7 @@ $service_details = $result->fetch_assoc();
                                         <h6>$19.99</h6>
                                     </div>
                                     <div class="sl-featureRating">
-                                        <span class="sl-featureRating__stars"><span></span></span>
+                                        <span class="      sl-featureRating__stars"><span></span></span>
                                         <em>(1887 Feedback)</em>
                                     </div>
                                     <em>By: <a href="javascript:void(0);">Techsol Bros.</a></em>
