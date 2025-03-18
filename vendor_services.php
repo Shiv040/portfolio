@@ -242,7 +242,7 @@
                                             </figure>
                                             <div class="sl-featuredProducts--post__content">
                                                 <div class="sl-featuredProducts--post__title">
-                                                    <h6><?php echo $row['service_name']; ?></h6>
+                                                    <h6><?php echo strtoupper($row['service_name']); ?></h6>
                                                 </div>
                                                 <div class="sl-featuredProducts--post__price">
                                                     <h5>₹<?php echo $row['price']; ?></h5>

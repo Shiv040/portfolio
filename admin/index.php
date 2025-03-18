@@ -138,23 +138,29 @@
                             <h5 class="modal-title" id="vendorModalLabel">Vendor Details</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body">
+                            <div class="modal-body">
                             <?php
                             $vendor_data_sql = "SELECT v.email, v.name, v.mobile_number, vc.category_name 
-                                FROM vendor v 
-                                JOIN vendor_categories vc ON v.category_id = vc.category_id";
+                              FROM vendor v 
+                              JOIN vendor_categories vc ON v.category_id = vc.category_id
+                              ORDER BY vc.category_name";
                             $vendor_data_result = $conn->query($vendor_data_sql);
                             if ($vendor_data_result) {
                             echo "<table class='table table-striped'>";
                             echo "<thead><tr><th>Email</th><th>Name</th><th>Phone Number</th><th>Category Name</th></tr></thead>";
                             echo "<tbody>";
+                            $current_category = "";
                             while ($vendor_data = $vendor_data_result->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<td>" . htmlspecialchars($vendor_data['email']) . "</td>";
-                            echo "<td>" . htmlspecialchars($vendor_data['name']) . "</td>";
-                            echo "<td>" . htmlspecialchars($vendor_data['mobile_number']) . "</td>";
-                            echo "<td>" . htmlspecialchars($vendor_data['category_name']) . "</td>";
-                            echo "</tr>";
+                              if ($current_category != $vendor_data['category_name']) {
+                              $current_category = $vendor_data['category_name'];
+                              echo "<tr><td colspan='4' class='fw-bold'>" . htmlspecialchars($current_category) . "</td></tr>";
+                              }
+                              echo "<tr>";
+                              echo "<td>" . htmlspecialchars($vendor_data['email']) . "</td>";
+                              echo "<td>" . htmlspecialchars($vendor_data['name']) . "</td>";
+                              echo "<td>" . htmlspecialchars($vendor_data['mobile_number']) . "</td>";
+                              echo "<td>" . htmlspecialchars($vendor_data['category_name']) . "</td>";
+                              echo "</tr>";
                             }
                             echo "</tbody>";
                             echo "</table>";
@@ -163,11 +169,11 @@
                             // Optionally, log or display error here
                             }
                             ?>
-                          
+                            </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                           </div>
-                          </div>
+                          
                         </div>
                         </div>
                   </div>
