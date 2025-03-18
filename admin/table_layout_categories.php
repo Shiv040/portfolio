@@ -109,7 +109,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Category Name</th>
-                                        <th>Total Vendor</th>
+                                        <th>Number of Vendor</th>
                                         <th>Description</th>
                                         <th>Options</th>
                                     </tr>
@@ -121,6 +121,7 @@
                                             <td><?php echo $i++; ?></td>
                                             <td><?php echo htmlspecialchars($category['category_name']); ?></td>
                                             <td>
+                                                
                                                 <button data-bs-toggle="modal" data-bs-target="#viewMembersModal"
                                                     data-cat-id="<?php echo htmlspecialchars($category['category_id']); ?>">
                                                     <?php echo htmlspecialchars($category['vendor_count']); ?>
