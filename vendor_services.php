@@ -206,7 +206,7 @@
 
                                 <?php
                                     $cat_id=$_GET['category_id'];
-                                    $query = "SELECT price, status, v.vender_id, name, service_name, cover_image,vs.vendor_ws_id
+                                    $query = "SELECT price, vs.status, v.vender_id, name, service_name, cover_image,vs.vendor_ws_id
                                               FROM vendor_wise_services vs 
                                               JOIN vendor v ON vs.vender_id = v.vender_id 
                                               JOIN service s ON s.service_id = vs.service_id

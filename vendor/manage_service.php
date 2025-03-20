@@ -132,7 +132,7 @@ WHERE v.vender_id = '$vendor_id'";
                                                                 View Policy
                                                             </button>
 
-                                                            <!-- Policy Modal -->
+                                                            <!-- Policy Modal --> 
                                                             <div class="modal fade"
                                                                 id="policyModal<?php echo $service_id; ?>" tabindex="-1"
                                                                 aria-labelledby="policyModalLabel<?php echo $service_id; ?>"
@@ -230,7 +230,15 @@ WHERE v.vender_id = '$vendor_id'";
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                         <button type="submit" class="btn btn-primary"
-                                                                                name="btnAddDesc">Save Description</button>
+                                                                                name="btnAddDesc" onclick="Swal.fire({
+                                                                                    icon: 'success',
+                                                                                    title: 'Saved!',
+                                                                                    text: 'Description has been saved successfully.'
+                                                                                }).then((result) => {
+                                                                                    if (result.isConfirmed) {
+                                                                                        window.location.href='manage_service.php';
+                                                                                    }
+                                                                                })">Save Description</button>
                                                                             
                                                                             <button type="button" class="btn btn-secondary"
                                                                                 data-bs-dismiss="modal">Close</button>
@@ -302,7 +310,22 @@ WHERE v.vender_id = '$vendor_id'";
                                                             } else {
                                                                 ?>
                                                                 <img src="<?php echo $cover_image; ?>" alt="cover image"
-                                                                    width="100" height="100" />
+                                                                    width="100" height="100" /><br/><br/>
+                                                                <button type="button" class="btn btn-danger" onclick="Swal.fire({
+                                                                    title: 'Are you sure?',
+                                                                    text: 'You won\'t be able to revert this!',
+                                                                    icon: 'warning',
+                                                                    showCancelButton: true,
+                                                                    confirmButtonColor: '#3085d6',
+                                                                    cancelButtonColor: '#d33',
+                                                                    confirmButtonText: 'Yes, delete it!'
+                                                                }).then((result) => {
+                                                                    if (result.isConfirmed) {
+                                                                        window.location.href='delete_service_image.php?vendor_ws_id=<?php echo $vendor_ws_id; ?>';
+                                                                    }
+                                                                })">
+                                                                    Delete Image
+                                                                </button>
                                                                 <?php
                                                             }
                                                             ?>

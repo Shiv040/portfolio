@@ -68,8 +68,7 @@ $vendor_id = $service_details['vender_id'];
                             <div id="sl-sync1" class="sl-product__img owl-carousel owl-theme">
                                 <div class="sl-item item">
                                     <figure>
-                                        <img src="vendor/<?php echo $service_details['cover_image']; ?>"
-                                            alt="Image Description">
+                                        <img src="vendor/<?php echo $service_details['cover_image']; ?>" alt="Image Description" style="width:100%; height:auto; max-height:500px;">
                                     </figure>
                                 </div>
 
@@ -127,7 +126,8 @@ $vendor_id = $service_details['vender_id'];
                         <form action="inquiry.php" method="post">
                             
                         <div class="modal-body">
-                                <div class="form-group">
+                            <input type="hidden" name="vendor_id" value="<?php echo $vendor_id;?>">
+                            <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" value="<?php echo $user_details['name'];?>" readonly>
                                 </div>

@@ -66,17 +66,19 @@ if ($vendor_details && isset($vendor_details[0])) {
                             </div>
                             <div class="sl-widget__content">
                                 <ul class="sl-widget__categories">
+                                    
                                     <?php if (!empty($services)) : ?>
                                         <?php foreach ($services as $service) : ?>
-                                            <li>
-                                                <a href="javascript:void(0)"><?php echo htmlspecialchars($service['service_name']); ?>
-                                                    <span><?php echo htmlspecialchars($service['price']); ?></span></a>
-                                            </li>
+                                            <?php if (!empty($service['price'])) : ?>
+                                                <li>
+                                                    <a href="javascript:void(0)"><?php echo htmlspecialchars($service['service_name']); ?>
+                                                        <span><?php echo htmlspecialchars($service['price']); ?></span></a>
+                                                </li>
+                                            <?php endif; ?>
                                         <?php endforeach; ?>
                                     <?php else : ?>
                                         <li>No services available</li>
                                     <?php endif; ?>
-                                    
                                 </ul>
                             </div>
                         </div>

@@ -3,7 +3,7 @@
         <nav class="nav">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-productDescription-tab" data-toggle="tab" href="#nav-productDescription" role="tab" aria-controls="nav-productDescription" aria-selected="true">Product Description</a>
-                <a class="nav-item nav-link" id="nav-faqs-tab" data-toggle="tab" href="#nav-faqs" role="tab" aria-controls="nav-faqs" aria-selected="true">Policys</a>
+                <a class="nav-item nav-link" id="nav-faqs-tab" data-toggle="tab" href="#nav-faqs" role="tab" aria-controls="nav-faqs" aria-selected="true">Policies </a>
                 <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-controls="nav-reviews" aria-selected="true">Reviews</a>
             </div>
         </nav>
