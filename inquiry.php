@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             text: 'Your inquiry has been generated successfully!'
             }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = 'list_inquiry.php';
+                window.location.href = 'ist_of_inquiry.php?status=0';
             }
             });
         </script>";

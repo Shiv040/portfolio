@@ -41,7 +41,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
         <?php
-            $api_url = 'http://localhost/UTSAV_HUB/api/list_inquiry.php';
+            $api_url = 'http://localhost/UTSAV_HUB/api/list_inquiry.php?user_id='.$user_id;
             $response = file_get_contents($api_url);
             $inquiries = json_decode($response, true);
         ?>

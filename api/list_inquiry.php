@@ -2,7 +2,9 @@
 include('../conn.php');
 header('Content-Type: application/json');
 $vendor_id = isset($_GET['vendor_id']) ? intval($_GET['vendor_id']) : 0;
+$user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : 0;
 $where = $vendor_id > 0 ? " WHERE `vender_id` = $vendor_id" : "";
+$where = $user_id > 0 ? " WHERE `user_id` = $user_id" : "";
 $sql = "SELECT `id`,service_name,user_id,`name`, `email`, `phone_number`, `vender_id`, `other_fields`, `created_at`,i.status
  FROM `inquiry` i 
  join service s 

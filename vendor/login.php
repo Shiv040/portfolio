@@ -62,7 +62,7 @@
         </div>
       <hr/>
         <div class="d-flex justify-content-between mb-4">
-        <a href="forgotpassword.php" class="text-decoration-underline small">Forgot password?</a>
+        <a href="Reset_password.php" class="text-decoration-underline small">Forget password?</a>
         </div>
 
         <div class="mb-2 d-grid">
