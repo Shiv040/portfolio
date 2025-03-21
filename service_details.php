@@ -148,7 +148,9 @@ $vendor_id = $service_details['vender_id'];
                                 </div>
                                 <?php
                                 $file_name = 'inquiry_' . str_replace([' ', '/'], '_', strtolower($service_name)) . '.php';
-                                include($file_name);
+                                if (file_exists($file_name)) {
+                                    include($file_name);
+                                }
                                 ?>
                                 <div class="form-group">
                                     <label for="other_info">Other Information(Optional)</label>

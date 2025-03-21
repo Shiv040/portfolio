@@ -131,7 +131,7 @@
                             <i class="ti-layers"></i><span>Packages Status</span>
                         </a>
                         <ul class="sub-menu">
-                            <li><a href="dashboard-buy-package.html">Running Packages</a></li>
+                            <li><a href="package.php">Running Packages</a></li>
                             <li><a href="dashboard-all-payouts.html">Package History</a></li>
                         </ul>
                     </li>

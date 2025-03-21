@@ -62,10 +62,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($inquiries as $inquiry): ?>
+                    <?php $i=1;
+                    foreach ($inquiries as $inquiry):
+                        
+                         ?>
                         <?php if ($inquiry['status'] == $_GET['status']): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($inquiry['id']); ?></td>
+                        <td><?php echo htmlspecialchars($inquiry['id']); ?></td>
                             <td><?php echo htmlspecialchars($inquiry['service_name']); ?></td>
                             <td><?php echo htmlspecialchars($inquiry['name']); ?></td>
                             <td><?php echo htmlspecialchars($inquiry['email']); ?></td>
@@ -109,14 +112,17 @@
                                         echo 'Pending';
                                     } else {
                                         if ($inquiry['status'] == 1) {
-                                            echo '<button class="btn btn-success">Add into Package</button>';
+                                            echo '<a href="send_to_package.php?id=' . $inquiry['id'] . '" class="btn btn-success" onclick="showAlert()">Add into Package</a>';
                                         }
+                                        ?>
+                                        <?php
                                     }
                                 ?>
                             </td>
                         </tr>
                     <?php endif; ?>
-                    <?php endforeach; ?>
+
+                    <?php $i++; endforeach; ?>
                 </tbody>
             </table>
         </div>
