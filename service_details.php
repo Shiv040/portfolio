@@ -12,7 +12,7 @@ if (isset($_SESSION['user_id'])) {
 }
 $vw_id = filter_input(INPUT_GET, 'vwid', FILTER_SANITIZE_NUMBER_INT);
 
-$query = "SELECT vender_id,vs.description, vs.price, vs.cover_image, s.service_name 
+$query = "SELECT vender_id,vs.description, vs.price, vs.cover_image, s.service_name,s.service_id
     FROM vendor_wise_services vs 
     join service s 
     on s.service_id=vs.service_id
@@ -22,6 +22,7 @@ $stmt->bind_param("i", $vw_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $service_details = $result->fetch_assoc();
+$service_id = $service_details['service_id'];
 $vendor_id = $service_details['vender_id'];
 
 ?>
@@ -114,8 +115,7 @@ $vendor_id = $service_details['vender_id'];
                 </div>
             </div>
             <!-- Modal -->
-            <div class="modal fade" id="inquiryModal" tabindex="-1" role="dialog" aria-labelledby="inquiryModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+            <div class="modal fade bd-example-modal-lg" id="inquiryModal" tabindex="-1" role="dialog" aria-labelledby="inquiryModalLabel" aria-hidden="true"><div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="inquiryModalLabel">Inquiry for <?php echo $service_name=$service_details['service_name'];?></h5>
@@ -127,6 +127,7 @@ $vendor_id = $service_details['vender_id'];
                             
                         <div class="modal-body">
                             <input type="hidden" name="vendor_id" value="<?php echo $vendor_id;?>">
+                            <input type="hidden" name="service_id" value="<?php echo $service_id;?>">
                             <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" value="<?php echo $user_details['name'];?>" readonly>
@@ -150,7 +151,7 @@ $vendor_id = $service_details['vender_id'];
                                 include($file_name);
                                 ?>
                                 <div class="form-group">
-                                    <label for="other_info">Other Information</label>
+                                    <label for="other_info">Other Information(Optional)</label>
                                     <textarea class="form-control" id="other_info" name="other_info" placeholder="Enter any other information"></textarea>
                                 </div>
                         </div>

@@ -18,15 +18,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email=$_POST['email'];
     $phone=$_POST['phone'];
     $vendor_id=$_POST['vendor_id'];
+    $service_id=$_POST['service_id'];
     $data = $_POST;
     unset($data['name'], $data['email'], $data['phone'], $data['vendor_id']);
     $other_fields = json_encode($data);
     $created_at = date('Y-m-d');
 
-    $sql = "INSERT INTO inquiry (name, email, phone_number, vender_id, other_fields, created_at) VALUES 
-    (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO inquiry (name, email, phone_number, vender_id,service_id, other_fields, created_at) VALUES 
+    (?, ?, ?, ?, ?, ?,?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssss", $name, $email, $phone, $vendor_id, $other_fields, $created_at);
+    $stmt->bind_param("sssssss", $name, $email, $phone, $vendor_id,$service_id, $other_fields, $created_at);
 
     if ($stmt->execute()) {
         echo "<script>

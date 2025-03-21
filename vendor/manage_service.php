@@ -101,11 +101,13 @@ WHERE v.vender_id = '$vendor_id'";
                                                         $price = 0;
                                                         $status = 0;
                                                         $cover_image = "";
+                                                        $description = "";
                                                     } else {
                                                         $vendor_ws_id = $row2['vendor_ws_id'];
                                                         $cover_image = $row2['cover_image'];
                                                         $price = $row2['price'];
                                                         $status = $row2['status'];
+                                                        $description = $row2['description'];
                                                     }
 
                                                     ?>
@@ -225,20 +227,14 @@ WHERE v.vender_id = '$vendor_id'";
                                                                         <textarea id="myTextarea2" class="form-control"
                                                                                     name="desc<?php echo $vendor_ws_id; ?>"
                                                                                     rows="4"
-                                                                                    placeholder="Enter Service Description here..."></textarea>
+                                                                                    placeholder="Enter Service Description here...">
+                                                                                  
+                                                                                </textarea>
                                                                                 
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                         <button type="submit" class="btn btn-primary"
-                                                                                name="btnAddDesc" onclick="Swal.fire({
-                                                                                    icon: 'success',
-                                                                                    title: 'Saved!',
-                                                                                    text: 'Description has been saved successfully.'
-                                                                                }).then((result) => {
-                                                                                    if (result.isConfirmed) {
-                                                                                        window.location.href='manage_service.php';
-                                                                                    }
-                                                                                })">Save Description</button>
+                                                                                name="btnAddDesc">Save Description</button>
                                                                             
                                                                             <button type="button" class="btn btn-secondary"
                                                                                 data-bs-dismiss="modal">Close</button>

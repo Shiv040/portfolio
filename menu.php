@@ -47,6 +47,6 @@
         <a href="vendor-single.html">Vendor Products</a>
     </li>
     <li class="nav-item <?php echo ($current_page == 'contact.html') ? 'sl-navactive' : ''; ?>">
-        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="contact.php">Contact</a>
     </li>
 </ul>
