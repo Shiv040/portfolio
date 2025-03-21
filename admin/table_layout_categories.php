@@ -109,18 +109,24 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Category Name</th>
-                                        <th>Total Vendor</th>
+                                        <th>Number of Vendor</th>
                                         <th>Description</th>
                                         <th>Options</th>
+                                        <th>Enable/Disable</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $i = 1;
-                                    foreach ($categories as $category) { ?>
+                                    <?php
+                                    $i = 1;
+                                    foreach ($categories as $category) {
+                                        $category_id = $category['category_id'];
+                                        $status = $category['status'];
+                                        ?>
                                         <tr>
                                             <td><?php echo $i++; ?></td>
                                             <td><?php echo htmlspecialchars($category['category_name']); ?></td>
                                             <td>
+
                                                 <button data-bs-toggle="modal" data-bs-target="#viewMembersModal"
                                                     data-cat-id="<?php echo htmlspecialchars($category['category_id']); ?>">
                                                     <?php echo htmlspecialchars($category['vendor_count']); ?>
@@ -142,7 +148,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -172,6 +179,14 @@
                                                                 href="view_service.php?cat_id=<?php echo htmlspecialchars($category['category_id']); ?>">View
                                                                 Services</a></li>
                                                     </ul>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-check form-switch m-0">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="chk<?php echo $category_id; ?>" role="switch"
+                                                        name="status<?php echo $category_id; ?>" <?php if ($status == 1) echo "checked"; ?>
+                                                        onclick="confirmStatusChange(<?php echo $category_id; ?>, this.checked);" />
                                                 </div>
                                             </td>
                                         </tr>
@@ -257,6 +272,28 @@
             // alert(categoryId);
             $('#categoryId').val(categoryId);
         });
+    </script>
+    <script>
+        function confirmStatusChange(categoryId, isChecked) {
+            //alert(categoryId);
+            //alert(isChecked);
+            var status = isChecked ? 1 : 0;
+            if (confirm('Are you sure you want to change the status?')) {
+                $.ajax({
+                    url: 'update_status.php',
+                    type: 'POST',
+                    data: { category_id: categoryId, status: status },
+                    success: function(response) {
+                        alert('Status updated successfully.');
+                    },
+                    error: function() {
+                        alert('Failed to update status.');
+                    }
+                });
+            } else {
+                document.getElementById('chk' + categoryId).checked = !isChecked;
+            }
+        }
     </script>
 </body>
 

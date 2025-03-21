@@ -43,11 +43,13 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Service List</title>
     <style>
         body {
@@ -81,7 +83,8 @@ mysqli_close($conn);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px 16px;
             text-align: left;
         }
@@ -127,38 +130,48 @@ mysqli_close($conn);
         }
     </style>
 </head>
+
 <body>
     <div class="container">
+
+
         <h1><i class="bi bi-list-task"></i> Service List</h1>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Service ID</th>
+                        <th>#</th>
                         <th>Service Name</th>
-                        <th>Category ID</th>
+                        <th>Service Provider</th>
                         <th>Description</th>
-                        <th>Category Name</th>
                         <th>Update</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (isset($services) && is_array($services) && !isset($services['message'])): ?>
-                        <?php foreach ($services as $service): ?>
+                        <?php
+                        $i = 1;
+                        foreach ($services as $service):
+                            ?>
                             <tr>
-                                <td><?= htmlspecialchars($service['service_id']) ?></td>
+                                <td><?= $i++; ?></td>
                                 <td><?= htmlspecialchars($service['service_name']) ?></td>
-                                <td><?= htmlspecialchars($service['category_id']) ?></td>
-                                <td><?= htmlspecialchars($service['description']) ?></td>
-                                <td><?= htmlspecialchars($service['category_name']) ?></td>
                                 <td>
-                                    <a href="update_service.php?service_id=<?= $service['service_id'] ?>&cat_id=<?= $category_id ?>" class="btn btn-update btn-custom" title="Update">
+                                    <button class="btn btn-info btn-custom" title="View More" data-bs-toggle="modal" data-bs-target="#serviceModal">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </td>
+                                <td><?= htmlspecialchars($service['description']) ?></td>
+                                <td>
+                                    <a href="update_service.php?service_id=<?= $service['service_id'] ?>&cat_id=<?= $category_id ?>"
+                                        class="btn btn-update btn-custom" title="Update">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <form method="GET" action="" onsubmit="return confirm('Are you sure you want to delete this service?');">
+                                    <form method="GET" action=""
+                                        onsubmit="return confirm('Are you sure you want to delete this service?');">
                                         <input type="hidden" name="cat_id" value="<?= $category_id ?>">
                                         <input type="hidden" name="service_id" value="<?= $service['service_id'] ?>">
                                         <button type="submit" name="delete" class="btn btn-delete btn-custom" title="Delete">
@@ -176,6 +189,46 @@ mysqli_close($conn);
                 </tbody>
             </table>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="serviceModalLabel">Service Provider Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Service provider details will be loaded here dynamically -->
+                        <table class="table table-bordered" id="serviceProviderDetails">
+
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+        <script>
+            document.querySelectorAll('.btn-info').forEach(button => {
+                button.addEventListener('click', function () {
+                    const serviceId = this.closest('tr').querySelector('input[name="service_id"]').value;
+                    //alert(serviceId);
+                    $.ajax({
+                        url: 'view_vendors.php',
+                        type: 'GET',
+                        data: { serviceId: serviceId },
+                        success: function (response) {
+                            //alert(response);
+                            $('#serviceProviderDetails').html(response);
+                        }
+                    });
+                });
+            });
+        </script>
     </div>
 </body>
+
 </html>

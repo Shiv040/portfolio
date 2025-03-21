@@ -112,12 +112,12 @@
                     
                     <li class="menu-item-has-children page_item_has_children">
                         <a href="javascript:void(0);" class="sl-notification sl-noticolor1">
-                            <i class="ti-star"></i><span>Manage Booking</span>
+                            <i class="ti-star"></i><span>Manage Inquiry</span>
                         </a>
                         <ul class="sub-menu">
-                            <li><a href="order_booking.php">Pending</a></li>
-                            <li><a href="order_booking.php">Success</a></li>
-                            <li><a href="order_booking.php">Cancel/Reject</a></li>
+                            <li><a href="list_of_inquiry.php?status=0">Pending</a></li>
+                            <li><a href="list_of_inquiry.php?status=1">Success</a></li>
+                            <li><a href="list_of_inquiry.php?status=2">Cancel/Reject</a></li>
                             
                         </ul>
                     </li>

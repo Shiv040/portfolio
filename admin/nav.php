@@ -31,9 +31,7 @@
                     <li>
                         <a href="list_vendor.php?status=2">Reject</a>
                     </li>
-                    <li>
-                        <a href="list_vendor.php?status=3">Premium</a>
-                    </li>
+                   
                     <li>
                         <a href="vendor_categories.php">Categories</a>
                     </li>

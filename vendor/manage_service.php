@@ -101,11 +101,13 @@ WHERE v.vender_id = '$vendor_id'";
                                                         $price = 0;
                                                         $status = 0;
                                                         $cover_image = "";
+                                                        $description = "";
                                                     } else {
                                                         $vendor_ws_id = $row2['vendor_ws_id'];
                                                         $cover_image = $row2['cover_image'];
                                                         $price = $row2['price'];
                                                         $status = $row2['status'];
+                                                        $description = $row2['description'];
                                                     }
 
                                                     ?>
@@ -132,7 +134,7 @@ WHERE v.vender_id = '$vendor_id'";
                                                                 View Policy
                                                             </button>
 
-                                                            <!-- Policy Modal -->
+                                                            <!-- Policy Modal --> 
                                                             <div class="modal fade"
                                                                 id="policyModal<?php echo $service_id; ?>" tabindex="-1"
                                                                 aria-labelledby="policyModalLabel<?php echo $service_id; ?>"
@@ -225,7 +227,9 @@ WHERE v.vender_id = '$vendor_id'";
                                                                         <textarea id="myTextarea2" class="form-control"
                                                                                     name="desc<?php echo $vendor_ws_id; ?>"
                                                                                     rows="4"
-                                                                                    placeholder="Enter Service Description here..."></textarea>
+                                                                                    placeholder="Enter Service Description here...">
+                                                                                  
+                                                                                </textarea>
                                                                                 
                                                                         </div>
                                                                         <div class="modal-footer">
@@ -309,7 +313,22 @@ WHERE v.vender_id = '$vendor_id'";
                                                             } else {
                                                                 ?>
                                                                 <img src="<?php echo $cover_image; ?>" alt="cover image"
-                                                                    width="100" height="100" />
+                                                                    width="100" height="100" /><br/><br/>
+                                                                <button type="button" class="btn btn-danger" onclick="Swal.fire({
+                                                                    title: 'Are you sure?',
+                                                                    text: 'You won\'t be able to revert this!',
+                                                                    icon: 'warning',
+                                                                    showCancelButton: true,
+                                                                    confirmButtonColor: '#3085d6',
+                                                                    cancelButtonColor: '#d33',
+                                                                    confirmButtonText: 'Yes, delete it!'
+                                                                }).then((result) => {
+                                                                    if (result.isConfirmed) {
+                                                                        window.location.href='delete_service_image.php?vendor_ws_id=<?php echo $vendor_ws_id; ?>';
+                                                                    }
+                                                                })">
+                                                                    Delete Image
+                                                                </button>
                                                                 <?php
                                                             }
                                                             ?>

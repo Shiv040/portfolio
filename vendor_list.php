@@ -18,6 +18,18 @@
             $categories = json_decode($json, true);
 
             for ($i = 0; $i < count($categories); $i++) {
+                if ($categories[$i]['status'] == 0) {
+                    echo '<div class="sl-col sl-col-sm-1-of-2 sl-col-md-1-of-3 sl-col-lg-1-of-4 sl-col-xl-1-of-5">';
+                    echo '    <div class="sl-category__service">';
+                    echo '        <img src="utsav_hub/' . $categories[$i]['category_image'] . '" alt="image Description" style="width: 100px; height: 100px;">';
+                    echo '        <div class="sl-category__description">';
+                    echo '            <h5>' . $categories[$i]['category_name'] . '</h5>';
+                    echo '            <span>This service is stopped by admin</span>';
+                    echo '        </div>';
+                    echo '    </div>';
+                    echo '</div>';
+                    continue;
+                }
                 echo '<div class="sl-col sl-col-sm-1-of-2 sl-col-md-1-of-3 sl-col-lg-1-of-4 sl-col-xl-1-of-5">';
                 echo '    <div class="sl-category__service">';
                 echo '        <img src="utsav_hub/' . $categories[$i]['category_image'] . '" alt="image Description" style="width: 100px; height: 100px;">';

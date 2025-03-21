@@ -28,6 +28,12 @@
                 <span class="menu-text">Manage Album</span>
             </a>
         </li>
+        <li>
+            <a href="manage_inquiry.php">
+                <i class="bi bi-question-circle"></i>
+                <span class="menu-text">Inquiry</span>
+            </a>
+        </li>
     </ul>
 </div>
 <!-- Sidebar menu ends -->

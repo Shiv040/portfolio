@@ -28,6 +28,18 @@
                 $stmt->execute();
             }
         }
+        echo "<script>
+            Swal.fire({
+                title: 'Success!',
+                text: 'Description added successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'manage_service.php';
+                }
+            });
+        </script>";
     }
     if (isset($_POST['btnAddPolicy'])) {
         foreach ($_POST['h'] as $index) {

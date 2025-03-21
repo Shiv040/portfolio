@@ -1,63 +1,7 @@
-<!--<section class="sl-footer-section sl-footerUpper">
-            <div class="container">-->
+<section class="sl-footer-section sl-footerUpper">
+            <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <ul>
-                            <li>
-                                <h6>Listings By Skills</h6>
-                                <a href="javascript:void(0);">Show All</a>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">Art & Design</a></p>
-                                <span>(58553)</span>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">Web & Development</a></p>
-                                <span>(85651)</span>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">Search Engine Optimazation</a></p>
-                                <span>(45324)</span>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">Law and Finance</a></p>
-                                <span>(3255688)</span>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">Marketing & Management</a></p>
-                                <span>(12456)</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
-                        <ul class="sl-footerUpper__flags">
-                            <li>
-                                <h6>Listings By Location</h6>
-                                <a href="javascript:void(0);">Show All</a>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);"><img src="images/index/footer/flags/img-01.jpg" alt="Image Description">New York</a></p>
-                                <span>(58553)</span>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);"><img src="images/index/footer/flags/img-02.jpg" alt="Image Description">United Emirated</a></p>
-                                <span>(85651)</span>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);"><img src="images/index/footer/flags/img-03.jpg" alt="Image Description">Rome</a></p>
-                                <span>(45324)</span>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);"><img src="images/index/footer/flags/img-04.jpg" alt="Image Description">United Kingdom</a></p>
-                                <span>(3255688)</span>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);"><img src="images/index/footer/flags/img-05.jpg" alt="Image Description">Canada</a></p>
-                                <span>(12456)</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <div class="col-sm-6 col-lg-6 col-xl-6">
                         <ul class="sl-footerUpper__links">
                             <li>
                                 <h6>For Vendors</h6>
@@ -79,7 +23,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <div class="col-sm-6 col-lg-6 col-xl-6">
                         <ul class="sl-footerUpper__links">
                             <li>
                                 <h6>Useful Links</h6>
@@ -109,7 +53,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="sl-footerCenter__logoSection">
-                            <a href="javascript:void(0);"><img src="images/index/footer/footer-logo.png" alt="Image Description"></a>
+                            <a href="javascript:void(0);"><img src="images/index/footer/footer1.logo.jpg" alt="Image Description" width="100" height="50"></a>
                             <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt labore etolore magna aliqua enim adena minim veniam quistane nostrud catate ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             <ul class="sl-brands">
                                 <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>

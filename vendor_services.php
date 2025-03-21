@@ -41,7 +41,7 @@
         <section class="sl-main-section">
             <div class="container">
                 <div class="sl-filters">
-                    <p><a href="javascript:void(0);">All Categories</a><i class="ti-angle-right"></i>"Graphic System" (104,823 Results)</p>
+                    <p><a href="javascript:void(0);">All Categories</a><i class="ti-angle-right"></i>"Service" (104,823 Results)</p>
                     <div class="sl-filters--sort">
                         <h6>Sort By:</h6>
                         <div class="sl-filters--sort__content">
@@ -206,7 +206,7 @@
 
                                 <?php
                                     $cat_id=$_GET['category_id'];
-                                    $query = "SELECT price, status, v.vender_id, name, service_name, cover_image,vs.vendor_ws_id
+                                    $query = "SELECT price, vs.status, v.vender_id, name, service_name, cover_image,vs.vendor_ws_id
                                               FROM vendor_wise_services vs 
                                               JOIN vendor v ON vs.vender_id = v.vender_id 
                                               JOIN service s ON s.service_id = vs.service_id
@@ -242,7 +242,7 @@
                                             </figure>
                                             <div class="sl-featuredProducts--post__content">
                                                 <div class="sl-featuredProducts--post__title">
-                                                    <h6><?php echo $row['service_name']; ?></h6>
+                                                    <h6><?php echo strtoupper($row['service_name']); ?></h6>
                                                 </div>
                                                 <div class="sl-featuredProducts--post__price">
                                                     <h5>₹<?php echo $row['price']; ?></h5>
