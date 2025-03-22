@@ -110,9 +110,6 @@
             </div>
         </section>
         <!-- STATS END -->
-        <!-- PACKAGES START -->
-        <?php include("package.php");?>
-        <!-- PACKAGES END -->
         <!-- FEEDBACK START -->
         <?php include("feedback.php");?>
         <!-- FEEDBACK END -->

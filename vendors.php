@@ -23,6 +23,12 @@ include('conn.php');
     <link rel="apple-touch-icon" href="apple-touch-icon.html">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
     <?php include('up_link.php'); ?>
+    <link rel="stylesheet" href="css/fullcalendar.min.css">
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/tipso.css">
+	<link rel="stylesheet" href="css/select2.min.css">
+	<link rel="stylesheet" href="css/prettyPhoto.css">
 </head>
 
 <body class="sl-home">
@@ -66,7 +72,7 @@ include('conn.php');
                                                 $services = json_decode($services_json, true);
                                                 foreach ($services as $service) {
                                                 ?>
-                                                    <li><a href="javascript:void(0);"><?php echo $service['service_name']; ?></a></li>
+                                                    <li><a href="vendor_services.php?category_id=<?php echo $service['category_id']; ?>"><?php echo $service['service_name']; ?></a></li>
                                                 <?php
                                                 }
                                                 ?>

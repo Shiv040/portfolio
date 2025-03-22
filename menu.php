@@ -25,7 +25,7 @@
                         foreach ($services as $service) {
                         ?>
                             <li>
-                                <a href="product-single.html" title="<?php echo $service['service_name']; ?>"><?php echo $service['service_name']; ?></a>
+                                <a href="vendor_services.php?category_id=<?php echo $service['category_id']; ?>" title="<?php echo $service['service_name']; ?>"><?php echo $service['service_name']; ?></a>
                             </li>
                         <?php
                         }

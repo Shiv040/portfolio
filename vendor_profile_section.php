@@ -5,6 +5,7 @@ $vendor_details = json_decode($response, true);
 
 if ($vendor_details && isset($vendor_details[0])) {
     $vendor = $vendor_details[0];
+    $vender_id = $vendor['vender_id'];
     $name = $vendor['name'];
     $logo= $vendor['logo'] ? $vendor['logo'] : 'images/blog-single/user-imgs/img-05.jpg';
     $profile_pic = $vendor['profile_pic'] ? $vendor['profile_pic'] : 'images/blog-single/user-imgs/img-05.jpg';
@@ -79,6 +80,31 @@ if ($vendor_details && isset($vendor_details[0])) {
                                     <?php else : ?>
                                         <li>No services available</li>
                                     <?php endif; ?>
+                                </ul>
+                            </div>
+                        </div>
+                                        
+                        <div class="sl-widget">
+                            <div class="sl-widget__title">
+                                <h3>Vendor's Work</h3>
+                            </div>
+                            <div class="sl-widget__content">
+                                <ul class="sl-widget__categories">
+                                    <?php
+                                    $work_album_query = "SELECT * FROM `vendor_work_album` WHERE vender_id=" . $vendor_id;
+                                    $work_album_result = mysqli_query($conn, $work_album_query);
+
+                                    if ($work_album_result && mysqli_num_rows($work_album_result) > 0) {
+                                        while ($work = mysqli_fetch_assoc($work_album_result)) {
+                                            echo '<li>';
+                                            echo '<a href="view_album.php?album_id=' . $work['album_id'] . '">' . htmlspecialchars($work['album_name']) . '</a>';
+                                            echo '</li>';
+                                        }
+                                    } else {
+                                        echo '<li>No work available</li>';
+                                    }
+                                    ?>
+                                    
                                 </ul>
                             </div>
                         </div>
