@@ -13,6 +13,8 @@
     
 <?php
 include('conn.php');
+session_start();
+$user_id = $_SESSION['user_id'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name=$_POST['name'];
     $email=$_POST['email'];
@@ -24,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $other_fields = json_encode($data);
     $created_at = date('Y-m-d');
 
-    $sql = "INSERT INTO inquiry (name, email, phone_number, vender_id,service_id, other_fields, created_at) VALUES 
-    (?, ?, ?, ?, ?, ?,?)";
+    $sql = "INSERT INTO inquiry (name, email, phone_number, vender_id,service_id, other_fields, created_at,user_id) VALUES 
+    (?, ?, ?, ?, ?, ?,?,?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssss", $name, $email, $phone, $vendor_id,$service_id, $other_fields, $created_at);
+    $stmt->bind_param("sssssssi", $name, $email, $phone, $vendor_id,$service_id, $other_fields, $created_at,$user_id);
 
     if ($stmt->execute()) {
         echo "<script>

@@ -68,6 +68,18 @@
             }
 
         }
+        echo "<script>
+            Swal.fire({
+                title: 'Success!',
+                text: 'Policy added successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'manage_service.php';
+                }
+            });
+        </script>";
     }
     if (isset($_POST['btnAddImage'])) {
         foreach ($_POST['service_id'] as $index => $service_id) {

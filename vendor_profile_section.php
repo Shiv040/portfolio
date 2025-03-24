@@ -97,7 +97,7 @@ if ($vendor_details && isset($vendor_details[0])) {
                                     if ($work_album_result && mysqli_num_rows($work_album_result) > 0) {
                                         while ($work = mysqli_fetch_assoc($work_album_result)) {
                                             echo '<li>';
-                                            echo '<a href="view_album.php?album_id=' . $work['album_id'] . '">' . htmlspecialchars($work['album_name']) . '</a>';
+                                            echo '<a target="_blank" href="view_album.php?album_id=' . $work['album_id'] . '">' . htmlspecialchars($work['album_name']) . '</a>';
                                             echo '</li>';
                                         }
                                     } else {

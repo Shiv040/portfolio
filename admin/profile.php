@@ -59,14 +59,16 @@ $conn->close();
 </head>
 <body>
 <div class="profile-container text-center">
-    <div class="profile-info">
-        <h3><?php echo $admin_name; ?></h3>
-        <p class="text-muted"><?php echo $email; ?></p>
+    <form>
+        <div class="profile-info"></div>
+            <h3><?php echo $admin_name; ?></h3>
+            <p class="text-muted"><?php echo $email; ?></p>
 
-        <div class="info-item">
+            <div class="info-item">
             <strong>Phone:</strong> <?php echo $mobile_number; ?>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

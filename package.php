@@ -63,7 +63,7 @@ include('conn.php');
                                               ON v.vender_id = i.vender_id
                                               join service s
                                               on s.service_id = i.service_id
-                                              WHERE vs.vender_id = i.vender_id AND i.status = 3";
+                                              WHERE vs.vender_id = i.vender_id AND i.status = 3 and i.user_id = $user_id";
                                     $result = mysqli_query($conn, $query);
                                     $total_price=0;
                                     if (mysqli_num_rows($result) > 0) {

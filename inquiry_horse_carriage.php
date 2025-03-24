@@ -15,3 +15,11 @@
         <option value="non-ac">Non-AC</option>
     </select>
 </div>
+
+<div class="form-group">
+    <label for="package">Package</label>
+    <select class="form-control" id="package" name="package">
+        <option value="basic">Basic Package (₹15000)</option>
+        <option value="premium">Premium Carriage (₹35000)</option>
+    </select>
+</div>

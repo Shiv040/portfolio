@@ -19,7 +19,7 @@
                                 <p><a href="javascript:void(0);">Download Vendor Catalog<i class="ti-angle-right"></i></a></p>
                             </li>
                             <li>
-                                <p><a href="javascript:void(0);">Vendor Regitration Process<i class="ti-angle-right"></i></a></p>
+                                <p><a href="Registation.php">Vendor Regitration Process<i class="ti-angle-right"></i></a></p>
                             </li>
                         </ul>
                     </div>
@@ -41,7 +41,7 @@
                                 <p><a href="javascript:void(0);">My Account<i class="ti-angle-right"></i></a></p>
                             </li>
                             <li>
-                                <p><a href="javascript:void(0);">Create New Account<i class="ti-angle-right"></i></a></p>
+                                <p><a href="Registation.php">Create New Account<i class="ti-angle-right"></i></a></p>
                             </li>
                         </ul>
                     </div>
@@ -54,7 +54,7 @@
                     <div class="col-lg-6">
                         <div class="sl-footerCenter__logoSection">
                             <a href="javascript:void(0);"><img src="images/index/footer/footer1.logo.jpg" alt="Image Description" width="100" height="50"></a>
-                            <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt labore etolore magna aliqua enim adena minim veniam quistane nostrud catate ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>From weddings to other events, we specialize in crafting memorable experiences tailored to your vision. Our dedicated team ensures seamless planning, stunning decor, and unforgettable moments.</p>
                             <ul class="sl-brands">
                                 <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="javascript:void(0);"><i class="fab fa-facebook-messenger"></i></a></li>
@@ -71,21 +71,21 @@
                                 <i class="fas fa-headphones-alt"></i>
                                 <div class="sl-footerCenter__contact__description">
                                     <p>24/7 Support:</p>
-                                    <h6><a href="javascript:void(0);">0800 12345 678</a></h6>
+                                    <h6><a href="javascript:void(0);">8866866104</a></h6>
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-envelope"></i>
                                 <div class="sl-footerCenter__contact__description">
                                     <p>Say Hello To Us</p>
-                                    <h6><a href="javascript:void(0);">Click Here to Contact Us</a></h6>
+                                    <h6><a href="contact_us.php">Click Here to Contact Us</a></h6>
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div class="sl-footerCenter__contact__description">
                                     <p>Our Active Location</p>
-                                    <h6><a href="javascript:void(0);">167 Airline Suite, 456GA3, UK</a></h6>
+                                    <h6><a href="javascript:void(0);">Ibc Pipload ,Surat</a></h6>
                                 </div>
                             </li>
                         </ul>
@@ -112,15 +112,8 @@
         <div class="sl-footerLower">
             <div class="container">
                 <div class="sl-footerLower__content">
-                    <p>Copyrights © 2019. All Rights Reserved by <a href="javascript:void(0);">Amentotech</a>.</p>
-                    <ul class="sl-payments">
-                        <li><a href="javascript:void(0);"><img src="images/index/footer/payments/img-01.jpg" alt="Image Description"></a></li>
-                        <li><a href="javascript:void(0);"><img src="images/index/footer/payments/img-02.jpg" alt="Image Description"></a></li>
-                        <li><a href="javascript:void(0);"><img src="images/index/footer/payments/img-03.jpg" alt="Image Description"></a></li>
-                        <li><a href="javascript:void(0);"><img src="images/index/footer/payments/img-04.jpg" alt="Image Description"></a></li>
-                        <li><a href="javascript:void(0);"><img src="images/index/footer/payments/img-05.jpg" alt="Image Description"></a></li>
-                        <li><a href="javascript:void(0);"><img src="images/index/footer/payments/img-06.jpg" alt="Image Description"></a></li>
-                    </ul>
+                    <p>Copyrights © 2025. All Rights Reserved by <a href="javascript:void(0);">Utsavhub</a>.</p>
+                    
                 </div>
             </div>
         </div>

@@ -245,7 +245,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="dashboard-profile-settings.html">
+                                <a href="vendor-profile.php">
                                     <i class="ti-user"></i><span>Profile Settings</span>
                                 </a>
                             </li>

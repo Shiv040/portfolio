@@ -13,6 +13,7 @@ WHERE v.vender_id = '$vendor_id'";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -134,7 +135,7 @@ WHERE v.vender_id = '$vendor_id'";
                                                                 View Policy
                                                             </button>
 
-                                                            <!-- Policy Modal --> 
+                                                            <!-- Policy Modal -->
                                                             <div class="modal fade"
                                                                 id="policyModal<?php echo $service_id; ?>" tabindex="-1"
                                                                 aria-labelledby="policyModalLabel<?php echo $service_id; ?>"
@@ -177,7 +178,8 @@ WHERE v.vender_id = '$vendor_id'";
                                                                                 name="btnAddPolicy">Save Policy</button>
                                                                             <button type="button" class="btn btn-secondary"
                                                                                 data-bs-dismiss="modal">Close</button>
-                                                                            <button type="button" class="btn btn-danger" onclick="Swal.fire({
+                                                                            <button type="button" class="btn btn-danger"
+                                                                                onclick="Swal.fire({
                                                                                 title: 'Are you sure?',
                                                                                 text: 'You won\'t be able to revert this!',
                                                                                 icon: 'warning',
@@ -222,24 +224,25 @@ WHERE v.vender_id = '$vendor_id'";
                                                                                 aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                        <input type="hidden" name="v[]"
-                                                                        value="<?php echo $vendor_ws_id; ?>">
-                                                                        <textarea id="myTextarea2" class="form-control"
-                                                                                    name="desc<?php echo $vendor_ws_id; ?>"
-                                                                                    rows="4"
-                                                                                    placeholder="Enter Service Description here...">
-                                                                                  
-                                                                                </textarea>
-                                                                                
+                                                                            <input type="hidden" name="v[]"
+                                                                                value="<?php echo $vendor_ws_id; ?>">
+                                                                            <textarea id="myTextarea2" class="form-control"
+                                                                                name="desc<?php echo $vendor_ws_id; ?>"
+                                                                                rows="4"
+                                                                                placeholder="Enter Service Description here...">
+
+                                                                                    </textarea>
+
                                                                         </div>
                                                                         <div class="modal-footer">
-                                                                        <button type="submit" class="btn btn-primary"
+                                                                            <button type="submit" class="btn btn-primary"
                                                                                 name="btnAddDesc">Save Description</button>
-                                                                            
+
                                                                             <button type="button" class="btn btn-secondary"
                                                                                 data-bs-dismiss="modal">Close</button>
 
-                                                                                <button type="button" class="btn btn-danger" onclick="Swal.fire({
+                                                                            <button type="button" class="btn btn-danger"
+                                                                                onclick="Swal.fire({
                                                                                 title: 'Are you sure?',
                                                                                 text: 'You won\'t be able to revert this!',
                                                                                 icon: 'warning',
@@ -255,7 +258,7 @@ WHERE v.vender_id = '$vendor_id'";
                                                                                 Delete description
                                                                             </button>
 
-                                                                               
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -287,34 +290,34 @@ WHERE v.vender_id = '$vendor_id'";
                                                                                     data-bs-dismiss="modal"
                                                                                     aria-label="Close"></button>
                                                                             </div>
-                                                                                <h5 class="modal-title"
-                                                                                    id="imageModalLabel<?php echo $service_id; ?>">
-                                                                                    delete Cover Image</h5>
-                                                                                <button type="button" class="btn-close"
-                                                                                    data-bs-dismiss="modal"
-                                                                                    aria-label="Close"></button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                <input type="file" class="form-control"
-                                                                                    name="cover_image<?php echo $service_id; ?>"
-                                                                                    accept="image/*">
-                                                                            </div>
-                                                                            <div class="modal-footer">
+                                                                            <h5 class="modal-title"
+                                                                                id="imageModalLabel<?php echo $service_id; ?>">
+                                                                                delete Cover Image</h5>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <input type="file" class="form-control"
+                                                                                name="cover_image<?php echo $service_id; ?>"
+                                                                                accept="image/*">
+                                                                        </div>
+                                                                        <div class="modal-footer">
 
-                                                                                <button type="button" class="btn btn-secondary"
-                                                                                    data-bs-dismiss="modal">Close</button>
-                                                                                <button type="submit" class="btn btn-primary"
-                                                                                    name="btnAddImage">Add Cover Image</button>
-                                                                            </div>
+                                                                            <button type="button" class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-primary"
+                                                                                name="btnAddImage">Add Cover Image</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <?php
+                                            </div>
+                                            <?php
                                                             } else {
                                                                 ?>
-                                                                <img src="<?php echo $cover_image; ?>" alt="cover image"
-                                                                    width="100" height="100" /><br/><br/>
-                                                                <button type="button" class="btn btn-danger" onclick="Swal.fire({
+                                            <img src="<?php echo $cover_image; ?>" alt="cover image" width="100"
+                                                height="100" /><br /><br />
+                                            <button type="button" class="btn btn-danger" onclick="Swal.fire({
                                                                     title: 'Are you sure?',
                                                                     text: 'You won\'t be able to revert this!',
                                                                     icon: 'warning',
@@ -327,55 +330,55 @@ WHERE v.vender_id = '$vendor_id'";
                                                                         window.location.href='delete_service_image.php?vendor_ws_id=<?php echo $vendor_ws_id; ?>';
                                                                     }
                                                                 })">
-                                                                    Delete Image
-                                                                </button>
-                                                                <?php
+                                                Delete Image
+                                            </button>
+                                            <?php
                                                             }
                                                             ?>
-                                                        </td>
-                                                        <td>
-                                                            <div class="form-check form-switch m-0">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="chk<?php echo $service_id; ?>" role="switch"
-                                                                    name="status<?php echo $service_id; ?>" value="1" <?php if ($status == 1)
-                                                                           echo "checked"; ?> />
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <?php
-                                                    $i++;
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch m-0">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="chk<?php echo $service_id; ?>" role="switch"
+                                                    name="status<?php echo $service_id; ?>" value="1" <?php if ($status == 1)
+                                                           echo "checked"; ?> />
+                                            </div>
+                                        </td>
+                                        </tr>
+                                        <?php
+                                        $i++;
                                                 }
                                                 ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    </tbody>
+                                    </table>
                                 </div>
-                                <!-- Buttons starts -->
-                                <div class="d-flex gap-2 justify-content-end">
-                                    <button type="button" class="btn btn-outline-primary" onclick="location.reload();">
-                                        Cancel
-                                    </button>
-                                    <button type="submit" class="btn btn-primary" name="btnU">
-                                        Update
-                                    </button>
-                                </div>
-                                <!-- Buttons ends -->
-                            </form>
                         </div>
+                        <!-- Buttons starts -->
+                        <div class="d-flex gap-2 justify-content-end">
+                            <button type="button" class="btn btn-outline-primary" onclick="location.reload();">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary" name="btnU">
+                                Update
+                            </button>
+                        </div>
+                        <!-- Buttons ends -->
+                        </form>
                     </div>
-                    <!-- Row ends -->
                 </div>
-                <!-- App body ends -->
-
-                <!-- App footer starts -->
-                <?php include "footer.php"; ?>
-                <!-- App footer ends -->
-
+                <!-- Row ends -->
             </div>
-            <!-- App container ends -->
+            <!-- App body ends -->
+
+            <!-- App footer starts -->
+            <?php include "footer.php"; ?>
+            <!-- App footer ends -->
 
         </div>
-        <!-- Main container ends -->
+        <!-- App container ends -->
+
+    </div>
+    <!-- Main container ends -->
 
     </div>
     <!-- Page wrapper ends -->

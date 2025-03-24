@@ -248,8 +248,10 @@
                                                     <h5>₹<?php echo $row['price']; ?></h5>
                                                 </div>
                                                 <div class="sl-featureRating">
+                                                    <a href="http://localhost/product-rating-system/index.php?ws_id=<?php echo $row['vendor_ws_id'];?>" target="_blank">
                                                     <span class="sl-featureRating__stars"><span></span></span>
                                                     <em>(1887 Feedback)</em>
+                                                    </a>
                                                 </div>
                                                 <em>By: <a href="javascript:void(0);"><?php echo $row['name']; ?></a></em>
                                                 <?php if(!isset($_SESSION['user_id'])){ ?>

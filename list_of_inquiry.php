@@ -62,13 +62,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i=1;
+                    <?php $i=1;$j=1;
                     foreach ($inquiries as $inquiry):
                         
                          ?>
-                        <?php if ($inquiry['status'] == $_GET['status']): ?>
+                        <?php if(($inquiry['status'] == $_GET['status'])&&($inquiry['user_id'])==$user_id): ?>
                         <tr>
-                        <td><?php echo htmlspecialchars($inquiry['id']); ?></td>
+                        <td><?php echo $j++; ?></td>
                             <td><?php echo htmlspecialchars($inquiry['service_name']); ?></td>
                             <td><?php echo htmlspecialchars($inquiry['name']); ?></td>
                             <td><?php echo htmlspecialchars($inquiry['email']); ?></td>
