@@ -10,9 +10,10 @@
                     <input class="form-control sl-form-control" type="text" placeholder="Search anything you want">
                 </div>
                 <div class="sl-form-group sl-main-form__input2">
-                    <input class="form-control sl-form-control" type="text" placeholder="Detect my location">
+                   <!-- <input class="form-control sl-form-control" type="text" placeholder="Detect my location">
                     <a href="javascript:void(0);" class="sl-right-icon sl-arrow-icon"><i class="ti-angle-down"></i></a>
                     <a href="javascript:void(0);" class="sl-right-icon"><i class="ti-target"></i></a>
+-->
                     <div class="sl-distance">
                         <div class="sl-distance__description">
                             <label for="amountfour">Distance:</label>

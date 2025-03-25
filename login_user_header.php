@@ -7,7 +7,7 @@
                 <em class="sl-bg-green">0</em>
             </span>
         </a>
-        <ul class="dropdown-menu sl-dropdown__menu sl-dropdown__notify" aria-labelledby="slMessages">
+        <!--<ul class="dropdown-menu sl-dropdown__menu sl-dropdown__notify" aria-labelledby="slMessages">
             <li class="nav-item">
                 <a href="javascript:void(0);" class="sl-unread-messages sl-dropdown__notify__text">
                     <i class="ti-email"></i><span>Adipisicing elit sed doiusmod tempor incide sed
@@ -37,7 +37,7 @@
             <li class="nav-item">
                 <a href="javascript:void(0);" class="sl-dropdown__notify__showall">Show All</a>
             </li>
-        </ul>
+        </ul>-->
     </div>
     
     <div class="sl-topbar-notify__icons dropdown">
@@ -48,7 +48,7 @@
                 <em class="sl-bg-blue">12</em>
             </span>
         </a>
-        <div class="dropdown-menu sl-dropdown__cart" aria-labelledby="slCart">
+        <!--<div class="dropdown-menu sl-dropdown__cart" aria-labelledby="slCart">
             <h6>Shopping Cart</h6>
             <ul>
                 <li>
@@ -100,7 +100,7 @@
                     <a class="btn sl-btn" href="javascript:void(0);">Proceed To Checkout</a>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
 <div class="sl-user sl-userdropdown">

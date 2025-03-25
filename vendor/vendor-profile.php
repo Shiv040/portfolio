@@ -3,7 +3,7 @@
 
 include('../conn.php');
 session_start();
-$vendor_id = $_SESSION['vender_id'];
+$vendor_id = $_SESSION['vendor_id'];
 
 // Ensure $vender_id is defined and has a valid value
 

@@ -5,10 +5,10 @@
         <i class="ti-angle-down"></i>
     </a>
 </div>
-<div class="sl-main-upperBackbtn">
+<!--<div class="sl-main-upperBackbtn">
     <a href="javascript:void(0);"><i class="ti-close"></i></a>
 </div>
 <div class="sl-main-upperBackbtn">
 <a href="javascript:void(0);"><i class="ti-close"></i></a>
-</div>
+</div>--!>
 
