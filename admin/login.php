@@ -32,8 +32,7 @@
     <div class="auth-wrapper">
 
     <!-- Form starts -->
-    <form action="check_admin_login.php" method="post">
-
+    <form action="check_admin_login.php" method="post" onsubmit="return validateForm()">
       <!-- Authbox starts -->
       <div class="auth-box shadow-lg">
 
@@ -75,8 +74,33 @@
 
     <!-- Auth wrapper ends -->
 
-  </body>
+    <script>
+      function validateForm() {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('pwd').value.trim();
 
+      if (email === '') {
+        alert('Email is required.');
+        return false;
+      }
 
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+
+      if (password === '') {
+        alert('Password is required.');
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters long.');
+        return false;
+      }
+
+      return true;
+      }
+    </script>
 <!-- Mirrored from bootstrapget.com/demos/templatemonster/latte-bootstrap-admin-template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Feb 2025 10:05:35 GMT -->
 </html>

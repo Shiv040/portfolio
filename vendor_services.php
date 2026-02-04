@@ -42,7 +42,7 @@
             <div class="container">
                 <div class="sl-filters">
                     <p><a href="javascript:void(0);">All Categories</a><i class="ti-angle-right"></i>"Service" (104,823 Results)</p>
-                    <div class="sl-filters--sort">
+                   <div class="sl-filters--sort">
                         <h6>Sort By:</h6>
                         <div class="sl-filters--sort__content">
                             <div class="sl-filters--sort__match">

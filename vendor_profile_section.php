@@ -1,4 +1,5 @@
 <?php
+
 $api_url = "http://localhost/utsav_hub/api/get_vendor_details.php?vendor_id=" . $vendor_id;
 $response = file_get_contents($api_url);
 $vendor_details = json_decode($response, true);
@@ -57,7 +58,7 @@ if ($vendor_details && isset($vendor_details[0])) {
                                     <li class="sl-instagram"><a href="javascript:void(0);"><i
                                                 class="fab fa-instagram"></i></a></li>
                                 </ul>
-                                <a href="javascript:void(0);" class="btn sl-btn">View Profile</a>
+                                <a href="contactus-1.php" class="btn sl-btn">Contact us</a>
                             </div>
                         </div>
                         

@@ -130,7 +130,7 @@ $vendor_id = $service_details['vender_id'];
                             <input type="hidden" name="service_id" value="<?php echo $service_id;?>">
                             <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" value="<?php echo $user_details['name'];?>" readonly>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" value="<?php echo $user_details['name'];?>"readonly>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -149,7 +149,7 @@ $vendor_id = $service_details['vender_id'];
                                 <?php
                                 $file_name = 'inquiry_' . str_replace([' ', '/'], '_', strtolower($service_name)) . '.php';
                                 if (file_exists($file_name)) {
-                                    include($file_name);
+                                    include $file_name;
                                 }
                                 ?>
                                 <div class="form-group">
@@ -168,8 +168,8 @@ $vendor_id = $service_details['vender_id'];
             <div id="sl-twocolumns" class="sl-twocolumns sl-inner-product">
                 <div class="container">
                     <div class="row">
-                        <?php include("vendor_profile_section.php"); ?>
-                        <?php include("dynamic_tab.php"); ?>
+                        <?php include "vendor_profile_section.php"; ?>
+                        <?php include "dynamic_tab.php"; ?>
                     </div>
                 </div>
             </div>

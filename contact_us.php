@@ -25,33 +25,12 @@
             border-color: #007bff;
         }
     </style>
-    <div class="container mt-5">
-        <h2>Contact Us</h2>
-        <form method="post">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="mobile">Mobile Number</label>
-                <input type="tel" class="form-control" id="mobile" name="mobile" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                header("Location: index.php");
-                exit();
-            }
-            ?>
-        </form>
+    <div class="container mt-5 p-4 shadow-lg rounded bg-light">
+        <h2 class="text-center text-dark mb-4">Contact Us</h2>
+        <div class="form-group text-center">
+            <label for="helpline" class="font-weight-bold text-secondary" style="font-size: 1.3rem;">Help Line Number:-</label>
+            <p id="helpline" class="text-danger font-weight-bold" style="font-size: 1.8rem; margin-top: 10px;">9985269539</p>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

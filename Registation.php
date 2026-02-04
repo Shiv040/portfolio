@@ -76,47 +76,78 @@
                                     </ul>
                                     <div class="tab-content sl-signup" id="pills-tabContent">
                                         <div class="tab-pane fade <?php echo (isset($code) && $code == 1) ? 'show active' : ''; ?>" id="signupcustomer" role="tabpanel" aria-labelledby="sl-signupcustomer">
-                                            <form class="sl-formtheme sl-signupform" method="post">
+                                            <form class="sl-formtheme sl-signupform" method="post" onsubmit="return validateCustomerForm()">
                                                 <fieldset>
-                                                                <div class="sl-signupform-wrap">
-                                                                    <div class="form-group">
-                                                                        <input type="text" name="email" value="" class="form-control sl-form-control" placeholder="Email*" required="">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <input type="password" name="password" value="" class="form-control sl-form-control" placeholder="Password*" required="">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <i class="ti-info-alt toltip-content" data-tipso="name"></i>
-                                                                        <input type="text" name="uname" value="" class="form-control sl-form-control" placeholder="Username*" required="">
-                                                                    </div>
-                                                                    <div class="form-group form-group-half">
-                                                                        <input type="number" name="Phone" value="" class="form-control sl-form-control" placeholder="Phone*" required="">
-                                                                    </div>
-                                                                    <div class="form-group sl-btnarea">
-                                                                        <div class="sl-checkbox">
-                                                                            <input id="terms" type="checkbox" name="category">
-                                                                            <label for="terms">
-                                                                                <span>I agree to <a href="javascript:void(0);">Terms and Conditions</a></span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <button type="submit" name="btnS" class="btn sl-btn">Signup</button>
-                                                                    </div>
-                                                                </div>
-                                                            </fieldset>
-                                                        </form>
+                                                    <div class="sl-signupform-wrap">
+                                                        <div class="form-group">
+                                                            <input type="text" name="email" id="email" value="" class="form-control sl-form-control" placeholder="Email*">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="password" name="password" id="password" value="" class="form-control sl-form-control" placeholder="Password*" >
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <i class="ti-info-alt toltip-content" data-tipso="name"></i>
+                                                            <input type="text" name="uname" id="uname" value="" class="form-control sl-form-control" placeholder="Username*">
+                                                        </div>
+                                                        <div class="form-group form-group-half">
+                                                            <input type="number" name="Phone" id="phone" value="" class="form-control sl-form-control" placeholder="Phone*">
+                                                        </div>
+                                                        <div class="form-group sl-btnarea">
+                                                            <div class="sl-checkbox">
+                                                                <input id="terms" type="checkbox" name="category">
+                                                                <label for="terms">
+                                                                    <span>I agree to <a href="javascript:void(0);">Terms and Conditions</a></span>
+                                                                </label>
+                                                            </div>
+                                                            <button type="submit" name="btnS" class="btn sl-btn">Signup</button>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </form>
                                         </div>
+                                        <script>
+                                            function validateCustomerForm() {
+                                                const email = document.getElementById('email').value;
+                                                const password = document.getElementById('password').value;
+                                                const uname = document.getElementById('uname').value;
+                                                const phone = document.getElementById('phone').value;
+
+                                                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                                if (!emailPattern.test(email)) {
+                                                    alert('Please enter a valid email address.');
+                                                    return false;
+                                                }
+
+                                                if (password.length < 6) {
+                                                    alert('Password must be at least 6 characters long.');
+                                                    return false;
+                                                }
+
+                                                if (uname.trim() === '') {
+                                                    alert('Username is required.');
+                                                    return false;
+                                                }
+
+                                                if (phone.length !== 10 || isNaN(phone)) {
+                                                    alert('Please enter a valid 10-digit phone number.');
+                                                    return false;
+                                                }
+
+                                                return true;
+                                            }
+                                        </script>
                                         <div class="tab-pane fade <?php echo (isset($code) && $code == 2) ? 'show active' : ''; ?>" id="signupprovider" role="tabpanel" aria-labelledby="sl-signupprovider">
-                                            <form class="sl-formtheme sl-signupform" method="post" action="process_registration.php">
+                                            <form class="sl-formtheme sl-signupform" method="post" action="process_registration.php" onsubmit="return validateProviderForm()">
                                                 <fieldset>
                                                     <div class="sl-signupform-wrap">
                                                         <div class="form-group form-group-half form-group-icon">
                                                             <i class="ti-info-alt toltip-content" data-tipso="name"></i>
-                                                            <input type="text" name="name" value="" class="form-control sl-form-control" placeholder="Name*" required="">
+                                                            <input type="text" name="name" id="provider_name" value="" class="form-control sl-form-control" placeholder="Name*" >
                                                         </div>
 
                                                         <div class="form-group form-group-half">
                                                             <div class="sl-select">
-                                                                <select name="category_id" required>
+                                                                <select name="category_id" id="provider_category" >
                                                                     <option value="" hidden="">Select Category*</option>
                                                                     <?php
                                                                     $json = file_get_contents('http://localhost/utsav_hub/api/list_vendors_categories.php');
@@ -129,21 +160,21 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <textarea name="address" class="form-control" placeholder="Address*" required="" length="" rows="2"></textarea>
+                                                            <textarea name="address" id="provider_address" class="form-control" placeholder="Address" length="" rows="2"></textarea>
                                                         </div>
 
                                                         <div class="form-group form-group-half">
                                                             <div class="sl-select">
-                                                                <select name="city_id" required>
-                                                                    <option value="" hidden="">Select City*</option>
-                                                                    <option value="">Surat</option>
+                                                                <select name="city_id" id="provider_city">
+                                                                    <option value="-1" hidden="">Select City*</option>
+                                                                    <option value="1">Surat</option>
+                                                                    <option value="2">Vapi</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group form-group-half">
-
                                                             <div class="sl-select">
-                                                                <select name="area_id" required>
+                                                                <select name="area_id" id="provider_area" >
                                                                     <option value="" hidden="">Select Area*</option>
                                                                     <?php
                                                                     $json = file_get_contents('http://localhost/utsav_hub/api/list_area.php');
@@ -156,21 +187,19 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" name="email" value="" class="form-control sl-form-control" placeholder="Email*" required="">
+                                                            <input type="text" name="email" id="provider_email" value="" class="form-control sl-form-control" placeholder="Email*">
                                                         </div>
 
-
                                                         <div class="form-group form-group-half">
-                                                            <input type="text" name="mobile_number" value="" class="form-control sl-form-control" placeholder="Phone*" required="">
+                                                            <input type="text" name="mobile_number" id="provider_phone" value="" class="form-control sl-form-control" placeholder="Phone*" >
                                                         </div>
                                                         <div class="form-group form-group-half">
-                                                            <input type="password" name="password" value="" class="form-control sl-form-control" placeholder="Password*" required="">
+                                                            <input type="password" name="password" id="provider_password" value="" class="form-control sl-form-control" placeholder="Password*">
                                                         </div>
 
                                                         <div class="form-group sl-btnarea">
                                                             <div class="sl-checkbox">
                                                                 <input id="terms2" type="checkbox" name="category">
-                                                               
                                                             </div>
                                                             <div style="text-align: center;">
                                                                 <button type="submit" class="btn sl-btn">Signup</button>
@@ -180,6 +209,62 @@
                                                 </fieldset>
                                             </form>
                                         </div>
+                                    <script>
+                                        function validateProviderForm() {
+                                            const name = document.getElementById('provider_name').value;
+                                            const category = document.getElementById('provider_category').value;
+                                            const address = document.getElementById('provider_address').value;
+                                            const city = document.getElementById('provider_city').value;
+                                            const area = document.getElementById('provider_area').value;
+                                            const email = document.getElementById('provider_email').value;
+                                            const phone = document.getElementById('provider_phone').value;
+                                            const password = document.getElementById('provider_password').value;
+
+                                            if (name.trim() === '') {
+                                                alert('Name is required.');
+                                                return false;
+                                            }
+
+                                            if (category === '') {
+                                                alert('Please select a category.');
+                                                return false;
+                                            }
+
+                                            if (address.trim() === '') {
+                                                alert('Address is required.');
+                                                return false;
+                                            }
+
+                                            if (city === '-1') {
+                                                alert('Please select a city.');
+                                                return false;
+                                            }
+
+                                            if (area === '') {
+                                                alert('Please select an area.');
+                                                return false;
+                                            }
+
+                                            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                            if (!emailPattern.test(email)) {
+                                                alert('Please enter a valid email address.');
+                                                return false;
+                                            }
+
+                                            if (phone.length !== 10 || isNaN(phone)) {
+                                                alert('Please enter a valid 10-digit phone number.');
+                                                return false;
+                                            }
+
+                                            if (password.length < 6) {
+                                                alert('Password must be at least 6 characters long.');
+                                                return false;
+                                            }
+
+                                            return true;
+                                        }
+                                    </script>
+                                       
                                     </div>
                                    
 

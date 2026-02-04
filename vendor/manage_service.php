@@ -227,12 +227,9 @@ WHERE v.vender_id = '$vendor_id'";
                                                                             <input type="hidden" name="v[]"
                                                                                 value="<?php echo $vendor_ws_id; ?>">
                                                                             <textarea id="myTextarea2" class="form-control"
-                                                                                name="desc<?php echo $vendor_ws_id; ?>"
+                                                                                name="desc<?php echo "$vendor_ws_id"?>"
                                                                                 rows="4"
-                                                                                placeholder="Enter Service Description here...">
-
-                                                                                    </textarea>
-
+                                                                                placeholder="Enter Service Description here..."><?php echo htmlspecialchars($description); ?></textarea>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="submit" class="btn btn-primary"
@@ -289,19 +286,12 @@ WHERE v.vender_id = '$vendor_id'";
                                                                                 <button type="button" class="btn-close"
                                                                                     data-bs-dismiss="modal"
                                                                                     aria-label="Close"></button>
-                                                                            </div>
-                                                                            <h5 class="modal-title"
-                                                                                id="imageModalLabel<?php echo $service_id; ?>">
-                                                                                delete Cover Image</h5>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close"></button>
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <input type="file" class="form-control"
                                                                                 name="cover_image<?php echo $service_id; ?>"
                                                                                 accept="image/*">
-                                                                        </div>
+                                                                     
                                                                         <div class="modal-footer">
 
                                                                             <button type="button" class="btn btn-secondary"
@@ -310,6 +300,7 @@ WHERE v.vender_id = '$vendor_id'";
                                                                                 name="btnAddImage">Add Cover Image</button>
                                                                         </div>
                                                                     </div>
+                                                                </div>
                                                                 </div>
                                             </div>
                                             <?php

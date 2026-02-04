@@ -43,9 +43,9 @@
             </li>
         </ul>
     </li>
-    <li class="nav-item <?php echo ($current_page == 'vendor-single.html') ? 'sl-navactive' : ''; ?>">
+    <!--<li class="nav-item <?php echo ($current_page == '') ? 'sl-navactive' : ''; ?>">
         <a href="vendor-single.html">Vendor Products</a>
-    </li>
+    </li>-->
     <li class="nav-item <?php echo ($current_page == 'contact.html') ? 'sl-navactive' : ''; ?>">
         <a class="nav-link" href="contact_us.php">Contact</a>
     </li>

@@ -6,15 +6,15 @@
     <div class="sl-main-header__content">
         <div class="sl-main-header__upper">
             <form class="sl-main-form">
-                <div class="sl-form-group sl-main-form__input1 sl-loading">
+                <!--<div class="sl-form-group sl-main-form__input1 sl-loading">
                     <input class="form-control sl-form-control" type="text" placeholder="Search anything you want">
-                </div>
+                </div>-->
                 <div class="sl-form-group sl-main-form__input2">
                    <!-- <input class="form-control sl-form-control" type="text" placeholder="Detect my location">
                     <a href="javascript:void(0);" class="sl-right-icon sl-arrow-icon"><i class="ti-angle-down"></i></a>
                     <a href="javascript:void(0);" class="sl-right-icon"><i class="ti-target"></i></a>
 -->
-                    <div class="sl-distance">
+                    <div class="sl-distance" style="float: right; margin-right: 10px;">
                         <div class="sl-distance__description">
                             <label for="amountfour">Distance:</label>
                             <input type="text" id="amountfour" readonly>
@@ -23,6 +23,9 @@
                     </div>
                 </div>
                 <div class="sl-form-group sl-main-form__input3">
+                    
+                    </div>
+                <!--<div class="sl-form-group sl-main-form__input3">
                     <div class="sl-select">
                         <select>
                             <option hidden="">Service Providers</option>
@@ -31,9 +34,10 @@
                             <option>type 3</option>
                         </select>
                     </div>
-                </div>
+                </div>-->
             </form>
-            <div class="sl-input-group">
+            <div class="sl-input-group"></div>
+            <!--<div class="sl-input-group">
                 <a href="javascript:void(0);" class="btn sl-btn sl-btn-active sl-advance-btn">
                     <span>Search Now</span>
                     <span>
@@ -44,7 +48,7 @@
                         </em>
                     </span>
                 </a>
-            </div>
+            </div>-->
             <div class="sl-main-form__btn">
                 <a href="javascript:void(0);" class="btn sl-btn sl-btn-active"><i class="ti-search"></i></a>
             </div>
@@ -70,7 +74,7 @@
                    <?php include("menu.php");?>
                 </div>
             </nav>
-            <div class="sl-lower-right">
+            <!--<div class="sl-lower-right">
                 <div class="sl-lower-right__content">
                     <i class="fas fa-mobile-alt"></i>
                     <p>Expreience our mobile app - <a href="javascript:void(0);">Download Now</a></p>
@@ -79,10 +83,10 @@
                     <i class="fas fa-plane"></i>
                     <p>Free shipping over 2M locations</p>
                     <i class="ti-info-alt toltip-content" data-tipso="Location"></i>
-                </div>
+                </div>-->
                 <div class="sl-lower-right__content sl-dropdown">
                     <a href="javascript:void(0);">
-                        <i class="fas fa-headphones-alt"></i>Help<i class="fas fa-caret-down"></i>
+                        <i class="fas fa-headphones-alt"></i>More<i class="fas fa-caret-down"></i>
                     </a>
                     <ul class="sl-dropdown__menu">
                         <li class="nav-item">
@@ -100,9 +104,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="sl-main-header__lower--btn">
+           <!-- <div class="sl-main-header__lower--btn">
                 <a href="javascript:void(0);" class="btn sl-btn sl-btn-active">More Info</a>
-            </div>
+            </div>-->
             <div class="sl-main-lowerBackbtn">
                 <a href="javascript:void(0);"><i class="ti-close"></i></a>
             </div>
@@ -118,14 +122,14 @@
                             data-dismiss="modal"></i></a>
                 </div>
                 <div class="modal-body">
-                    <form class="sl-formtheme sl-formlogin" action="check_user_login.php" method="post">
+                    <form class="sl-formtheme sl-formlogin" action="check_user_login.php" method="post" onsubmit="return validateLoginForm()">
                         <fieldset>
                             <div class="form-group">
-                                <input type="text" name="email" class="form-control sl-form-control"
+                                <input type="text" name="email" id="email" class="form-control sl-form-control"
                                     placeholder="Your Email*">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control sl-form-control" placeholder="Password*" name="password">
+                                <input type="password" class="form-control sl-form-control" placeholder="Password*" name="password" id="password">
                             </div>
                             <div class="form-group sl-btnarea">
                                 <input type="submit" class="btn sl-btn" value="login"/>
@@ -143,5 +147,35 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function validateLoginForm() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (email === '') {
+                alert('Email is required.');
+                return false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            if (password === '') {
+                alert('Password is required.');
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return false;
+            }
+
+            return true;
+        }
+    </script></6>
     <!-- Login Popup End-->
 </div>

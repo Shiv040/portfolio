@@ -1,3 +1,7 @@
+<?php
+    include("conn.php");
+?>
+
 <div class="sl-topbar-notify">
     <div class="sl-topbar-notify__icons dropdown sl-dropdown">
         <a href="javascript:void(0);" class="sl-topbar-notify__anchor" id="slMessages" role="button"
@@ -40,7 +44,7 @@
         </ul>-->
     </div>
     
-    <div class="sl-topbar-notify__icons dropdown">
+    <!--<div class="sl-topbar-notify__icons dropdown">
         <a href="javascript:void(0);" class="sl-topbar-notify__anchor" id="slCart" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <i class="ti-shopping-cart"></i>
@@ -48,7 +52,7 @@
                 <em class="sl-bg-blue">12</em>
             </span>
         </a>
-        <!--<div class="dropdown-menu sl-dropdown__cart" aria-labelledby="slCart">
+        <div class="dropdown-menu sl-dropdown__cart" aria-labelledby="slCart">
             <h6>Shopping Cart</h6>
             <ul>
                 <li>
@@ -100,12 +104,16 @@
                     <a class="btn sl-btn" href="javascript:void(0);">Proceed To Checkout</a>
                 </div>
             </div>
-        </div>-->
-    </div>
+        </div>
+    </div>-->
 </div>
 <div class="sl-user sl-userdropdown">
                 <a href="javascript:void(0);">
-                    <span class="sl-user__description"><em class="d-block">Welcome </em><?php echo $_SESSION['name'];?></span>
+                    <span class="sl-user__description"><em class="d-block">Welcome </em><?php
+                    $query="SELECT name FROM users WHERE user_id='".$_SESSION['user_id']."'";
+                    $result=mysqli_query($conn,$query);
+                    $row=mysqli_fetch_array($result); 
+                     echo $row['name'];?></span>
                     <i class="ti-angle-down"></i>
                 </a>
                 <ul class="sl-usermenu">
@@ -122,7 +130,11 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="dashboard-profile-settings.html">
+                        <?php include 'conn.php';
+                        $id=$_SESSION['user_id'];
+                        
+                        ?>
+                        <a href="user-profile.php?user_id=<?php echo "$id"?>">
                             <i class="ti-user"></i><span>Profile</span>
                         </a>
                     </li>
@@ -132,7 +144,7 @@
                         </a>
                         <ul class="sub-menu">
                             <li><a href="package.php">Running Packages</a></li>
-                            <li><a href="dashboard-all-payouts.html">Package History</a></li>
+                            <li><a href="history_package.php">Package History</a></li>
                         </ul>
                     </li>
                     <li>

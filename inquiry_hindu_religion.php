@@ -6,3 +6,21 @@
     <label for="startTime">Start Time</label>
     <input type="time" class="form-control" id="startTime" name="startTime">
 </div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="package">Package</label>
+            <select class="form-control" name="package">
+                <option value="basic">Basic(₹15,000)</option>
+                <option value="standard">Standard(₹30,000)</option>
+                <option value="grand">Grand(₹60,000)</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="budget">Expected Budget</label>
+            <input type="number" class="form-control" name="budget" placeholder="Enter expected budget">
+        </div>
+    </div>
+</div>

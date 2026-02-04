@@ -23,3 +23,7 @@
         <option value="premium">Premium Carriage (₹35000)</option>
     </select>
 </div>
+<div class="form-group">
+    <label for="budget">Expected Budget</label>
+    <input type="number" class="form-control" id="budget" name="budget" placeholder="Enter your expected budget" min="0">
+</div>

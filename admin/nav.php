@@ -35,6 +35,9 @@
                     <li>
                         <a href="vendor_categories.php">Categories</a>
                     </li>
+                    <li>
+                        <a href="report.php">Report</a>
+                    </li>
                 </ul>
             </li>
 

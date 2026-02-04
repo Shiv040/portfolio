@@ -6,20 +6,7 @@
                             <li>
                                 <h6>For Vendors</h6>
                             </li>
-                            <li>
-                                <p><a href="javascript:void(0);">Users Testimonial<i class="ti-angle-right"></i></a></p>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">How To Use - User Manual<i class="ti-angle-right"></i></a></p>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">Donate Us<i class="ti-angle-right"></i></a></p>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">Download Vendor Catalog<i class="ti-angle-right"></i></a></p>
-                            </li>
-                            <li>
-                                <p><a href="Registation.php">Vendor Regitration Process<i class="ti-angle-right"></i></a></p>
+                                <p><a href="Registation.php">Vendor Regitration Process</a></p>
                             </li>
                         </ul>
                     </div>
@@ -28,17 +15,9 @@
                             <li>
                                 <h6>Useful Links</h6>
                             </li>
+                            
                             <li>
-                                <p><a href="javascript:void(0);">Read More About us<i class="ti-angle-right"></i></a></p>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">Frequent asked Questions<i class="ti-angle-right"></i></a></p>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">Support Help Desk<i class="ti-angle-right"></i></a></p>
-                            </li>
-                            <li>
-                                <p><a href="javascript:void(0);">My Account<i class="ti-angle-right"></i></a></p>
+                                <p><a href="user-profile.php">My Account<i class="ti-angle-right"></i></a></p>
                             </li>
                             <li>
                                 <p><a href="Registation.php">Create New Account<i class="ti-angle-right"></i></a></p>

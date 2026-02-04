@@ -1,8 +1,6 @@
 <?php
-
 //submit_rating.php
-
-include('../conn.php');
+include('conn.php');
 if(isset($_POST["rating_data"]))
 {
 

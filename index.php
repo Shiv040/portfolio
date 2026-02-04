@@ -57,7 +57,7 @@
                                         <p>Consectetur adipisicing elit sed dotiane eiusmod tempor incididunt utna labore etnalorale magna aliqua enim ad minim veniam quis nostrud exerciteon ullamco.</p>
                                     </div>
                                     <div class="sl-community__btn">
-                                        <a href="javascript:void(0);" class="btn sl-btn sl-btn-active">Register Now</a>
+                                        <a href="Registation.php" class="btn sl-btn sl-btn-active">Register Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
         <?php include("top_service.php");?>
         <!-- SERVICE PROVIDER END -->
         <!-- STATS START -->
-        <section>
+        <!--<section>
             <div class="sl-statsBanner">
                 <div class="sl-overlay">
                     <div class="container">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
         <!-- STATS END -->
         <!-- FEEDBACK START -->
         <?php include("feedback.php");?>

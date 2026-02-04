@@ -4,6 +4,7 @@ if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 }
 include('conn.php');
+
 ?>
 <!doctype html>
 <!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -120,7 +121,7 @@ include('conn.php');
                                                     <span>Total Payment</span>
                                                 </div>
                                                 <div class="sl-refreshbtn">
-                                                    <a href="javascript:void(0);">
+                                                    <a href="package.php">
                                                         <i class="ti-reload"></i>
                                                         <span>Refresh</span>
                                                     </a>
@@ -154,10 +155,12 @@ include('conn.php');
                                                             data-prefill.email="<?php echo $user_email; ?>"
                                                             data-theme.color="#F37254">
                                                         </script>
-                                                        <button type="submit" class="btn sl-btn sl-btn-md">Pay Now</button>
+                                                        
+                                                        <button type="submit" class="btn sl-btn sl-btn-md" name="payNow">Pay Now</button>
                                                         <?php $order_id = mt_rand(100000, 999999); ?>
                                                         <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
                                                         <input type="hidden" name="amount" value="<?php echo $total_price/2; ?>">
+                                                        <input type="hidden" name="redirect_url" value="vendor/index.php">
                                                     </form>
                                                 </div>
                                                 
